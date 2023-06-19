@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 const StyledCallContainer = styled.div`
   background-color: gray;
   margin: 0;
-  height: 100%;
+  height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,6 +48,7 @@ export default function CallContactsDetail() {
   if (!contact) {
     return <p>Kontakte nicht gefunden</p>;
   }
+  console.log(contact);
   const { name, photo } = contacts;
 
   return (
