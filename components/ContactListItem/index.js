@@ -5,6 +5,7 @@ import StyledLinkSvgContainer from "../StyledLinkSvgContainer";
 
 const StyledContainer = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
 `;
 
