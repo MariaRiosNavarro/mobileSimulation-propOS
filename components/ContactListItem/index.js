@@ -7,7 +7,7 @@ const StyledContainer = styled.div`
   align-items: center;
 `;
 
-const StyledImage = styled(Image)`
+export const StyledImage = styled(Image)`
   margin: 1rem;
   object-fit: cover;
   border-radius: 50%;
