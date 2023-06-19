@@ -1,7 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import { infoSVG } from "../assets/contactsSVG";
-import dynamic from "next/dynamic";
+import { infoSVG, callSVG } from "../assets/contactsSVG";
 
 const StyledCircularContainer = styled.div`
   height: 20px;
@@ -22,13 +21,17 @@ const StyledSpan = styled.span`
 `;
 
 export default function StyledLinkSvgContainer({ dynamicId }) {
-    
-  let href = `/contacts/${dynamicId}`;
+  let href = "";
+  if (svg === infoSVG) {
+    href = `/contacts/${dynamicId}`;
+  } else if (svg === callSVG) {
+    href = `/contacts-call/${dynamicId}`;
+  }
 
   return (
     <StyledCircularContainer>
       <Link href={href}>
-        <StyledSpan>{infoSVG}</StyledSpan>
+        <StyledSpan>{svg}</StyledSpan>
       </Link>
     </StyledCircularContainer>
   );
