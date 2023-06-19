@@ -36,7 +36,6 @@ const StyledInfo = styled.p`
 export default function ContactDetail() {
   const router = useRouter();
   const { dynamicId } = router.query;
-  // find the contact with .findIndex and compare with the dynamicId
   const contactIndex = contacts.findIndex(
     ({ id: contactId }) => contactId === dynamicId
   );

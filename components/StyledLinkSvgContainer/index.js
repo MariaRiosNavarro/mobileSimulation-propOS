@@ -22,6 +22,7 @@ const StyledSpan = styled.span`
 `;
 
 export default function StyledLinkSvgContainer({ dynamicId }) {
+    
   let href = `/contacts/${dynamicId}`;
 
   return (
