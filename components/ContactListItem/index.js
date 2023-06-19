@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 import { StyledHR } from "../StyledHR";
+import StyledLinkSvgContainer from "../StyledLinkSvgContainer";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -19,7 +20,13 @@ const StyledName = styled.p`
   font-weight: bold;
 `;
 
-export default function ContactListItem({ name, photo }) {
+const StyledBadgetContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+`;
+
+export default function ContactListItem({ name, photo, dynamicId }) {
   return (
     <li>
       <StyledContainer>
@@ -30,6 +37,11 @@ export default function ContactListItem({ name, photo }) {
           alt={`Photo of ${name}`}
         ></StyledImage>
         <StyledName>{name}</StyledName>
+        <StyledBadgetContainer>
+          <StyledLinkSvgContainer
+            dynamicId={dynamicId}
+          ></StyledLinkSvgContainer>
+        </StyledBadgetContainer>
       </StyledContainer>
       <StyledHR />
     </li>

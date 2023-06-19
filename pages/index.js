@@ -21,8 +21,8 @@ export default function Home() {
         {contacts.map((contact) => {
           return (
             <ContactListItem
-              dynamicId={contact.id}
               key={contact.id}
+              dynamicId={contact.id}
               name={contact.name}
               photo={contact.photo}
             />

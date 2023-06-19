@@ -6,7 +6,8 @@ import { StyledHR } from "../../../components/StyledHR";
 
 const StyledHeader = styled.header`
   display: flex;
-  justify-content: space-between;
+justify-content: center;
+
   align-items: center;
 `;
 
