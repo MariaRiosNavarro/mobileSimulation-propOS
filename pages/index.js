@@ -22,6 +22,7 @@ export default function Home() {
           return (
             <ContactListItem
               key={contact.id}
+              dynamicId={contact.id}
               name={contact.name}
               photo={contact.photo}
             />
