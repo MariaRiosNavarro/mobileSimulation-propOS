@@ -20,7 +20,7 @@ const StyledSpan = styled.span`
   justify-content: center;
 `;
 
-export default function StyledLinkSvgContainer({ dynamicId }) {
+export default function StyledLinkSvgContainer({ dynamicId, svg }) {
   let href = "";
   if (svg === infoSVG) {
     href = `/contacts/${dynamicId}`;
