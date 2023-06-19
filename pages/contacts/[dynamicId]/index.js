@@ -6,7 +6,7 @@ import { StyledHR } from "../../../components/StyledHR";
 
 const StyledHeader = styled.header`
   display: flex;
-justify-content: center;
+  justify-content: center;
 
   align-items: center;
 `;
@@ -36,11 +36,8 @@ const StyledInfo = styled.p`
 export default function ContactDetail() {
   const router = useRouter();
   const { dynamicId } = router.query;
-  const contactIndex = contacts.findIndex(
-    ({ id: contactId }) => contactId === dynamicId
-  );
 
-  const contact = contacts[contactIndex];
+  const contact = contacts.find((contact) => contact.id === dynamicId);
 
   if (!contact) {
     return <p>Kontakte nicht gefunden</p>;
