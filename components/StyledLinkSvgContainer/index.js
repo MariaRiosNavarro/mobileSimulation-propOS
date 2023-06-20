@@ -24,7 +24,7 @@ export default function StyledLinkSvgContainer({ dynamicId, svg }) {
   let href = "";
   if (svg === infoSVG) {
     href = `/contacts/${dynamicId}`;
-  } else if (svg === callSVG) {
+  } else {
     href = `/contacts-call/${dynamicId}`;
   }
 
