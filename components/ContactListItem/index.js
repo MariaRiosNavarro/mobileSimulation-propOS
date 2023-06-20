@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import { StyledHR } from "../StyledHR";
 import StyledLinkSvgContainer from "../StyledLinkSvgContainer";
+import { infoSVG, callSVG } from "../assets/contactsSVG";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -40,6 +41,11 @@ export default function ContactListItem({ name, photo, dynamicId }) {
         <StyledName>{name}</StyledName>
         <StyledBadgetContainer>
           <StyledLinkSvgContainer
+            svg={callSVG}
+            dynamicId={dynamicId}
+          ></StyledLinkSvgContainer>
+          <StyledLinkSvgContainer
+            svg={infoSVG}
             dynamicId={dynamicId}
           ></StyledLinkSvgContainer>
         </StyledBadgetContainer>
