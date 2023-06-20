@@ -8,7 +8,7 @@ const StyledCircularContainer = styled.div`
   border-radius: 50%;
   border: none;
   padding: 0;
-  margin: 0;
+  margin: 0.3rem;
   background-color: transparent;
 `;
 
