@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import { callEndSVG } from "../../../components/assets/contactsSVG";
 import { GrayCirclePhotoPlaceholder } from "../../../components/ContactListItem";
-import { contacts } from "../../../lib/db";
+
 import { useRouter } from "next/router";
+import useSWR from "swr";
+
+//--------------------STYLE
 
 const StyledCallContainer = styled.div`
   background-color: gray;
@@ -41,21 +44,26 @@ const StyledBigPlaceholder = styled(GrayCirclePhotoPlaceholder)`
   margin: 0;
 `;
 
+//--------------------FUNCTION
+
 export default function CallContactsDetail() {
   const router = useRouter();
-  const { dynamicId } = router.query;
-  const contact = contacts.find((contact) => contact.id === dynamicId);
+  const { query } = router;
+  const { id } = query;
 
-  if (!contact) {
-    return <p>Kontakte nicht gefunden</p>;
-  }
+  const {
+    data: contact,
+    isLoading,
+    error,
+  } = useSWR(`/api/contacts-call/${id}`);
 
-  const { name } = contact;
+  if (isLoading) return <h2>Loading...</h2>;
+  if (error) return <h2>Error...</h2>;
 
   return (
     <>
       <StyledCallContainer>
-        <StyledBigHeader>{name}</StyledBigHeader>
+        <StyledBigHeader>{contact.name}</StyledBigHeader>
         <StyledBigPlaceholder />
         <StyledRedButton>{callEndSVG}</StyledRedButton>
       </StyledCallContainer>

@@ -43,7 +43,6 @@ export default function ContactDetail() {
   if (isLoading) return <h2>Loading...</h2>;
   if (error) return <h2>Error...</h2>;
 
-
   return (
     <>
       <StyledHeader>
