@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { StyledHR } from "../components/StyledHR";
+import { useState } from "react";
 
 //STYLE
 
@@ -77,6 +78,7 @@ const StyledButton = styled.button`
   background-color: var(--primary-color);
   border: none;
   border-radius: 3px;
+  padding: 1rem;
   width: 40%;
   &:hover {
     background-color: var(--hover-color);
@@ -89,9 +91,20 @@ const StyledButtonContainer = styled.div`
   align-items: center;
 `;
 
+const StyledSuccessMessage = styled.h5`
+  text-align: center;
+  background-color: green;
+  padding: 1rem;
+  margin: 4rem;
+  border-radius: 8px;
+`;
+
 // -------------- FORM FUNCTION------------
+// ------------------here------------------
+// ------------------DOWN------------------
 
 export default function CreateContactForm() {
+  const [showSuccessMessageState, setShowSuccessMessageState] = useState(false);
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -105,8 +118,13 @@ export default function CreateContactForm() {
       },
       body: JSON.stringify(contactData),
     });
-    if (!response.ok) {
+    if (response.ok) {
       event.target.reset();
+      //Green Sucess Message Logic
+      setShowSuccessMessageState(true);
+      setTimeout(() => {
+        setShowSuccessMessageState(false);
+      }, 2000);
     }
   }
 
@@ -142,6 +160,9 @@ export default function CreateContactForm() {
           </StyledButtonContainer>
         </StyledContainer>
       </form>
+      {showSuccessMessageState && (
+        <StyledSuccessMessage>Kontakte gespeichert</StyledSuccessMessage>
+      )}
     </>
   );
 }
