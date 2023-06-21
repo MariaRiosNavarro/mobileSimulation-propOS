@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { StyledHR } from "../components/StyledHR";
 
+//STYLE
+
 const StyledHeader = styled.header`
   display: flex;
   flex-direction: column-reverse;
@@ -87,12 +89,25 @@ const StyledButtonContainer = styled.div`
   align-items: center;
 `;
 
+// -------------- FORM FUNCTION------------
+
 export default function CreateContactForm() {
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const contactData = Object.fromEntries(formData);
-    onSubmit(contactData);
+    // onSubmit(contactData);
+    // fetch
+    const response = await fetch("/api/contacts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(contactData),
+    });
+    if (!response.ok) {
+      event.target.reset();
+    }
   }
 
   return (
