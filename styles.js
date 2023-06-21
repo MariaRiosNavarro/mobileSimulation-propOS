@@ -10,4 +10,13 @@ export default createGlobalStyle`
     margin: 0;
     font-family: system-ui;
   }
+
+  :root{
+    --primary-color:#FFA41B;
+    --hover-color: #f86f03; 
+    --secondary-color:#525FE1;
+
+  }
+
+
 `;

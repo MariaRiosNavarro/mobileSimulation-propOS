@@ -28,7 +28,7 @@ const StyledAddSVGContainer = styled.div`
   margin: 1.5rem;
 `;
 
-let href = "/";
+let href = "/create";
 
 export default function Home() {
   return (
