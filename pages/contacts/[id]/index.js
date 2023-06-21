@@ -33,7 +33,7 @@ const StyledInfo = styled.p`
   padding: 1rem;
   border-radius: 8px;
 `;
-
+//----------------------------------------------- FUNCTION------------HERE
 export default function ContactDetail() {
   const router = useRouter();
   const { query } = router;

@@ -44,7 +44,7 @@ const StyledBigPlaceholder = styled(GrayCirclePhotoPlaceholder)`
   margin: 0;
 `;
 
-//--------------------FUNCTION
+//----------------------------------------------- FUNCTION------------HERE
 
 export default function CallContactsDetail() {
   const router = useRouter();

@@ -6,6 +6,7 @@ import { addSVG } from "../components/assets/contactsSVG";
 import Link from "next/link";
 import useSWR from "swr";
 
+// -----------------------------------STYLE
 const StyledList = styled.ul`
   list-style-type: style none;
   display: flex;
@@ -27,6 +28,8 @@ const StyledAddSVGContainer = styled.div`
   height: 34px;
   margin: 1.5rem;
 `;
+
+//----------------------------------------------- FUNCTION------------HERE
 
 let href = "/create";
 
