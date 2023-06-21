@@ -12,8 +12,7 @@ const StyledHeader = styled.header`
 
 const StyledInputName = styled.input`
   border: none;
-  border-bottom: 2px solid var(--primary);
-  outline: none;
+  border-bottom: 2px solid var(--primary-color);
   &::placeholder {
     margin-left: -0.5rem;
     text-align: center;
