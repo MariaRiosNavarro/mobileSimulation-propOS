@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { contacts } from "../../../lib/db";
-import { StyledImage } from "../../../components/ContactListItem";
 import { StyledHR } from "../../../components/StyledHR";
+import { GrayCirclePhotoPlaceholder } from "../../../components/ContactListItem";
 
 const StyledHeader = styled.header`
   display: flex;
@@ -43,19 +43,14 @@ export default function ContactDetail() {
     return <p>Kontakte nicht gefunden</p>;
   }
 
-  const { name, photo, phone, note } = contact;
+  const { name, phone, note } = contact;
 
   return (
     <>
       <StyledHeader>
         <StyledHeaderContainer>
           <StyledH3>{name}</StyledH3>
-          <StyledImage
-            src={photo}
-            width={34}
-            height={34}
-            alt={`Photo of ${name}`}
-          />
+          <GrayCirclePhotoPlaceholder />
         </StyledHeaderContainer>
       </StyledHeader>
       <StyledHR />
