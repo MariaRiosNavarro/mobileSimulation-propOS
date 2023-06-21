@@ -57,7 +57,7 @@ export default function Home() {
           return (
             <ContactListItem
               key={contact._id}
-              dynamicId={contact._idid}
+              id={contact._id}
               name={contact.name}
             />
           );

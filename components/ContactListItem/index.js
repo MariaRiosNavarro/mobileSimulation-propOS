@@ -27,7 +27,7 @@ export const GrayCirclePhotoPlaceholder = styled.div`
   background-color: gray;
 `;
 
-export default function ContactListItem({ name, dynamicId }) {
+export default function ContactListItem({ name, id }) {
   return (
     <li>
       <StyledContainer>
@@ -36,11 +36,11 @@ export default function ContactListItem({ name, dynamicId }) {
         <StyledBadgetContainer>
           <StyledLinkSvgContainer
             svg={callSVG}
-            dynamicId={dynamicId}
+            id={id}
           ></StyledLinkSvgContainer>
           <StyledLinkSvgContainer
             svg={infoSVG}
-            dynamicId={dynamicId}
+            id={id}
           ></StyledLinkSvgContainer>
         </StyledBadgetContainer>
       </StyledContainer>

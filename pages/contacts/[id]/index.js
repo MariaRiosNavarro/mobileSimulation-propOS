@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import { contacts } from "../../../lib/db";
+// import { contacts } from "../../../lib/db";
 import { StyledHR } from "../../../components/StyledHR";
 import { GrayCirclePhotoPlaceholder } from "../../../components/ContactListItem";
+import useSWR from "swr";
 
 const StyledHeader = styled.header`
   display: flex;
@@ -35,21 +36,19 @@ const StyledInfo = styled.p`
 
 export default function ContactDetail() {
   const router = useRouter();
-  const { dynamicId } = router.query;
+  const { query } = router;
+  const { id } = query;
+  const { data: contact, isLoading, error } = useSWR(`/api/contacts/${id}`);
 
-  const contact = contacts.find((contact) => contact.id === dynamicId);
+  if (isLoading) return <h2>Loading...</h2>;
+  if (error) return <h2>Error...</h2>;
 
-  if (!contact) {
-    return <p>Kontakte nicht gefunden</p>;
-  }
-
-  const { name, phone, note } = contact;
 
   return (
     <>
       <StyledHeader>
         <StyledHeaderContainer>
-          <StyledH3>{name}</StyledH3>
+          <StyledH3>{contact.name}</StyledH3>
           <GrayCirclePhotoPlaceholder />
         </StyledHeaderContainer>
       </StyledHeader>
@@ -59,13 +58,13 @@ export default function ContactDetail() {
           <strong>Phone:</strong>
         </p>
         <StyledInfo>
-          <strong>{phone}</strong>
+          <strong>{contact.phone}</strong>
         </StyledInfo>
         <p>
           <strong>Notizen:</strong>
         </p>
         <StyledInfo>
-          <strong>{note}</strong>
+          <strong>{contact.note}</strong>
         </StyledInfo>
       </StyledContainer>
     </>
