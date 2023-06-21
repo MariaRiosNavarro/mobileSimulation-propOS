@@ -15,9 +15,18 @@ export default async function handler(request, response) {
     }
   }
 
+  // if (request.method === "GET") {
+  //   const contacts = await Contact.find();
+  //   response.status(200).json(contacts);
+  //   return;
+  // }
   if (request.method === "GET") {
-    const contacts = await Contact.find();
-    response.status(200).json(contacts);
-    return;
+    try {
+      const contacts = await Contact.find();
+      response.status(200).json(contacts);
+    } catch (error) {
+      console.log(error);
+      response.status(400).json({ error: error.messge });
+    }
   }
 }
