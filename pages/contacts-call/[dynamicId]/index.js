@@ -50,7 +50,7 @@ export default function CallContactsDetail() {
     return <p>Kontakte nicht gefunden</p>;
   }
 
-  const { name, photo } = contact;
+  const { name } = contact;
 
   return (
     <>
