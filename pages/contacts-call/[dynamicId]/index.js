@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { callEndSVG } from "../../../components/assets/contactsSVG";
-import { StyledImage } from "../../../components/ContactListItem";
+import { GrayCirclePhotoPlaceholder } from "../../../components/ContactListItem";
 import { contacts } from "../../../lib/db";
 import { useRouter } from "next/router";
 
@@ -24,11 +24,6 @@ const StyledBigHeader = styled.h2`
   margin: 0;
 `;
 
-const StyledBigImage = styled(StyledImage)`
-  width: 9rem;
-  height: 9rem;
-  margin: 0;
-`;
 const StyledRedButton = styled.div`
   border-radius: 50%;
   width: 4rem;
@@ -38,6 +33,12 @@ const StyledRedButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const StyledBigPlaceholder = styled(GrayCirclePhotoPlaceholder)`
+  width: 9rem;
+  height: 9rem;
+  margin: 0;
 `;
 
 export default function CallContactsDetail() {
@@ -55,12 +56,7 @@ export default function CallContactsDetail() {
     <>
       <StyledCallContainer>
         <StyledBigHeader>{name}</StyledBigHeader>
-        <StyledBigImage
-          src={photo}
-          width={100}
-          height={100}
-          alt={`Photo of ${name}`}
-        />
+        <StyledBigPlaceholder />
         <StyledRedButton>{callEndSVG}</StyledRedButton>
       </StyledCallContainer>
     </>

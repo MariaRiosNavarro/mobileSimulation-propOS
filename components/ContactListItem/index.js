@@ -19,7 +19,7 @@ const StyledBadgetContainer = styled.div`
   margin-right: 1.5rem;
 `;
 
-const GrayCirclePhotoPlaceholder = styled.div`
+export const GrayCirclePhotoPlaceholder = styled.div`
   margin: 1rem;
   width: 34px;
   height: 34px;
