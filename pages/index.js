@@ -3,7 +3,6 @@ import ContactListItem from "../components/ContactListItem";
 import styled from "styled-components";
 import { StyledHR } from "../components/StyledHR";
 import { contacts } from "../lib/db";
-import StyledLinkSvgContainer from "../components/StyledLinkSvgContainer";
 import { addSVG } from "../components/assets/contactsSVG";
 import Link from "next/link";
 
