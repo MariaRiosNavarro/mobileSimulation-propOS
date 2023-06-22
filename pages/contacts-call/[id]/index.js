@@ -69,9 +69,11 @@ export default function CallContactsDetail() {
 
   const {
     data: contact,
+    isLoading,
     error,
   } = useSWR(`/api/contacts-call/${id}`);
 
+  if (isLoading) return <h2>Loading...</h2>;
   if (error) return <h2>Error...</h2>;
 
   return (
