@@ -18,7 +18,7 @@ const StyledHeadingContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-right: 10rem;
+  margin-right: 7rem;
 `;
 
 const StyledHeading = styled.h3`
