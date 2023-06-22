@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import { callEndSVG } from "../../../components/assets/contactsSVG";
-import { StyledImage } from "../../../components/ContactListItem";
-import { contacts } from "../../../lib/db";
+import { StyledImagePlaceholder } from "../../../components/ContactListItem";
+
 import { useRouter } from "next/router";
+import useSWR from "swr";
+
+//--------------------STYLE
 
 const StyledCallContainer = styled.div`
   background-color: gray;
@@ -24,12 +27,7 @@ const StyledBigHeader = styled.h2`
   margin: 0;
 `;
 
-const StyledBigImage = styled(StyledImage)`
-  width: 9rem;
-  height: 9rem;
-  margin: 0;
-`;
-const StyledRedButton = styled.div`
+const StyledButton = styled.div`
   border-radius: 50%;
   width: 4rem;
   height: 4rem;
@@ -40,28 +38,34 @@ const StyledRedButton = styled.div`
   align-items: center;
 `;
 
+const StyledBigImagePlaceholder = styled(StyledImagePlaceholder)`
+  width: 9rem;
+  height: 9rem;
+  margin: 0;
+`;
+
+//----------------------------------------------- FUNCTION------------HERE
+
 export default function CallContactsDetail() {
   const router = useRouter();
-  const { dynamicId } = router.query;
-  const contact = contacts.find((contact) => contact.id === dynamicId);
+  const { query } = router;
+  const { id } = query;
 
-  if (!contact) {
-    return <p>Kontakte nicht gefunden</p>;
-  }
+  const {
+    data: contact,
+    isLoading,
+    error,
+  } = useSWR(`/api/contacts-call/${id}`);
 
-  const { name, photo } = contact;
+  if (isLoading) return <h2>Loading...</h2>;
+  if (error) return <h2>Error...</h2>;
 
   return (
     <>
       <StyledCallContainer>
-        <StyledBigHeader>{name}</StyledBigHeader>
-        <StyledBigImage
-          src={photo}
-          width={100}
-          height={100}
-          alt={`Photo of ${name}`}
-        />
-        <StyledRedButton>{callEndSVG}</StyledRedButton>
+        <StyledBigHeader>{contact.name}</StyledBigHeader>
+        <StyledBigImagePlaceholder />
+        <StyledButton>{callEndSVG}</StyledButton>
       </StyledCallContainer>
     </>
   );

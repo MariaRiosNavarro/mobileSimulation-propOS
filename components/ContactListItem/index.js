@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Image from "next/image";
 import { StyledHR } from "../StyledHR";
 import StyledLinkSvgContainer from "../StyledLinkSvgContainer";
 import { infoSVG, callSVG } from "../assets/contactsSVG";
@@ -8,14 +7,6 @@ const StyledContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;
-
-export const StyledImage = styled(Image)`
-  margin: 1rem;
-  object-fit: cover;
-  border-radius: 50%;
-  width: 34px;
-  height: 34px;
 `;
 
 const StyledName = styled.p`
@@ -28,26 +19,23 @@ const StyledBadgetContainer = styled.div`
   margin-right: 1.5rem;
 `;
 
-export default function ContactListItem({ name, photo, dynamicId }) {
+export const StyledImagePlaceholder = styled.div`
+  margin: 1rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: gray;
+`;
+
+export default function ContactListItem({ name, id }) {
   return (
     <li>
       <StyledContainer>
-        <StyledImage
-          src={photo}
-          width={34}
-          height={34}
-          alt={`Photo of ${name}`}
-        ></StyledImage>
+        <StyledImagePlaceholder />
         <StyledName>{name}</StyledName>
         <StyledBadgetContainer>
-          <StyledLinkSvgContainer
-            svg={callSVG}
-            dynamicId={dynamicId}
-          ></StyledLinkSvgContainer>
-          <StyledLinkSvgContainer
-            svg={infoSVG}
-            dynamicId={dynamicId}
-          ></StyledLinkSvgContainer>
+          <StyledLinkSvgContainer svg={callSVG} id={id} />
+          <StyledLinkSvgContainer svg={infoSVG} id={id} />
         </StyledBadgetContainer>
       </StyledContainer>
       <StyledHR />

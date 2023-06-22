@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { StyledHR } from "../components/StyledHR";
 import { useState } from "react";
 
-//STYLE
+//------------------------------------------STYLE
 
 const StyledHeader = styled.header`
   display: flex;
@@ -99,9 +99,8 @@ const StyledSuccessMessage = styled.h5`
   border-radius: 8px;
 `;
 
-// -------------- FORM FUNCTION------------
-// ------------------here------------------
-// ------------------DOWN------------------
+//----------------------------------------------- FUNCTION------------HERE
+
 
 export default function CreateContactForm() {
   const [showSuccessMessageState, setShowSuccessMessageState] = useState(false);
@@ -109,8 +108,6 @@ export default function CreateContactForm() {
     event.preventDefault();
     const formData = new FormData(event.target);
     const contactData = Object.fromEntries(formData);
-    // onSubmit(contactData);
-    // fetch
     const response = await fetch("/api/contacts", {
       method: "POST",
       headers: {
@@ -153,7 +150,7 @@ export default function CreateContactForm() {
           <label htmlFor="phone">Nummer:</label>
           <StyledInputGray id="phone" name="phone" type="text" />
           {/* NOTE TEXTAREA */}
-          <label htmlFor="note">Notitzen:</label>
+          <label htmlFor="note">Notizen:</label>
           <StyledTextareaGray id="note" name="note" type="text" rows={4} />
           <StyledButtonContainer>
             <StyledButton type="submit">Speichern</StyledButton>

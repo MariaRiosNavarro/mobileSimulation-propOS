@@ -2,10 +2,11 @@ import Heading from "../components/Heading";
 import ContactListItem from "../components/ContactListItem";
 import styled from "styled-components";
 import { StyledHR } from "../components/StyledHR";
-import { contacts } from "../lib/db";
 import { addSVG } from "../components/assets/contactsSVG";
 import Link from "next/link";
+import useSWR from "swr";
 
+// -----------------------------------STYLE
 const StyledList = styled.ul`
   list-style-type: style none;
   display: flex;
@@ -28,9 +29,21 @@ const StyledAddSVGContainer = styled.div`
   margin: 1.5rem;
 `;
 
+//----------------------------------------------- FUNCTION------------HERE
+
 let href = "/create";
 
 export default function Home() {
+  const { data, isLoading } = useSWR("/api/contacts");
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (!data) {
+    return <h1>Keine Daten Gefunden</h1>;
+  }
+
   return (
     <main>
       <StyledHeader>
@@ -43,13 +56,12 @@ export default function Home() {
       <StyledList>
         <StyledHR />
         {/* Map the contacts to render for one Contact, one Contactlistitem  */}
-        {contacts.map((contact) => {
+        {data.map((contact) => {
           return (
             <ContactListItem
-              key={contact.id}
-              dynamicId={contact.id}
+              key={contact._id}
+              id={contact._id}
               name={contact.name}
-              photo={contact.photo}
             />
           );
         })}
