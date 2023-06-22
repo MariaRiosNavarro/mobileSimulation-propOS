@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }) {
       >
         <GlobalStyle />
         <Head>
-          <title>Capstone Project</title>
+          <title>propOS</title>
         </Head>
         <Component {...pageProps} />
       </SWRConfig>
