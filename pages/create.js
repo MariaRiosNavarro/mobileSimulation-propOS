@@ -108,8 +108,6 @@ export default function CreateContactForm() {
     event.preventDefault();
     const formData = new FormData(event.target);
     const contactData = Object.fromEntries(formData);
-    // onSubmit(contactData);
-    // fetch
     const response = await fetch("/api/contacts", {
       method: "POST",
       headers: {
@@ -152,7 +150,7 @@ export default function CreateContactForm() {
           <label htmlFor="phone">Nummer:</label>
           <StyledInputGray id="phone" name="phone" type="text" />
           {/* NOTE TEXTAREA */}
-          <label htmlFor="note">Notitzen:</label>
+          <label htmlFor="note">Notizen:</label>
           <StyledTextareaGray id="note" name="note" type="text" rows={4} />
           <StyledButtonContainer>
             <StyledButton type="submit">Speichern</StyledButton>

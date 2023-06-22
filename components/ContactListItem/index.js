@@ -19,7 +19,7 @@ const StyledBadgetContainer = styled.div`
   margin-right: 1.5rem;
 `;
 
-export const GrayCirclePhotoPlaceholder = styled.div`
+export const StyledImagePlaceholder = styled.div`
   margin: 1rem;
   width: 34px;
   height: 34px;
@@ -31,17 +31,11 @@ export default function ContactListItem({ name, id }) {
   return (
     <li>
       <StyledContainer>
-        <GrayCirclePhotoPlaceholder/>
+        <StyledImagePlaceholder />
         <StyledName>{name}</StyledName>
         <StyledBadgetContainer>
-          <StyledLinkSvgContainer
-            svg={callSVG}
-            id={id}
-          ></StyledLinkSvgContainer>
-          <StyledLinkSvgContainer
-            svg={infoSVG}
-            id={id}
-          ></StyledLinkSvgContainer>
+          <StyledLinkSvgContainer svg={callSVG} id={id} />
+          <StyledLinkSvgContainer svg={infoSVG} id={id} />
         </StyledBadgetContainer>
       </StyledContainer>
       <StyledHR />

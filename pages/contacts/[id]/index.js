@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 // import { contacts } from "../../../lib/db";
 import { StyledHR } from "../../../components/StyledHR";
-import { GrayCirclePhotoPlaceholder } from "../../../components/ContactListItem";
+import { StyledImagePlaceholder } from "../../../components/ContactListItem";
 import useSWR from "swr";
 
 const StyledHeader = styled.header`
@@ -48,7 +48,7 @@ export default function ContactDetail() {
       <StyledHeader>
         <StyledHeaderContainer>
           <StyledH3>{contact.name}</StyledH3>
-          <GrayCirclePhotoPlaceholder />
+          <StyledImagePlaceholder />
         </StyledHeaderContainer>
       </StyledHeader>
       <StyledHR />

@@ -2,7 +2,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import { infoSVG } from "../assets/contactsSVG";
 
-const StyledCircularContainer = styled.div`
+const StyledLink = styled(Link)`
   height: 20px;
   width: 20px;
   border-radius: 50%;
@@ -29,10 +29,8 @@ export default function StyledLinkSvgContainer({ id, svg }) {
   }
 
   return (
-    <StyledCircularContainer>
-      <Link href={href}>
-        <StyledSpan>{svg}</StyledSpan>
-      </Link>
-    </StyledCircularContainer>
+    <StyledLink href={href}>
+      <StyledSpan>{svg}</StyledSpan>
+    </StyledLink>
   );
 }
