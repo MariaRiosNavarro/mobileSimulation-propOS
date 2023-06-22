@@ -1,22 +1,23 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
-
+import { backSVG } from "../../../components/assets/contactsSVG";
 import { StyledHR } from "../../../components/StyledHR";
 import { StyledImagePlaceholder } from "../../../components/ContactListItem";
 import useSWR from "swr";
+import Link from "next/link";
 
 const StyledHeader = styled.header`
   display: flex;
-  justify-content: center;
-
+  justify-content: space-between;
   align-items: center;
 `;
 
-const StyledHeaderContainer = styled.div`
+const StyledHeadingContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-right: 10rem;
 `;
 
 const StyledHeading = styled.h3`
@@ -33,6 +34,12 @@ const StyledInfo = styled.p`
   padding: 1rem;
   border-radius: 8px;
 `;
+
+const StyledLink = styled(Link)`
+  margin: 2rem;
+  height: 1.5;
+  color: gray;
+`;
 //----------------------------------------------- FUNCTION------------HERE
 export default function ContactDetail() {
   const router = useRouter();
@@ -46,10 +53,11 @@ export default function ContactDetail() {
   return (
     <>
       <StyledHeader>
-        <StyledHeaderContainer>
+        <StyledLink href={"/"}>{backSVG}</StyledLink>
+        <StyledHeadingContainer>
           <StyledHeading>{contact.name}</StyledHeading>
           <StyledImagePlaceholder />
-        </StyledHeaderContainer>
+        </StyledHeadingContainer>
       </StyledHeader>
       <StyledHR />
       <StyledContainer>
