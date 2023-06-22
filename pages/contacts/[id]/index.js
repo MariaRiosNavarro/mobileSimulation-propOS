@@ -45,9 +45,8 @@ export default function ContactDetail() {
   const router = useRouter();
   const { query } = router;
   const { id } = query;
-  const { data: contact, isLoading, error } = useSWR(`/api/contacts/${id}`);
+  const { data: contact, error } = useSWR(`/api/contacts/${id}`);
 
-  if (isLoading) return <h2>Loading...</h2>;
   if (error) return <h2>Error...</h2>;
 
   return (
