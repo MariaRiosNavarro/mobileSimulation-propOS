@@ -60,6 +60,14 @@ const StyledBigImagePlaceholder = styled(StyledImagePlaceholder)`
   margin: 0;
 `;
 
+const StyledLoading = styled.div`
+  text-align: center;
+  align-items: center;
+  background-color: darkgray;
+  color: lightyellow;
+  font-weight: bold;
+`;
+
 //----------------------------------------------- FUNCTION------------HERE
 
 export default function CallContactsDetail() {
@@ -73,7 +81,8 @@ export default function CallContactsDetail() {
     error,
   } = useSWR(`/api/contacts-call/${id}`);
 
-  if (isLoading) return <h2>Loading...</h2>;
+  if (isLoading)
+    return <StyledLoading>Verbindung wird hergestellt...</StyledLoading>;
   if (error) return <h2>Error...</h2>;
 
   return (
