@@ -60,7 +60,7 @@ const StyledBigImagePlaceholder = styled(StyledImagePlaceholder)`
   margin: 0;
 `;
 
-const StyledLoading = styled.div`
+export const StyledLoading = styled.div`
   text-align: center;
   align-items: center;
   background-color: darkgray;
