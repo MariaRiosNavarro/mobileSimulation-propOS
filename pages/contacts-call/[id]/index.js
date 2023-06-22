@@ -27,7 +27,7 @@ const StyledBigHeader = styled.h2`
   margin: 0;
 `;
 
-const StyledRedButton = styled.div`
+const StyledButton = styled.div`
   border-radius: 50%;
   width: 4rem;
   height: 4rem;
@@ -65,7 +65,7 @@ export default function CallContactsDetail() {
       <StyledCallContainer>
         <StyledBigHeader>{contact.name}</StyledBigHeader>
         <StyledBigImagePlaceholder />
-        <StyledRedButton>{callEndSVG}</StyledRedButton>
+        <StyledButton>{callEndSVG}</StyledButton>
       </StyledCallContainer>
     </>
   );

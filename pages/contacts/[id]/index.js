@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
-// import { contacts } from "../../../lib/db";
+
 import { StyledHR } from "../../../components/StyledHR";
 import { StyledImagePlaceholder } from "../../../components/ContactListItem";
 import useSWR from "swr";
@@ -19,7 +19,7 @@ const StyledHeaderContainer = styled.div`
   align-items: center;
 `;
 
-const StyledH3 = styled.h3`
+const StyledHeading = styled.h3`
   margin: 1rem 0 0 0;
   padding: 0;
 `;
@@ -47,7 +47,7 @@ export default function ContactDetail() {
     <>
       <StyledHeader>
         <StyledHeaderContainer>
-          <StyledH3>{contact.name}</StyledH3>
+          <StyledHeading>{contact.name}</StyledHeading>
           <StyledImagePlaceholder />
         </StyledHeaderContainer>
       </StyledHeader>
