@@ -6,6 +6,7 @@ import { StyledImagePlaceholder } from "../../../components/ContactListItem";
 import useSWR from "swr";
 import Link from "next/link";
 import { StyledLoading } from "../../contacts-call/[id]";
+import Navigation from "../../../components/Navigation";
 
 const StyledHeader = styled.header`
   display: flex;
@@ -76,6 +77,7 @@ export default function ContactDetail() {
           <strong>{contact.note}</strong>
         </StyledInfo>
       </StyledContainer>
+      <Navigation />
     </>
   );
 }
