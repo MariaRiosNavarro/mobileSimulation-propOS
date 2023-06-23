@@ -2,7 +2,24 @@ import styled from "styled-components";
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import StyledAppContainer from "../components/StyledAppContainer";
-import { calenderSVG } from "../components/assets/homeSVG";
+import {
+  alarmSVG,
+  beachSVG,
+  calenderSVG,
+  cameraSVG,
+  checkSVG,
+  mailSVG,
+  languageSVG,
+  lensSVG,
+  musicSVG,
+  permContactSVG,
+  photoCamSVG,
+  questionSVG,
+  roundaboutSVG,
+  shoppingSVG,
+  sportSVG,
+  trainSVG,
+} from "../components/assets/homeSVG";
 
 const StyledMain = styled.main``;
 
@@ -30,64 +47,64 @@ export default function Home() {
           <StyledAppHeading>Kalender</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={calenderSVG} />
-          <StyledAppHeading>Kalender</StyledAppHeading>
+          <StyledAppContainer StyledSvg={beachSVG} />
+          <StyledAppHeading>Wetter</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={calenderSVG} />
-          <StyledAppHeading>Kalender</StyledAppHeading>
+          <StyledAppContainer StyledSvg={alarmSVG} />
+          <StyledAppHeading>Uhr</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={calenderSVG} />
-          <StyledAppHeading>Kalender</StyledAppHeading>
+          <StyledAppContainer StyledSvg={musicSVG} />
+          <StyledAppHeading>Audio</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={calenderSVG} />
-          <StyledAppHeading>Kalender</StyledAppHeading>
+          <StyledAppContainer StyledSvg={sportSVG} />
+          <StyledAppHeading>Spiele</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={calenderSVG} />
-          <StyledAppHeading>Kalender</StyledAppHeading>
+          <StyledAppContainer StyledSvg={roundaboutSVG} />
+          <StyledAppHeading>Navigation</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={calenderSVG} />
-          <StyledAppHeading>Kalender</StyledAppHeading>
+          <StyledAppContainer StyledSvg={trainSVG} />
+          <StyledAppHeading>Transport</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={calenderSVG} />
-          <StyledAppHeading>Kalender</StyledAppHeading>
+          <StyledAppContainer StyledSvg={shoppingSVG} />
+          <StyledAppHeading>Einkaufen</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={calenderSVG} />
-          <StyledAppHeading>Kalender</StyledAppHeading>
+          <StyledAppContainer StyledSvg={cameraSVG} />
+          <StyledAppHeading>Sozial Media</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={calenderSVG} />
-          <StyledAppHeading>Kalender</StyledAppHeading>
+          <StyledAppContainer StyledSvg={questionSVG} />
+          <StyledAppHeading>Chats</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={calenderSVG} />
-          <StyledAppHeading>Kalender</StyledAppHeading>
+          <StyledAppContainer StyledSvg={checkSVG} />
+          <StyledAppHeading>ToDo</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={calenderSVG} />
-          <StyledAppHeading>Kalender</StyledAppHeading>
+          <StyledAppContainer StyledSvg={languageSVG} />
+          <StyledAppHeading>Internet</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={calenderSVG} />
-          <StyledAppHeading>Kalender</StyledAppHeading>
+          <StyledAppContainer StyledSvg={lensSVG} />
+          <StyledAppHeading>Galerie</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={calenderSVG} />
-          <StyledAppHeading>Kalender</StyledAppHeading>
+          <StyledAppContainer StyledSvg={photoCamSVG} />
+          <StyledAppHeading>Kamera</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={calenderSVG} />
-          <StyledAppHeading>Kalender</StyledAppHeading>
+          <StyledAppContainer StyledSvg={mailSVG} />
+          <StyledAppHeading>Mail</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/contacts"}>
-          <StyledAppContainer StyledSvg={calenderSVG} />
-          <StyledAppHeading>Kalender</StyledAppHeading>
+          <StyledAppContainer StyledSvg={permContactSVG} />
+          <StyledAppHeading>Kontakte</StyledAppHeading>
         </StyledWrapAppLink>
       </StyledMain>
       <Navigation selected={"home"} />
