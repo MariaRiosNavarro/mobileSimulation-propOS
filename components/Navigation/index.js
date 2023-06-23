@@ -8,7 +8,17 @@ import {
 import StyledAppContainer from "../StyledAppContainer";
 import styled from "styled-components";
 
-const StyledNavigationContainer = styled.div``;
+const StyledNavigationContainer = styled.div`
+  background-color: var(--nav-color);
+  width: 100%;
+  height: 86px;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 5;
+`;
 
 export default function Navigation({ selected }) {
   return (
