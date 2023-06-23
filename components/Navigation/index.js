@@ -1,5 +1,10 @@
 import Link from "next/link";
-import { homeSVG, phoneSVG, messageSVG, settingsSVG } from "../assets/homeSVG";
+import {
+  homeSVG,
+  phoneSVG,
+  messageSVG,
+  settingsSVG,
+} from "../assets/navigationSVG";
 import StyledAppContainer from "../StyledAppContainer";
 import styled from "styled-components";
 

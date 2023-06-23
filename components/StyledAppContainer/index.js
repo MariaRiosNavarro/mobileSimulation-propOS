@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-const StyledSvg = styled.svg``;
+const StyledSvg = styled.svg`
+  color: black;
+  height: 40px;
+  width: 40px;
+`;
 
 const StyledSvgContainer = styled.span`
   display: flex;
