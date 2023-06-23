@@ -56,7 +56,7 @@ export default function ContactDetail() {
   return (
     <>
       <StyledHeader>
-        <StyledLink href={"/"}>{backSVG}</StyledLink>
+        <StyledLink href={"/contacts"}>{backSVG}</StyledLink>
         <StyledHeadingContainer>
           <StyledHeading>{contact.name}</StyledHeading>
           <StyledImagePlaceholder />

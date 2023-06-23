@@ -32,7 +32,7 @@ const StyledMain = styled.main`
   align-items: center;
   justify-items: center;
   place-items: center;
-  height: 90vh;
+  height: 92vh;
 `;
 
 const StyledAppHeading = styled.h5`

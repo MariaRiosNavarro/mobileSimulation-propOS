@@ -9,6 +9,7 @@ export default createGlobalStyle`
   body {
     margin: 0;
     font-family: system-ui;
+    background-color: var(--bg-color)
   }
 
   :root{
