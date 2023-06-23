@@ -6,6 +6,7 @@ import { StyledImagePlaceholder } from "../../../components/ContactListItem";
 import useSWR from "swr";
 import Link from "next/link";
 import { StyledLoading } from "../../contacts-call/[id]";
+import Navigation from "../../../components/Navigation";
 
 const StyledHeader = styled.header`
   display: flex;
@@ -49,13 +50,13 @@ export default function ContactDetail() {
   const { id } = query;
   const { data: contact, isLoading, error } = useSWR(`/api/contacts/${id}`);
 
-  if (isLoading) return <StyledLoading>Kontakte wird gesucht...</StyledLoading>;
+  if (isLoading) return <StyledLoading>Kontakt wird gesucht...</StyledLoading>;
   if (error) return <h2>Error...</h2>;
 
   return (
     <>
       <StyledHeader>
-        <StyledLink href={"/"}>{backSVG}</StyledLink>
+        <StyledLink href={"/contacts"}>{backSVG}</StyledLink>
         <StyledHeadingContainer>
           <StyledHeading>{contact.name}</StyledHeading>
           <StyledImagePlaceholder />
@@ -76,6 +77,7 @@ export default function ContactDetail() {
           <strong>{contact.note}</strong>
         </StyledInfo>
       </StyledContainer>
+      <Navigation />
     </>
   );
 }

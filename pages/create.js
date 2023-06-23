@@ -3,6 +3,7 @@ import { StyledHR } from "../components/StyledHR";
 import { useState } from "react";
 import { backSVG } from "../components/assets/contactsSVG";
 import Link from "next/link";
+import Navigation from "../components/Navigation";
 
 //------------------------------------------STYLE
 
@@ -101,7 +102,7 @@ const StyledSuccessMessage = styled.h5`
   border-radius: 8px;
 `;
 
-const StyledLinkCreate = styled(Link)`
+const StyledBackLink = styled(Link)`
   position: absolute;
   margin-left: 2rem;
 `;
@@ -133,7 +134,7 @@ export default function CreateContactForm() {
 
   return (
     <>
-      <StyledLinkCreate href={"/"}>{backSVG}</StyledLinkCreate>
+      <StyledBackLink href={"/contacts"}>{backSVG}</StyledBackLink>
       <form onSubmit={handleSubmit}>
         <StyledHeader>
           {/* NAME INPUT */}
@@ -168,6 +169,7 @@ export default function CreateContactForm() {
       {showSuccessMessageState && (
         <StyledSuccessMessage>Kontakte gespeichert</StyledSuccessMessage>
       )}
+      <Navigation />
     </>
   );
 }
