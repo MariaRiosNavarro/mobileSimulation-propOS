@@ -29,7 +29,66 @@ export default function Home() {
           <StyledAppContainer StyledSvg={calenderSVG} />
           <StyledAppHeading>Kalender</StyledAppHeading>
         </StyledWrapAppLink>
-        <Link href={"/contacts"}>Kontakte</Link>
+        <StyledWrapAppLink href={"/"}>
+          <StyledAppContainer StyledSvg={calenderSVG} />
+          <StyledAppHeading>Kalender</StyledAppHeading>
+        </StyledWrapAppLink>
+        <StyledWrapAppLink href={"/"}>
+          <StyledAppContainer StyledSvg={calenderSVG} />
+          <StyledAppHeading>Kalender</StyledAppHeading>
+        </StyledWrapAppLink>
+        <StyledWrapAppLink href={"/"}>
+          <StyledAppContainer StyledSvg={calenderSVG} />
+          <StyledAppHeading>Kalender</StyledAppHeading>
+        </StyledWrapAppLink>
+        <StyledWrapAppLink href={"/"}>
+          <StyledAppContainer StyledSvg={calenderSVG} />
+          <StyledAppHeading>Kalender</StyledAppHeading>
+        </StyledWrapAppLink>
+        <StyledWrapAppLink href={"/"}>
+          <StyledAppContainer StyledSvg={calenderSVG} />
+          <StyledAppHeading>Kalender</StyledAppHeading>
+        </StyledWrapAppLink>
+        <StyledWrapAppLink href={"/"}>
+          <StyledAppContainer StyledSvg={calenderSVG} />
+          <StyledAppHeading>Kalender</StyledAppHeading>
+        </StyledWrapAppLink>
+        <StyledWrapAppLink href={"/"}>
+          <StyledAppContainer StyledSvg={calenderSVG} />
+          <StyledAppHeading>Kalender</StyledAppHeading>
+        </StyledWrapAppLink>
+        <StyledWrapAppLink href={"/"}>
+          <StyledAppContainer StyledSvg={calenderSVG} />
+          <StyledAppHeading>Kalender</StyledAppHeading>
+        </StyledWrapAppLink>
+        <StyledWrapAppLink href={"/"}>
+          <StyledAppContainer StyledSvg={calenderSVG} />
+          <StyledAppHeading>Kalender</StyledAppHeading>
+        </StyledWrapAppLink>
+        <StyledWrapAppLink href={"/"}>
+          <StyledAppContainer StyledSvg={calenderSVG} />
+          <StyledAppHeading>Kalender</StyledAppHeading>
+        </StyledWrapAppLink>
+        <StyledWrapAppLink href={"/"}>
+          <StyledAppContainer StyledSvg={calenderSVG} />
+          <StyledAppHeading>Kalender</StyledAppHeading>
+        </StyledWrapAppLink>
+        <StyledWrapAppLink href={"/"}>
+          <StyledAppContainer StyledSvg={calenderSVG} />
+          <StyledAppHeading>Kalender</StyledAppHeading>
+        </StyledWrapAppLink>
+        <StyledWrapAppLink href={"/"}>
+          <StyledAppContainer StyledSvg={calenderSVG} />
+          <StyledAppHeading>Kalender</StyledAppHeading>
+        </StyledWrapAppLink>
+        <StyledWrapAppLink href={"/"}>
+          <StyledAppContainer StyledSvg={calenderSVG} />
+          <StyledAppHeading>Kalender</StyledAppHeading>
+        </StyledWrapAppLink>
+        <StyledWrapAppLink href={"/contacts"}>
+          <StyledAppContainer StyledSvg={calenderSVG} />
+          <StyledAppHeading>Kalender</StyledAppHeading>
+        </StyledWrapAppLink>
       </StyledMain>
       <Navigation selected={"home"} />
     </>
