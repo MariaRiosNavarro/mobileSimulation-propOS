@@ -134,7 +134,7 @@ export default function CreateContactForm() {
 
   return (
     <>
-      <StyledBackLink href={"/"}>{backSVG}</StyledBackLink>
+      <StyledBackLink href={"/contacts"}>{backSVG}</StyledBackLink>
       <form onSubmit={handleSubmit}>
         <StyledHeader>
           {/* NAME INPUT */}
