@@ -22,7 +22,6 @@ const StyledSvgContainer = styled.span`
       return "#ffcb7d";
     }
   }};
-  }
 `;
 
 export default function StyledAppContainer({ StyledSvg, selected, disabled }) {
