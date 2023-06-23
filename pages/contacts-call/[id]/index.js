@@ -11,7 +11,7 @@ import Link from "next/link";
 const StyledCallContainer = styled.div`
   background-color: gray;
   margin: 0;
-  height: 700px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,7 +35,7 @@ const callanimation = keyframes`
   transform:scale(1);
 }
 50%{
-  transform:scale(1.5);
+  transform:scale(1.4);
 }
 100%{
   transform:scale(1);
