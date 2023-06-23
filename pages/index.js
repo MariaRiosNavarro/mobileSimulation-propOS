@@ -21,7 +21,19 @@ import {
   trainSVG,
 } from "../components/assets/homeSVG";
 
-const StyledMain = styled.main``;
+const StyledMain = styled.main`
+  padding-top: 1rem;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: start;
+  align-items: center;
+  justify-items: center;
+  place-items: center;
+  height: 90vh;
+`;
 
 const StyledAppHeading = styled.h5`
   font-size: 10px;
