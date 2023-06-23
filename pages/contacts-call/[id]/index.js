@@ -90,7 +90,7 @@ export default function CallContactsDetail() {
       <StyledCallContainer>
         <StyledBigHeader>{contact.name}</StyledBigHeader>
         <StyledBigImagePlaceholder />
-        <Link href={"/"}>
+        <Link href={"/contacts"}>
           <StyledButton>{callEndSVG}</StyledButton>
         </Link>
       </StyledCallContainer>
