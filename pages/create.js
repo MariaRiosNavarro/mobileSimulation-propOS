@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { StyledHR } from "../components/StyledHR";
 import { useState } from "react";
+import { backSVG } from "../components/assets/contactsSVG";
+import Link from "next/link";
 
 //------------------------------------------STYLE
 
@@ -99,8 +101,12 @@ const StyledSuccessMessage = styled.h5`
   border-radius: 8px;
 `;
 
-//----------------------------------------------- FUNCTION------------HERE
+const StyledLinkCreate = styled(Link)`
+  position: absolute;
+  margin-left: 2rem;
+`;
 
+//----------------------------------------------- FUNCTION------------HERE
 
 export default function CreateContactForm() {
   const [showSuccessMessageState, setShowSuccessMessageState] = useState(false);
@@ -127,6 +133,7 @@ export default function CreateContactForm() {
 
   return (
     <>
+      <StyledLinkCreate href={"/"}>{backSVG}</StyledLinkCreate>
       <form onSubmit={handleSubmit}>
         <StyledHeader>
           {/* NAME INPUT */}
@@ -144,6 +151,7 @@ export default function CreateContactForm() {
             <StyledInputPhoto type="file" id="photo" />
           </StyledPhotoLabel>
         </StyledHeader>
+
         <StyledHR />
         <StyledContainer>
           {/* PHONE INPUT */}

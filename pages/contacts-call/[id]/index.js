@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { callEndSVG } from "../../../components/assets/contactsSVG";
 import { StyledImagePlaceholder } from "../../../components/ContactListItem";
 
 import { useRouter } from "next/router";
 import useSWR from "swr";
+import Link from "next/link";
 
 //--------------------STYLE
 
@@ -27,6 +28,20 @@ const StyledBigHeader = styled.h2`
   margin: 0;
 `;
 
+//Animation for the red button
+
+const callanimation = keyframes`
+0% {
+  transform:scale(1);
+}
+50%{
+  transform:scale(1.5);
+}
+100%{
+  transform:scale(1);
+}
+`;
+
 const StyledButton = styled.div`
   border-radius: 50%;
   width: 4rem;
@@ -36,12 +51,21 @@ const StyledButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: ${callanimation} 2s infinite;
 `;
 
 const StyledBigImagePlaceholder = styled(StyledImagePlaceholder)`
   width: 9rem;
   height: 9rem;
   margin: 0;
+`;
+
+export const StyledLoading = styled.div`
+  text-align: center;
+  align-items: center;
+  background-color: darkgray;
+  color: lightyellow;
+  font-weight: bold;
 `;
 
 //----------------------------------------------- FUNCTION------------HERE
@@ -57,7 +81,8 @@ export default function CallContactsDetail() {
     error,
   } = useSWR(`/api/contacts-call/${id}`);
 
-  if (isLoading) return <h2>Loading...</h2>;
+  if (isLoading)
+    return <StyledLoading>Verbindung wird hergestellt...</StyledLoading>;
   if (error) return <h2>Error...</h2>;
 
   return (
@@ -65,7 +90,9 @@ export default function CallContactsDetail() {
       <StyledCallContainer>
         <StyledBigHeader>{contact.name}</StyledBigHeader>
         <StyledBigImagePlaceholder />
-        <StyledButton>{callEndSVG}</StyledButton>
+        <Link href={"/"}>
+          <StyledButton>{callEndSVG}</StyledButton>
+        </Link>
       </StyledCallContainer>
     </>
   );

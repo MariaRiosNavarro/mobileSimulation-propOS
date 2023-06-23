@@ -5,6 +5,7 @@ import { StyledHR } from "../../../components/StyledHR";
 import { StyledImagePlaceholder } from "../../../components/ContactListItem";
 import useSWR from "swr";
 import Link from "next/link";
+import { StyledLoading } from "../../contacts-call/[id]";
 
 const StyledHeader = styled.header`
   display: flex;
@@ -17,7 +18,7 @@ const StyledHeadingContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-right: 10rem;
+  margin-right: 7rem;
 `;
 
 const StyledHeading = styled.h3`
@@ -40,6 +41,7 @@ const StyledLink = styled(Link)`
   height: 1.5;
   color: gray;
 `;
+
 //----------------------------------------------- FUNCTION------------HERE
 export default function ContactDetail() {
   const router = useRouter();
@@ -47,7 +49,7 @@ export default function ContactDetail() {
   const { id } = query;
   const { data: contact, isLoading, error } = useSWR(`/api/contacts/${id}`);
 
-  if (isLoading) return <h2>Loading...</h2>;
+  if (isLoading) return <StyledLoading>Kontakte wird gesucht...</StyledLoading>;
   if (error) return <h2>Error...</h2>;
 
   return (
