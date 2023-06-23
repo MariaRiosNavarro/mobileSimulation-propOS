@@ -5,6 +5,7 @@ import { StyledHR } from "../components/StyledHR";
 import { addSVG } from "../components/assets/contactsSVG";
 import Link from "next/link";
 import useSWR from "swr";
+import Navigation from "../components/Navigation";
 
 // -----------------------------------STYLE
 const StyledList = styled.ul`
@@ -29,6 +30,11 @@ const StyledAddSVGContainer = styled.div`
   margin: 1.5rem;
 `;
 
+const StyledBodyContainer = styled.body`
+  position: relative;
+  min-height: 100vh;
+`;
+
 //----------------------------------------------- FUNCTION------------HERE
 
 let href = "/create";
@@ -45,27 +51,30 @@ export default function Contacts() {
   }
 
   return (
-    <main>
-      <StyledHeader>
-        <Heading>Kontakte</Heading>
-        <Link href={href}>
-          <StyledAddSVGContainer>{addSVG}</StyledAddSVGContainer>
-        </Link>
-      </StyledHeader>
+    <StyledBodyContainer>
+      <main>
+        <StyledHeader>
+          <Heading>Kontakte</Heading>
+          <Link href={href}>
+            <StyledAddSVGContainer>{addSVG}</StyledAddSVGContainer>
+          </Link>
+        </StyledHeader>
 
-      <StyledList>
-        <StyledHR />
-        {/* Map the contacts to render for one Contact, one Contactlistitem  */}
-        {data.map((contact) => {
-          return (
-            <ContactListItem
-              key={contact._id}
-              id={contact._id}
-              name={contact.name}
-            />
-          );
-        })}
-      </StyledList>
-    </main>
+        <StyledList>
+          <StyledHR />
+          {/* Map the contacts to render for one Contact, one Contactlistitem  */}
+          {data.map((contact) => {
+            return (
+              <ContactListItem
+                key={contact._id}
+                id={contact._id}
+                name={contact.name}
+              />
+            );
+          })}
+        </StyledList>
+      </main>
+      <Navigation />
+    </StyledBodyContainer>
   );
 }
