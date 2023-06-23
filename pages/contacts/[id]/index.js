@@ -49,7 +49,7 @@ export default function ContactDetail() {
   const { id } = query;
   const { data: contact, isLoading, error } = useSWR(`/api/contacts/${id}`);
 
-  if (isLoading) return <StyledLoading>Kontakte wird gesucht...</StyledLoading>;
+  if (isLoading) return <StyledLoading>Kontakt wird gesucht...</StyledLoading>;
   if (error) return <h2>Error...</h2>;
 
   return (

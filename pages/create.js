@@ -101,7 +101,7 @@ const StyledSuccessMessage = styled.h5`
   border-radius: 8px;
 `;
 
-const StyledLinkCreate = styled(Link)`
+const StyledBackLink = styled(Link)`
   position: absolute;
   margin-left: 2rem;
 `;
@@ -133,7 +133,7 @@ export default function CreateContactForm() {
 
   return (
     <>
-      <StyledLinkCreate href={"/"}>{backSVG}</StyledLinkCreate>
+      <StyledBackLink href={"/"}>{backSVG}</StyledBackLink>
       <form onSubmit={handleSubmit}>
         <StyledHeader>
           {/* NAME INPUT */}
