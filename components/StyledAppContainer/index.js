@@ -17,7 +17,7 @@ const StyledSvgContainer = styled.span`
     if (props.disabled) {
       return "lightGray";
     } else if (props.selected) {
-      return "#ffeacc";
+      return "#f86f03";
     } else {
       return "#ffcb7d";
     }
