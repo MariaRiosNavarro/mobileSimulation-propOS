@@ -13,13 +13,24 @@ const StyledSvgContainer = styled.span`
   height: 48px;
   width: 48px;
   border-radius: 12px;
-  background-color: ${(props) => (props.selected ? `#ffeacc` : `#ffcb7d `)};
+  background-color: ${(props) => {
+    if (props.disabled) {
+      return "lightGray";
+    } else if (props.selected) {
+      return "#ffeacc";
+    } else {
+      return "#ffcb7d";
+    }
+  }};
+  }
 `;
 
-export default function StyledAppContainer({ StyledSvg, selected }) {
+export default function StyledAppContainer({ StyledSvg, selected, disabled }) {
   return (
     <>
-      <StyledSvgContainer selected={selected}>{StyledSvg}</StyledSvgContainer>
+      <StyledSvgContainer selected={selected} disabled={disabled}>
+        {StyledSvg}
+      </StyledSvgContainer>
     </>
   );
 }

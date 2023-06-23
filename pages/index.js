@@ -55,63 +55,63 @@ export default function Home() {
     <>
       <StyledMain>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={calenderSVG} />
+          <StyledAppContainer StyledSvg={calenderSVG} disabled />
           <StyledAppHeading>Kalender</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={beachSVG} />
+          <StyledAppContainer StyledSvg={beachSVG} disabled />
           <StyledAppHeading>Wetter</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={alarmSVG} />
+          <StyledAppContainer StyledSvg={alarmSVG} disabled />
           <StyledAppHeading>Uhr</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={musicSVG} />
+          <StyledAppContainer StyledSvg={musicSVG} disabled />
           <StyledAppHeading>Audio</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={sportSVG} />
+          <StyledAppContainer StyledSvg={sportSVG} disabled />
           <StyledAppHeading>Spiele</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={roundaboutSVG} />
+          <StyledAppContainer StyledSvg={roundaboutSVG} disabled />
           <StyledAppHeading>Navigation</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={trainSVG} />
+          <StyledAppContainer StyledSvg={trainSVG} disabled />
           <StyledAppHeading>Transport</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={shoppingSVG} />
+          <StyledAppContainer StyledSvg={shoppingSVG} disabled />
           <StyledAppHeading>Einkaufen</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={cameraSVG} />
+          <StyledAppContainer StyledSvg={cameraSVG} disabled />
           <StyledAppHeading>Sozial Media</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={questionSVG} />
+          <StyledAppContainer StyledSvg={questionSVG} disabled />
           <StyledAppHeading>Chats</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={checkSVG} />
+          <StyledAppContainer StyledSvg={checkSVG} disabled />
           <StyledAppHeading>ToDo</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={languageSVG} />
+          <StyledAppContainer StyledSvg={languageSVG} disabled />
           <StyledAppHeading>Internet</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={lensSVG} />
+          <StyledAppContainer StyledSvg={lensSVG} disabled />
           <StyledAppHeading>Galerie</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={photoCamSVG} />
+          <StyledAppContainer StyledSvg={photoCamSVG} disabled />
           <StyledAppHeading>Kamera</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={mailSVG} />
+          <StyledAppContainer StyledSvg={mailSVG} disabled />
           <StyledAppHeading>Mail</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/contacts"}>
