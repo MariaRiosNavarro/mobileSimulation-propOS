@@ -3,6 +3,7 @@ import { StyledHR } from "../components/StyledHR";
 import { useState } from "react";
 import { backSVG } from "../components/assets/contactsSVG";
 import Link from "next/link";
+import Navigation from "../components/Navigation";
 
 //------------------------------------------STYLE
 
@@ -168,6 +169,7 @@ export default function CreateContactForm() {
       {showSuccessMessageState && (
         <StyledSuccessMessage>Kontakte gespeichert</StyledSuccessMessage>
       )}
+      <Navigation />
     </>
   );
 }
