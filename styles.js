@@ -23,7 +23,7 @@ export default createGlobalStyle`
     --nav-color:#3a3a3a;
   }
 
-  //ConfirmAlertBibliothek Styles to Style delete ALert
+  //ConfirmAlert library Styles to Style delete ALert
 
   #react-confirm-alert{
     margin: 0;
