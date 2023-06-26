@@ -24,9 +24,9 @@ export default async function handler(request, response) {
     return;
   }
 
-  // if (request.method === "DELETE") {
-  //   await Contact.findByIdAndDelete(id);
-  //   response.status(200).json({ status: "Contact deleted!" });
-  //   return;
-  // }
+  if (request.method === "DELETE") {
+    await Contact.findByIdAndDelete(id);
+    response.status(200).json({ status: "Contact deleted!" });
+    return;
+  }
 }

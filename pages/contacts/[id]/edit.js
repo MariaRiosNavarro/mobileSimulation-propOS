@@ -19,6 +19,17 @@ const StyledBackLink = styled(Link)`
   margin-left: 2rem;
 `;
 
+const StyledButton = styled.button`
+  margin-top: 2rem;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 40%;
+  &:hover {
+    background-color: var(--hover-color);
+  }
+`;
 //----------------------------------------------- FUNCTION------------HERE
 
 export default function EditPage() {
@@ -51,8 +62,14 @@ export default function EditPage() {
 
     router.push(`/contacts`);
   }
-
   if (!isReady || isLoading || error || !id) return <h2>Loading</h2>;
+
+  async function handleDelete() {
+    await fetch(`/api/contacts/${id}`, {
+      method: "DELETE",
+    });
+    router.push("/contacts");
+  }
 
   return (
     <>
@@ -62,6 +79,7 @@ export default function EditPage() {
         formName={"edit-contact"}
         defaultData={contact}
       />
+      <StyledButton onClick={handleDelete}>loschen</StyledButton>
       <Navigation />
     </>
   );
