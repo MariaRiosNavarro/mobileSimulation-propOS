@@ -13,4 +13,10 @@ export default async function handler(request, response) {
     }
     response.status(200).json(contact);
   }
+
+  //API for UPDATE
+  if (request.method === "PATCH") {
+    await Contact.findByIdAndUpdate(id, { $set: request.body });
+    response.status(200).json({ status: "Contact updated" });
+  }
 }
