@@ -3,7 +3,6 @@ import ContactListItem from "../components/ContactListItem";
 import styled from "styled-components";
 import { StyledHR } from "../components/StyledHR";
 import { addSVG } from "../components/assets/contactsSVG";
-import Link from "next/link";
 import useSWR from "swr";
 import Navigation from "../components/Navigation";
 import StyledLinkSvgContainer from "../components/StyledLinkSvgContainer";
@@ -58,7 +57,7 @@ export default function Contacts() {
   const { data, isLoading } = useSWR("/api/contacts", { fallbackData: [] });
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <div></div>;
   }
 
   if (!data) {

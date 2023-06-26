@@ -5,11 +5,11 @@ import { StyledHR } from "../../../components/StyledHR";
 import { StyledImagePlaceholder } from "../../../components/components.style";
 import useSWR from "swr";
 import Link from "next/link";
-import { StyledLoading } from "../../contacts-call/[id]";
 import Navigation from "../../../components/Navigation";
 import {
   StyledHeadingandFoto,
   StyledFieldsContainer,
+  StyledLoading,
 } from "../../../components/components.style";
 
 const StyledHeader = styled.div`

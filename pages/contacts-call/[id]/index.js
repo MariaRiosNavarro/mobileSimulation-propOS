@@ -4,7 +4,7 @@ import { StyledImagePlaceholder } from "../../../components/components.style";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import Link from "next/link";
-
+import {StyledLoading} from "../../../components/components.style"
 //--------------------STYLE
 
 const StyledCallContainer = styled.div`
@@ -61,13 +61,7 @@ const StyledBigImagePlaceholder = styled(StyledImagePlaceholder)`
   background-color: gray;
 `;
 
-export const StyledLoading = styled.div`
-  text-align: center;
-  align-items: center;
-  background-color: darkgray;
-  color: lightyellow;
-  font-weight: bold;
-`;
+
 
 //----------------------------------------------- FUNCTION------------HERE
 

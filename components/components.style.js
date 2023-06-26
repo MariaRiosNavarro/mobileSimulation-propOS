@@ -32,3 +32,11 @@ export const StyledButtonsContainer = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+export const StyledLoading = styled.div`
+  text-align: center;
+  align-items: center;
+  background-color: darkgray;
+  color: lightyellow;
+  font-weight: bold;
+`;
