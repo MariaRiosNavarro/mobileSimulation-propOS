@@ -35,27 +35,27 @@ const StyledBodyContainer = styled.body`
   min-height: 100vh;
 `;
 
-//This StyledMain removes the standard schrollin-bar above the navigation, 
-// making it not look like a mobile 
-// (no mobile has the bar above the navigation). 
-// Thanks Stack Overflow. Schrolling still works 
+//This StyledMain removes the standard schrollin-bar above the navigation,
+// making it not look like a mobile
+// (no mobile has the bar above the navigation).
+// Thanks Stack Overflow. Schrolling still works
 
 const StyledMain = styled.main`
-height: 90vh;
-overflow: auto;
-scrollbar-width: none; /* Firefox */
+  height: 90vh;
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   &::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
-`
+`;
 
 //----------------------------------------------- FUNCTION------------HERE
 
 let href = "/create";
 
 export default function Contacts() {
-  const { data, isLoading } = useSWR("/api/contacts");
+  const { data, isLoading } = useSWR("/api/contacts", { fallbackData: [] });
 
   if (isLoading) {
     return <h1>Loading...</h1>;

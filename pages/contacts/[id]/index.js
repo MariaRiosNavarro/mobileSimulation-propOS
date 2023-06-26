@@ -60,6 +60,9 @@ export default function ContactDetail() {
         <StyledHeadingContainer>
           <StyledHeading>{contact.name}</StyledHeading>
           <StyledImagePlaceholder />
+          <StyledLink href={`/contacts/${id}/edit`} passHref legacyBehavior>
+            bearbeiten
+          </StyledLink>
         </StyledHeadingContainer>
       </StyledHeader>
       <StyledHR />

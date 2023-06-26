@@ -95,12 +95,13 @@ export default function Form({ onSubmit, formName, defaultData }) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const contactData = Object.fromEntries(formData);
+    console.log(contactData);
     onSubmit(contactData);
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit} aria-labelledby={formName}>
+      <form onSubmit={onSubmit} aria-labelledby={formName}>
         <StyledHeader>
           {/* NAME INPUT */}
           <label htmlFor="name">
