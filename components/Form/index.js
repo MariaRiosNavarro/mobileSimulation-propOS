@@ -100,7 +100,7 @@ export default function Form({ onSubmit, formName, defaultData }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} aria-labelledby={formName}>
         <StyledHeader>
           {/* NAME INPUT */}
           <label htmlFor="name">
