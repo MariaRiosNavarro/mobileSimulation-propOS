@@ -32,13 +32,16 @@ export default function EditPage() {
     mutate,
   } = useSWR(`/api/contacts/${id}`);
 
-  async function editContact(contact) {
+  async function handleEdit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const contactData = Object.fromEntries(formData);
     const response = await fetch(`/api/contacts/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(contact),
+      body: JSON.stringify(contactData),
     });
 
     if (response.ok) {
@@ -46,7 +49,7 @@ export default function EditPage() {
       mutate();
     }
 
-    router.push(`/contacts/${id}`);
+    router.push(`/contacts`);
   }
 
   if (!isReady || isLoading || error || !id) return <h2>Loading</h2>;
@@ -55,7 +58,7 @@ export default function EditPage() {
     <>
       <StyledBackLink href={"/contacts"}>{backSVG}</StyledBackLink>
       <Form
-        onSubmit={editContact}
+        onSubmit={handleEdit}
         formName={"edit-contact"}
         defaultData={contact}
       />
