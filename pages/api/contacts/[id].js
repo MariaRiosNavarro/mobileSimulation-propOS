@@ -13,4 +13,20 @@ export default async function handler(request, response) {
     }
     response.status(200).json(contact);
   }
+
+  //API for UPDATE
+  if (request.method === "PATCH") {
+    await Contact.findByIdAndUpdate(id, {
+      $set: request.body,
+    });
+    console.log(response);
+    response.status(200).json({ status: `Contact updated` });
+    return;
+  }
+
+  // if (request.method === "DELETE") {
+  //   await Contact.findByIdAndDelete(id);
+  //   response.status(200).json({ status: "Contact deleted!" });
+  //   return;
+  // }
 }

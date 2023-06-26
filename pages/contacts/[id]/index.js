@@ -2,45 +2,52 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import { backSVG } from "../../../components/assets/contactsSVG";
 import { StyledHR } from "../../../components/StyledHR";
-import { StyledImagePlaceholder } from "../../../components/ContactListItem";
+import { StyledImagePlaceholder } from "../../../components/components.style";
 import useSWR from "swr";
 import Link from "next/link";
 import { StyledLoading } from "../../contacts-call/[id]";
 import Navigation from "../../../components/Navigation";
+import {
+  StyledHeadingandFoto,
+  StyledFieldsContainer,
+} from "../../../components/components.style";
 
-const StyledHeader = styled.header`
+const StyledHeader = styled.div`
+  margin: 0 1rem 0 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-const StyledHeadingContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-right: 7rem;
-`;
-
-const StyledHeading = styled.h3`
-  margin: 1rem 0 0 0;
+const StyledHeading = styled.h5`
+  margin: 0;
   padding: 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
 `;
 
-const StyledContainer = styled.div`
-  margin: 2rem;
+const StyledFieldPhoneNote = styled.p`
+  margin: 0;
+  padding: 0;
 `;
 
 const StyledInfo = styled.p`
   background-color: lightgray;
   padding: 1rem;
   border-radius: 8px;
+  font-weight: 400;
+  margin: 0;
 `;
 
 const StyledLink = styled(Link)`
-  margin: 2rem;
-  height: 1.5;
-  color: gray;
+  height: 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--detail-color);
+  font-weight: bolder;
+  font-size: 12px;
+  align-items: center;
 `;
 
 //----------------------------------------------- FUNCTION------------HERE
@@ -57,26 +64,23 @@ export default function ContactDetail() {
     <>
       <StyledHeader>
         <StyledLink href={"/contacts"}>{backSVG}</StyledLink>
-        <StyledHeadingContainer>
+        <StyledHeadingandFoto>
           <StyledHeading>{contact.name}</StyledHeading>
           <StyledImagePlaceholder />
-        </StyledHeadingContainer>
+        </StyledHeadingandFoto>
+        <StyledLink href={`/contacts/${id}/edit`}>bearbeiten</StyledLink>
       </StyledHeader>
       <StyledHR />
-      <StyledContainer>
-        <p>
-          <strong>Phone:</strong>
-        </p>
+      <StyledFieldsContainer>
+        <StyledFieldPhoneNote>Nummer:</StyledFieldPhoneNote>
         <StyledInfo>
           <strong>{contact.phone}</strong>
         </StyledInfo>
-        <p>
-          <strong>Notizen:</strong>
-        </p>
+        <StyledFieldPhoneNote>Notizen:</StyledFieldPhoneNote>
         <StyledInfo>
           <strong>{contact.note}</strong>
         </StyledInfo>
-      </StyledContainer>
+      </StyledFieldsContainer>
       <Navigation />
     </>
   );

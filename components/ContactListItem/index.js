@@ -2,11 +2,15 @@ import styled from "styled-components";
 import { StyledHR } from "../StyledHR";
 import StyledLinkSvgContainer from "../StyledLinkSvgContainer";
 import { infoSVG, callSVG } from "../assets/contactsSVG";
+import { StyledImagePlaceholder } from "../components.style";
+
 
 const StyledContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
 `;
 
 const StyledName = styled.p`
@@ -16,20 +20,17 @@ const StyledName = styled.p`
 const StyledBadgetContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 1.5rem;
+  gap: 0.5rem;
 `;
 
-export const StyledImagePlaceholder = styled.div`
-  margin: 1rem;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background-color: gray;
+const StyledListItem = styled.li`
+  margin: 0;
+  padding: 0;
 `;
 
 export default function ContactListItem({ name, id }) {
   return (
-    <li>
+    <StyledListItem>
       <StyledContainer>
         <StyledImagePlaceholder />
         <StyledName>{name}</StyledName>
@@ -39,6 +40,6 @@ export default function ContactListItem({ name, id }) {
         </StyledBadgetContainer>
       </StyledContainer>
       <StyledHR />
-    </li>
+    </StyledListItem>
   );
 }
