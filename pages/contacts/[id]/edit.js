@@ -6,8 +6,8 @@ import Navigation from "../../../components/Navigation";
 import Form from "../../../components/Form";
 import useSWR from "swr";
 import { StyledButtonsContainer } from "../../../components/components.style";
-import { confirmAlert } from "react-confirm-alert";
 //new library to make confirm delete message, styles in styles.js
+import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 const StyledSuccessMessage = styled.h5`
