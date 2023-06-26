@@ -7,6 +7,7 @@ import Form from "../../../components/Form";
 import useSWR from "swr";
 import { StyledButtonsContainer } from "../../../components/components.style";
 import { confirmAlert } from "react-confirm-alert";
+//new library to make confirm delete message, styles in styles.js
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 const StyledSuccessMessage = styled.h5`
@@ -73,7 +74,7 @@ export default function EditPage() {
     router.push("/contacts");
   }
 
-  //ConfirmAlert Bibliothek
+  //ConfirmAlert Library
 
   function submitDelete() {
     confirmAlert({
