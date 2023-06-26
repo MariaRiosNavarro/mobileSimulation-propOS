@@ -5,6 +5,9 @@ import Link from "next/link";
 import Navigation from "../../../components/Navigation";
 import Form from "../../../components/Form";
 import useSWR from "swr";
+import { StyledButtonsContainer } from "../../../components/components.style";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 const StyledSuccessMessage = styled.h5`
   text-align: center;
@@ -20,12 +23,11 @@ const StyledBackLink = styled(Link)`
 `;
 
 const StyledButton = styled.button`
-  margin-top: 2rem;
   background-color: var(--primary-color);
   border: none;
   border-radius: 8px;
   padding: 1rem;
-  width: 40%;
+  width: 20rem;
   &:hover {
     background-color: var(--hover-color);
   }
@@ -71,6 +73,24 @@ export default function EditPage() {
     router.push("/contacts");
   }
 
+  //ConfirmAlert Bibliothek
+
+  function submitDelete() {
+    confirmAlert({
+      message: "Kontakt löschen?",
+      buttons: [
+        {
+          label: "löschen",
+          onClick: () => handleDelete(),
+        },
+        {
+          label: "Abrechen",
+          //onClick: () => alert('Click No')
+        },
+      ],
+    });
+  }
+
   return (
     <>
       <StyledBackLink href={"/contacts"}>{backSVG}</StyledBackLink>
@@ -79,7 +99,9 @@ export default function EditPage() {
         formName={"edit-contact"}
         defaultData={contact}
       />
-      <StyledButton onClick={handleDelete}>loschen</StyledButton>
+      <StyledButtonsContainer>
+        <StyledButton onClick={submitDelete}>loschen</StyledButton>
+      </StyledButtonsContainer>
       <Navigation />
     </>
   );

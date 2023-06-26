@@ -5,6 +5,9 @@ import {
   StyledFieldsContainer,
 } from "../components.style";
 import Button from "../Button";
+import { StyledButtonsContainer } from "../components.style";
+
+
 //------------------------------------------STYLE
 
 const StyledInputName = styled.input`
@@ -63,9 +66,7 @@ const StyledTextareaGray = styled.textarea`
   }
 `;
 
-const StyledButtonsContainer = styled.div`
-  margin: 2rem;
-`;
+
 
 export default function Form({ onSubmit, formName, defaultData, onClick }) {
   return (
