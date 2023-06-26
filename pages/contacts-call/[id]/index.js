@@ -1,7 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { callEndSVG } from "../../../components/assets/contactsSVG";
-import { StyledImagePlaceholder } from "../../../components/ContactListItem";
-
+import { StyledImagePlaceholder } from "../../../components/components.style";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import Link from "next/link";
@@ -58,6 +57,8 @@ const StyledBigImagePlaceholder = styled(StyledImagePlaceholder)`
   width: 9rem;
   height: 9rem;
   margin: 0;
+  border: none;
+  background-color: gray;
 `;
 
 export const StyledLoading = styled.div`

@@ -1,23 +1,21 @@
 import { StyledHR } from "../StyledHR";
 import styled from "styled-components";
-
+import {
+  StyledHeadingandFoto,
+  StyledFieldsContainer,
+} from "../components.style";
+import Button from "../Button";
 //------------------------------------------STYLE
-
-const StyledHeader = styled.header`
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 2rem;
-`;
 
 const StyledInputName = styled.input`
   border: none;
+  background-color: transparent;
   border-bottom: 2px solid var(--primary-color);
   &::placeholder {
     margin-left: -0.5rem;
     text-align: center;
+    font-weight: bolder;
+    font-size: large;
   }
 `;
 
@@ -43,17 +41,10 @@ const StyledPhotoLabel = styled.label`
   }
 `;
 
-const StyledContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin: 2rem;
-`;
-
 const StyledInputGray = styled.input`
   background-color: lightgray;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   outline: none;
   padding: 0.8rem;
   &:focus {
@@ -64,23 +55,11 @@ const StyledInputGray = styled.input`
 const StyledTextareaGray = styled.textarea`
   background-color: lightgray;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   outline: none;
   padding: 0.8rem;
   &:focus {
     border-bottom: 2px solid var(--primary-color);
-  }
-`;
-
-const StyledButton = styled.button`
-  margin-top: 2rem;
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 3px;
-  padding: 1rem;
-  width: 40%;
-  &:hover {
-    background-color: var(--hover-color);
   }
 `;
 
@@ -94,14 +73,14 @@ export default function Form({ onSubmit, formName, defaultData }) {
   return (
     <>
       <form onSubmit={onSubmit} aria-labelledby={formName}>
-        <StyledHeader>
+        <StyledHeadingandFoto>
           {/* NAME INPUT */}
           <label htmlFor="name">
             <StyledInputName
               id="name"
               name="name"
               type="type"
-              placeholder="name *"
+              placeholder="Name *"
               defaultValue={defaultData?.name}
               required
             />
@@ -114,10 +93,10 @@ export default function Form({ onSubmit, formName, defaultData }) {
               defaultValue={defaultData?.photo}
             />
           </StyledPhotoLabel>
-        </StyledHeader>
+        </StyledHeadingandFoto>
 
         <StyledHR />
-        <StyledContainer>
+        <StyledFieldsContainer>
           {/* PHONE INPUT */}
           <label htmlFor="phone">Nummer:</label>
           <StyledInputGray
@@ -132,13 +111,13 @@ export default function Form({ onSubmit, formName, defaultData }) {
             id="note"
             name="note"
             type="text"
-            rows={4}
+            rows={3}
             defaultValue={defaultData?.note}
           />
           <StyledButtonContainer>
-            <StyledButton type="submit">Speichern</StyledButton>
+            <Button type="submit" name="speichern" />
           </StyledButtonContainer>
-        </StyledContainer>
+        </StyledFieldsContainer>
       </form>
     </>
   );
