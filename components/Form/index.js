@@ -91,14 +91,6 @@ const StyledButtonContainer = styled.div`
 `;
 
 export default function Form({ onSubmit, formName, defaultData }) {
-  function handleSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const contactData = Object.fromEntries(formData);
-    console.log(contactData);
-    onSubmit(contactData);
-  }
-
   return (
     <>
       <form onSubmit={onSubmit} aria-labelledby={formName}>
