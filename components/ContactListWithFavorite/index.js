@@ -3,6 +3,9 @@ import styled from "styled-components";
 import useSWR from "swr";
 import { StyledHR } from "../StyledHR";
 import { useState } from "react";
+import Tab from "../Tab";
+import Tabs from "../Tabs";
+import Badge from "../Badge";
 
 const StyledList = styled.ul`
   list-style: none;
@@ -32,13 +35,31 @@ export default function ContactListWithFavorite() {
     }
   }
 
+  function handleShowFavorite() {
+    setFilter("favorites");
+  }
+
+  function handleShowALL() {
+    setFilter("all");
+  }
+
   const favoriteContacts = data.filter((contact) =>
     favoriteContactState.includes(contact._id)
   );
   const filteredContacts = filter === "favorites" ? favoriteContacts : data;
 
+  const favoriteCount = favoriteContacts.length;
+
   return (
     <>
+      <Tabs>
+        <Tab onClick={handleShowALL} isActive={filter === "all"}>
+          <Badge isActive={filter === "all"}>{data.length}</Badge>
+        </Tab>
+        <Tab onClick={handleShowFavorite} isActive={filter === "favorites"}>
+          <Badge isActive={filter === "favorites"}>{favoriteCount}</Badge>
+        </Tab>
+      </Tabs>
       <StyledHR />
       <StyledList>
         {/* Map the contacts to render for one Contact, one Contactlistitem  */}
