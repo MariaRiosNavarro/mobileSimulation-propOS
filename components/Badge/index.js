@@ -3,7 +3,8 @@ import styled from "styled-components";
 const StyledlitleContainer = styled.span`
   display: flex;
   font-size: 12px;
-  flex-direction: row;
+  font-weight: 900;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   border-radius: 8px;
@@ -13,17 +14,17 @@ const StyledlitleContainer = styled.span`
   margin: 0;
 `;
 
-// const StyledBadgeHeading = styled.h6`
-//   margin: 0;
-//   padding: 0;
-//   font-size: 12px;
-// `;
-{
-  /* <StyledBadgeHeading>{badgeHeading}</StyledBadgeHeading> */
-}
+const StyledBadgeHeading = styled.h6`
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+`;
 
-export default function Badge({ children, isActive }) {
+export default function Badge({ children, isActive, badgeHeading }) {
   return (
-    <StyledlitleContainer isActive={isActive}>{children}</StyledlitleContainer>
+    <StyledlitleContainer isActive={isActive}>
+      <StyledBadgeHeading>{badgeHeading}</StyledBadgeHeading>
+      {children}
+    </StyledlitleContainer>
   );
 }
