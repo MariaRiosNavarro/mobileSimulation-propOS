@@ -24,3 +24,19 @@ export const StyledFieldsContainer = styled.div`
   gap: 1rem;
   margin: 2rem;
 `;
+
+
+export const StyledButtonsContainer = styled.div`
+  margin: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const StyledLoading = styled.div`
+  text-align: center;
+  align-items: center;
+  background-color: darkgray;
+  color: lightyellow;
+  font-weight: bold;
+`;

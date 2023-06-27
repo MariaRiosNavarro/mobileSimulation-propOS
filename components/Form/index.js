@@ -5,6 +5,9 @@ import {
   StyledFieldsContainer,
 } from "../components.style";
 import Button from "../Button";
+import { StyledButtonsContainer } from "../components.style";
+
+
 //------------------------------------------STYLE
 
 const StyledInputName = styled.input`
@@ -63,13 +66,9 @@ const StyledTextareaGray = styled.textarea`
   }
 `;
 
-const StyledButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
-export default function Form({ onSubmit, formName, defaultData }) {
+
+export default function Form({ onSubmit, formName, defaultData, onClick }) {
   return (
     <>
       <form onSubmit={onSubmit} aria-labelledby={formName}>
@@ -114,10 +113,10 @@ export default function Form({ onSubmit, formName, defaultData }) {
             rows={3}
             defaultValue={defaultData?.note}
           />
-          <StyledButtonContainer>
-            <Button type="submit" name="speichern" />
-          </StyledButtonContainer>
         </StyledFieldsContainer>
+        <StyledButtonsContainer>
+          <Button type="submit" name="speichern" />
+        </StyledButtonsContainer>
       </form>
     </>
   );

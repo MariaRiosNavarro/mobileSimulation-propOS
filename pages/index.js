@@ -43,7 +43,7 @@ const StyledAppHeading = styled.h5`
 const StyledWrapAppLink = styled(Link)`
   display: flex;
   flex-direction: column;
-  align-items: 48px;
+  align-items: center;
   justify-self: center;
   align-self: center;
   text-decoration: none;
