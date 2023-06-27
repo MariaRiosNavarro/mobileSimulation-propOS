@@ -1,9 +1,8 @@
 import ContactListItem from "../ContactListItem";
 import styled from "styled-components";
 import useSWR from "swr";
-
-
-
+import { StyledHR } from "../StyledHR";
+import { useState } from "react";
 
 const StyledList = styled.ul`
   list-style: none;
@@ -12,33 +11,49 @@ const StyledList = styled.ul`
   padding-left: 0;
 `;
 
+export default function ContactListWithFavorite() {
+  const { data, isLoading } = useSWR("./api/contacts", { fallbackData: [] });
+  const [favoriteContactState, setFavoriteContactState] = useState([]);
+  const [filter, setFilter] = useState("all");
 
+  if (isLoading) {
+    return <div></div>;
+  }
 
+  if (!data) {
+    return <h1>Keine Daten Gefunden</h1>;
+  }
 
-export default function ContactListWithFavorite(){
-
-    const { data, isLoading } = useSWR("./api/contacts", { fallbackData: [] });
-
-    if (isLoading) {
-      return <div></div>;
+  function handleToggleFavoriten(id) {
+    if (favoriteContactState.includes(id)) {
+      setFavoriteContactState(favoriteContactState.filter((_id) => _id !== id));
+    } else {
+      setFavoriteContactState([...favoriteContactState, id]);
     }
-  
-    if (!data) {
-      return <h1>Keine Daten Gefunden</h1>;
-    }
-  return(        
-  <StyledList>
-   
-    {/* Map the contacts to render for one Contact, one Contactlistitem  */}
-    {data.map((contact) => {
-      return (
-        <ContactListItem
-          key={contact._id}
-          id={contact._id}
-          name={contact.name}
-        />
-      );
-    })}
-  </StyledList>)
+  }
 
+  const favoriteContacts = data.filter((contact) =>
+    favoriteContactState.includes(contact._id)
+  );
+  const filteredContacts = filter === "favorites" ? favoriteContacts : data;
+
+  return (
+    <>
+      <StyledHR />
+      <StyledList>
+        {/* Map the contacts to render for one Contact, one Contactlistitem  */}
+        {filteredContacts.map((contact) => {
+          return (
+            <ContactListItem
+              key={contact._id}
+              id={contact._id}
+              name={contact.name}
+              isFavorite={favoriteContactState.includes(contact._id)}
+              toggleFavorite={handleToggleFavoriten}
+            />
+          );
+        })}
+      </StyledList>
+    </>
+  );
 }

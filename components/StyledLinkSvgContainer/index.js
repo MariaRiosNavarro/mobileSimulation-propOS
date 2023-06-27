@@ -20,7 +20,31 @@ const StyledSpan = styled.span`
   justify-content: center;
 `;
 
-export default function StyledLinkSvgContainer({ id, svg }) {
+export const StyledCircularContainer = styled.div`
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  border: 1px solid black;
+`;
+
+export default function StyledLinkSvgContainer({
+  id,
+  svg,
+  isFavorite,
+  onClick,
+}) {
+  function handleClick() {
+    if (onClick) {
+      onClick();
+    }
+  }
+
   let href = "";
   if (svg === infoSVG) {
     href = `/contacts/${id}`;
@@ -28,11 +52,15 @@ export default function StyledLinkSvgContainer({ id, svg }) {
     href = `/contacts-call/${id}`;
   } else if (svg === addSVG) {
     href = `/create`;
+  } else {
+    href = ``;
   }
 
   return (
-    <StyledLink href={href}>
-      <StyledSpan>{svg}</StyledSpan>
-    </StyledLink>
+    <StyledCircularContainer onClick={handleClick} isFavorite={isFavorite}>
+      <StyledLink href={href}>
+        <StyledSpan>{svg}</StyledSpan>
+      </StyledLink>
+    </StyledCircularContainer>
   );
 }
