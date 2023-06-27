@@ -1,12 +1,10 @@
 import Heading from "../components/Heading";
-import ContactListItem from "../components/ContactListItem";
 import styled from "styled-components";
 import { StyledHR } from "../components/StyledHR";
 import { addSVG } from "../components/assets/contactsSVG";
-import useSWR from "swr";
 import Navigation from "../components/Navigation";
 import StyledLinkSvgContainer from "../components/StyledLinkSvgContainer";
-
+import ContactListWithFavorite from "../components/ContactListWithFavorite";
 // -----------------------------------STYLE
 
 const BigStyledLinkSvgContainer = styled(StyledLinkSvgContainer)`
@@ -14,12 +12,6 @@ const BigStyledLinkSvgContainer = styled(StyledLinkSvgContainer)`
   width: 34px;
 `;
 
-const StyledList = styled.ul`
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  padding-left: 0;
-`;
 
 const StyledHeader = styled.header`
   display: flex;
@@ -33,6 +25,8 @@ const StyledBodyContainer = styled.body`
   position: relative;
   min-height: 100vh;
 `;
+
+const StyledContentContainer = styled.div``;
 
 //This StyledMain removes the standard schrollin-bar above the navigation,
 // making it not look like a mobile
@@ -51,19 +45,8 @@ const StyledMain = styled.main`
 
 //----------------------------------------------- FUNCTION------------HERE
 
-let href = "/create";
 
 export default function Contacts() {
-  const { data, isLoading } = useSWR("/api/contacts", { fallbackData: [] });
-
-  if (isLoading) {
-    return <div></div>;
-  }
-
-  if (!data) {
-    return <h1>Keine Daten Gefunden</h1>;
-  }
-
   return (
     <StyledBodyContainer>
       <StyledMain>
@@ -71,20 +54,9 @@ export default function Contacts() {
           <Heading>Kontakte</Heading>
           <BigStyledLinkSvgContainer svg={addSVG} />
         </StyledHeader>
-
-        <StyledList>
-          <StyledHR />
-          {/* Map the contacts to render for one Contact, one Contactlistitem  */}
-          {data.map((contact) => {
-            return (
-              <ContactListItem
-                key={contact._id}
-                id={contact._id}
-                name={contact.name}
-              />
-            );
-          })}
-        </StyledList>
+        <StyledContentContainer>
+          <ContactListWithFavorite />
+        </StyledContentContainer>
       </StyledMain>
       <Navigation />
     </StyledBodyContainer>
