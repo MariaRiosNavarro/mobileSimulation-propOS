@@ -3,7 +3,9 @@ import styled from "styled-components";
 const StyledTabsContainer = styled.div`
   width: 100%;
   display: flex;
-  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
 `;
 
 export default function Tabs({ children }) {

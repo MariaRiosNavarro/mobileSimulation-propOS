@@ -2,19 +2,28 @@ import styled from "styled-components";
 
 const StyledlitleContainer = styled.span`
   display: inline-block;
-  font-size: 12px;
-  padding: 0.2rem;
+  font-size: 10px;
   border-radius: 8px;
   background-color: "lightyellow";
   color: black;
   font-weight: 400;
-  &.badge--active {
+  padding: 0;
+  margin: 0;
+  /* &.badge--active {
     background-color: var(--primary-color);
-  }
+  } */
 `;
 
-export default function Badge({ children, isActive }) {
+const StyledBadgeHeading = styled.h6`
+  margin: 0;
+  padding: 0;
+`;
+
+export default function Badge({ children, isActive, badgeHeading }) {
   return (
-    <StyledlitleContainer isActive={isActive}>{children}</StyledlitleContainer>
+    <StyledlitleContainer isActive={isActive}>
+      <StyledBadgeHeading>{badgeHeading}</StyledBadgeHeading>
+      {children}
+    </StyledlitleContainer>
   );
 }

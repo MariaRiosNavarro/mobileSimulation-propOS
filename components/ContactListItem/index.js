@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { StyledHR } from "../StyledHR";
 import StyledLinkSvgContainer from "../StyledLinkSvgContainer";
 import { infoSVG, callSVG, starSVG, starFillSVG } from "../assets/contactsSVG";
 import { StyledImagePlaceholder } from "../components.style";
@@ -25,6 +24,7 @@ const StyledBadgetContainer = styled.div`
 const StyledListItem = styled.li`
   margin: 0;
   padding: 0;
+  border-bottom: 1px solid lightgray;
 `;
 
 export default function ContactListItem({
@@ -48,7 +48,6 @@ export default function ContactListItem({
           <StyledLinkSvgContainer svg={infoSVG} id={id} />
         </StyledBadgetContainer>
       </StyledContainer>
-      <StyledHR />
     </StyledListItem>
   );
 }

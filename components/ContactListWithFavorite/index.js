@@ -1,7 +1,6 @@
 import ContactListItem from "../ContactListItem";
 import styled from "styled-components";
 import useSWR from "swr";
-import { StyledHR } from "../StyledHR";
 import { useState } from "react";
 import Tab from "../Tab";
 import Tabs from "../Tabs";
@@ -54,13 +53,16 @@ export default function ContactListWithFavorite() {
     <>
       <Tabs>
         <Tab onClick={handleShowALL} isActive={filter === "all"}>
-          <Badge isActive={filter === "all"}>{data.length}</Badge>
+          <Badge isActive={filter === "all"} badgeHeading="Kontakte">
+            {data.length}
+          </Badge>
         </Tab>
         <Tab onClick={handleShowFavorite} isActive={filter === "favorites"}>
-          <Badge isActive={filter === "favorites"}>{favoriteCount}</Badge>
+          <Badge isActive={filter === "favorites"} badgeHeading="Favoriten">
+            {favoriteCount}
+          </Badge>
         </Tab>
       </Tabs>
-      <StyledHR />
       <StyledList>
         {/* Map the contacts to render for one Contact, one Contactlistitem  */}
         {filteredContacts.map((contact) => {

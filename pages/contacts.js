@@ -1,6 +1,6 @@
 import Heading from "../components/Heading";
 import styled from "styled-components";
-import { StyledHR } from "../components/StyledHR";
+
 import { addSVG } from "../components/assets/contactsSVG";
 import Navigation from "../components/Navigation";
 import StyledLinkSvgContainer from "../components/StyledLinkSvgContainer";
@@ -19,6 +19,7 @@ const StyledHeader = styled.header`
   align-items: center;
   padding-left: 2rem;
   padding-right: 2rem;
+  border-bottom: 1px solid lightgray;
 `;
 
 const StyledBodyContainer = styled.body`

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { backSVG, editSVG } from "../../../components/assets/contactsSVG";
-import { StyledHR } from "../../../components/StyledHR";
+
 import { StyledImagePlaceholder } from "../../../components/components.style";
 import useSWR from "swr";
 import Link from "next/link";
@@ -17,6 +17,7 @@ const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid lightgray;
 `;
 
 const StyledHeading = styled.h5`
@@ -70,7 +71,7 @@ export default function ContactDetail() {
         </StyledHeadingandFoto>
         <StyledLink href={`/contacts/${id}/edit`}>{editSVG}</StyledLink>
       </StyledHeader>
-      <StyledHR />
+      
       <StyledFieldsContainer>
         <StyledFieldPhoneNote>Nummer:</StyledFieldPhoneNote>
         <StyledInfo>

@@ -1,4 +1,3 @@
-import { StyledHR } from "../StyledHR";
 import styled from "styled-components";
 import {
   StyledHeadingandFoto,
@@ -6,7 +5,6 @@ import {
 } from "../components.style";
 import Button from "../Button";
 import { StyledButtonsContainer } from "../components.style";
-
 
 //------------------------------------------STYLE
 
@@ -66,8 +64,6 @@ const StyledTextareaGray = styled.textarea`
   }
 `;
 
-
-
 export default function Form({ onSubmit, formName, defaultData, onClick }) {
   return (
     <>
@@ -94,7 +90,6 @@ export default function Form({ onSubmit, formName, defaultData, onClick }) {
           </StyledPhotoLabel>
         </StyledHeadingandFoto>
 
-        <StyledHR />
         <StyledFieldsContainer>
           {/* PHONE INPUT */}
           <label htmlFor="phone">Nummer:</label>
