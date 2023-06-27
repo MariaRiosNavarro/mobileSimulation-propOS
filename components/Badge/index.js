@@ -13,17 +13,17 @@ const StyledlitleContainer = styled.span`
   margin: 0;
 `;
 
-const StyledBadgeHeading = styled.h6`
-  margin: 0;
-  padding: 0;
-  font-size: 12px;
-`;
+// const StyledBadgeHeading = styled.h6`
+//   margin: 0;
+//   padding: 0;
+//   font-size: 12px;
+// `;
+{
+  /* <StyledBadgeHeading>{badgeHeading}</StyledBadgeHeading> */
+}
 
-export default function Badge({ children, isActive, badgeHeading }) {
+export default function Badge({ children, isActive }) {
   return (
-    <StyledlitleContainer isActive={isActive}>
-      <StyledBadgeHeading>{badgeHeading}</StyledBadgeHeading>
-      {children}
-    </StyledlitleContainer>
+    <StyledlitleContainer isActive={isActive}>{children}</StyledlitleContainer>
   );
 }

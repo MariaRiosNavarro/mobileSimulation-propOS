@@ -15,12 +15,12 @@ const StyledList = styled.ul`
 `;
 
 export default function ContactListWithFavorite() {
-  const { data, isLoading } = useSWR("./api/contacts", { fallbackData: [] });
+  const { data, isLoading } = useSWR("./api/contacts");
   const [favoriteContactState, setFavoriteContactState] = useState([]);
   const [filter, setFilter] = useState("all");
 
   if (isLoading) {
-    return <div></div>;
+    return <div>Loading</div>;
   }
 
   if (!data) {
@@ -54,18 +54,13 @@ export default function ContactListWithFavorite() {
     <>
       <Tabs>
         <Tab onClick={handleShowALL} isActive={filter === "all"}>
-          <Badge isActive={filter === "all"} badgeHeading="Kontakte">
-            {data.length}
-          </Badge>
+          <Badge isActive={filter === "all"}>{data.length}</Badge>
         </Tab>
         <Tab onClick={handleShowFavorite} isActive={filter === "favorites"}>
-          <Badge isActive={filter === "favorites"} badgeHeading="Favoriten">
-            {favoriteCount}
-          </Badge>
+          <Badge isActive={filter === "favorites"}>{favoriteCount}</Badge>
         </Tab>
       </Tabs>
       <StyledList>
-        {/* Map the contacts to render for one Contact, one Contactlistitem  */}
         {filteredContacts.map((contact) => {
           return (
             <ContactListItem
