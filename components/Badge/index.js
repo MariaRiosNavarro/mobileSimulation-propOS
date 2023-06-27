@@ -1,22 +1,22 @@
 import styled from "styled-components";
 
 const StyledlitleContainer = styled.span`
-  display: inline-block;
-  font-size: 10px;
+  display: flex;
+  font-size: 12px;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   border-radius: 8px;
-  background-color: "lightyellow";
   color: black;
   font-weight: 400;
-  padding: 0;
+  padding: 0 0.7rem 0 0.7rem;
   margin: 0;
-  /* &.badge--active {
-    background-color: var(--primary-color);
-  } */
 `;
 
 const StyledBadgeHeading = styled.h6`
   margin: 0;
   padding: 0;
+  font-size: 12px;
 `;
 
 export default function Badge({ children, isActive, badgeHeading }) {

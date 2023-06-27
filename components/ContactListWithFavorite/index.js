@@ -11,6 +11,7 @@ const StyledList = styled.ul`
   display: flex;
   flex-direction: column;
   padding-left: 0;
+  margin-top: 0;
 `;
 
 export default function ContactListWithFavorite() {

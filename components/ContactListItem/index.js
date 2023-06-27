@@ -39,13 +39,13 @@ export default function ContactListItem({
         <StyledImagePlaceholder />
         <StyledName>{name}</StyledName>
         <StyledBadgetContainer>
-          <StyledLinkSvgContainer svg={callSVG} id={id} />
+          <StyledLinkSvgContainer StyledSvg={callSVG} id={id} />
           <StyledLinkSvgContainer
-            svg={isFavorite ? starFillSVG : starSVG}
+            StyledSvg={isFavorite ? starFillSVG : starSVG}
             isFavorite={isFavorite}
             onClick={() => toggleFavorite(id)}
           />
-          <StyledLinkSvgContainer svg={infoSVG} id={id} />
+          <StyledLinkSvgContainer StyledSvg={infoSVG} id={id} />
         </StyledBadgetContainer>
       </StyledContainer>
     </StyledListItem>

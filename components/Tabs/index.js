@@ -5,7 +5,7 @@ const StyledTabsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid lightgrey;
 `;
 
 export default function Tabs({ children }) {

@@ -33,9 +33,17 @@ export const StyledCircularContainer = styled.div`
   border: 1px solid black;
 `;
 
+const StyledSvg = styled.svg`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export default function StyledLinkSvgContainer({
   id,
-  svg,
+  StyledSvg,
   isFavorite,
   onClick,
 }) {
@@ -46,11 +54,11 @@ export default function StyledLinkSvgContainer({
   }
 
   let href = "";
-  if (svg === infoSVG) {
+  if (StyledSvg === infoSVG) {
     href = `/contacts/${id}`;
-  } else if (svg === callSVG) {
+  } else if (StyledSvg === callSVG) {
     href = `/contacts-call/${id}`;
-  } else if (svg === addSVG) {
+  } else if (StyledSvg === addSVG) {
     href = `/create`;
   } else {
     href = ``;
@@ -59,7 +67,7 @@ export default function StyledLinkSvgContainer({
   return (
     <StyledCircularContainer onClick={handleClick} isFavorite={isFavorite}>
       <StyledLink href={href}>
-        <StyledSpan>{svg}</StyledSpan>
+        <StyledSpan>{StyledSvg}</StyledSpan>
       </StyledLink>
     </StyledCircularContainer>
   );

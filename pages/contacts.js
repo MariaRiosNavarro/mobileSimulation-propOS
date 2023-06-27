@@ -12,14 +12,12 @@ const BigStyledLinkSvgContainer = styled(StyledLinkSvgContainer)`
   width: 34px;
 `;
 
-
 const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: 2rem;
   padding-right: 2rem;
-  border-bottom: 1px solid lightgray;
 `;
 
 const StyledBodyContainer = styled.body`
@@ -46,14 +44,13 @@ const StyledMain = styled.main`
 
 //----------------------------------------------- FUNCTION------------HERE
 
-
 export default function Contacts() {
   return (
     <StyledBodyContainer>
       <StyledMain>
         <StyledHeader>
           <Heading>Kontakte</Heading>
-          <BigStyledLinkSvgContainer svg={addSVG} />
+          <BigStyledLinkSvgContainer StyledSvg={addSVG} />
         </StyledHeader>
         <StyledContentContainer>
           <ContactListWithFavorite />
