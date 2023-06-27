@@ -20,7 +20,7 @@ const StyledHeader = styled.header`
   padding-right: 2rem;
 `;
 
-const StyledBodyContainer = styled.body`
+const StyledBodyContainer = styled.div`
   position: relative;
   min-height: 100vh;
 `;
