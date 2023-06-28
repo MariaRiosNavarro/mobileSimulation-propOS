@@ -31,6 +31,14 @@ const StyledAplicationContainer = styled.div`
   }};
 `;
 
+
+
+
+
+
+
+
+
 export default function Layout({ children }) {
   const { theme } = useContext(ThemeContext);
   return (

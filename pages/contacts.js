@@ -1,24 +1,25 @@
-import Heading from "../components/Heading";
+// import Heading from "../components/Heading";
 import styled from "styled-components";
 
 import { addSVG } from "../components/assets/contactsSVG";
 import Navigation from "../components/Navigation";
-import StyledLinkSvgContainer from "../components/StyledLinkSvgContainer";
+
 import ContactListWithFavorite from "../components/ContactListWithFavorite";
+import AppsHeader from "../components/Appsheader";
 // -----------------------------------STYLE
 
-const BigStyledLinkSvgContainer = styled(StyledLinkSvgContainer)`
-  height: 34px;
-  width: 34px;
-`;
+// const BigStyledLinkSvgContainer = styled(StyledLinkSvgContainer)`
+//   height: 34px;
+//   width: 34px;
+// `;
 
-const StyledHeader = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
-`;
+// const StyledHeader = styled.header`
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding-left: 2rem;
+//   padding-right: 2rem;
+// `;
 
 const StyledBodyContainer = styled.div`
   position: relative;
@@ -48,10 +49,7 @@ export default function Contacts() {
   return (
     <StyledBodyContainer>
       <StyledMain>
-        <StyledHeader>
-          <Heading>Kontakte</Heading>
-          <BigStyledLinkSvgContainer StyledSvg={addSVG} />
-        </StyledHeader>
+        <AppsHeader StyledSvg={addSVG} heading="Kontakte" />
         <StyledContentContainer>
           <ContactListWithFavorite />
         </StyledContentContainer>
