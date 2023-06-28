@@ -41,3 +41,8 @@ export const StyledLoading = styled.div`
   color: lightyellow;
   font-weight: bold;
 `;
+
+export const StyledAppBodyContainer = styled.div`
+position: relative;
+min-height: 100vh;
+`;

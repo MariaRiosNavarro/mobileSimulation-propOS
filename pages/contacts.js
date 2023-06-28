@@ -1,30 +1,10 @@
 // import Heading from "../components/Heading";
 import styled from "styled-components";
-
+import { StyledAppBodyContainer } from "../components/components.style";
 import { addSVG } from "../components/assets/contactsSVG";
 import Navigation from "../components/Navigation";
-
 import ContactListWithFavorite from "../components/ContactListWithFavorite";
 import AppsHeader from "../components/Appsheader";
-// -----------------------------------STYLE
-
-// const BigStyledLinkSvgContainer = styled(StyledLinkSvgContainer)`
-//   height: 34px;
-//   width: 34px;
-// `;
-
-// const StyledHeader = styled.header`
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   padding-left: 2rem;
-//   padding-right: 2rem;
-// `;
-
-const StyledBodyContainer = styled.div`
-  position: relative;
-  min-height: 100vh;
-`;
 
 const StyledContentContainer = styled.div``;
 
@@ -47,7 +27,7 @@ const StyledMain = styled.main`
 
 export default function Contacts() {
   return (
-    <StyledBodyContainer>
+    <StyledAppBodyContainer>
       <StyledMain>
         <AppsHeader StyledSvg={addSVG} heading="Kontakte" />
         <StyledContentContainer>
@@ -55,6 +35,6 @@ export default function Contacts() {
         </StyledContentContainer>
       </StyledMain>
       <Navigation />
-    </StyledBodyContainer>
+    </StyledAppBodyContainer>
   );
 }
