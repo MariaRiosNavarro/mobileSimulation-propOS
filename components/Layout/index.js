@@ -31,13 +31,25 @@ const StyledAplicationContainer = styled.div`
   }};
 `;
 
+//Add more Styles that we can change with ours theme
 
-
-
-
-
-
-
+export const StyledSvgContainer = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  width: 48px;
+  border-radius: 12px;
+  background-color: ${(props) => {
+    if (props.disabled) {
+      return "lightGray";
+    } else if (props.selected) {
+      return "#f86f03";
+    } else {
+      return "#ffcb7d";
+    }
+  }};
+`;
 
 export default function Layout({ children }) {
   const { theme } = useContext(ThemeContext);
