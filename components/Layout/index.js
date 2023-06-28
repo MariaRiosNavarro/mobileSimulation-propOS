@@ -148,7 +148,15 @@ export const StyledlitleTabContainer = styled.span`
 
 export const StyledInputName = styled.input`
   border: none;
-  background-color: transparent;
+  background-color: ${(props) => {
+    if (props.theme === "light") {
+      return "transparent";
+    } else if (props.theme === "dark") {
+      return "#ffeacc";
+    } else {
+      return "transparent";
+    }
+  }};
   border-bottom: 2px solid var(--primary-color);
   &::placeholder {
     margin-left: -0.5rem;

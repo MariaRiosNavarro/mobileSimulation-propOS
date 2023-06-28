@@ -4,12 +4,9 @@ import { backSVG } from "../components/assets/contactsSVG";
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import Form from "../components/Form";
+import { StyledAppBodyContainer, StyledBackLink } from "../components/components.style";
 
-const StyledBackLink = styled(Link)`
-  position: relative;
-  top: 2rem;
-  left: 2rem;
-`;
+
 
 const StyledSuccessMessage = styled.h5`
   text-align: center;
@@ -17,10 +14,6 @@ const StyledSuccessMessage = styled.h5`
   padding: 1rem;
   margin: 4rem;
   border-radius: 8px;
-`;
-
-const Grupper = styled.div`
-  height: 100%;
 `;
 
 //----------------------------------------------- FUNCTION------------HERE
@@ -49,13 +42,13 @@ export default function CreateContact() {
   }
 
   return (
-    <Grupper>
+    <StyledAppBodyContainer>
       <StyledBackLink href={"/contacts"}>{backSVG}</StyledBackLink>
       <Form onSubmit={handleSubmit} formName={"add-contact"} />
       {showSuccessMessageState && (
         <StyledSuccessMessage>Kontakte gespeichert</StyledSuccessMessage>
       )}
       <Navigation />
-    </Grupper>
+    </StyledAppBodyContainer>
   );
 }

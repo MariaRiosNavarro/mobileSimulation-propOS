@@ -5,10 +5,14 @@ import Link from "next/link";
 import Navigation from "../../../components/Navigation";
 import Form from "../../../components/Form";
 import useSWR from "swr";
-import { StyledButtonsContainer } from "../../../components/components.style";
+import {
+  StyledButtonsContainer,
+  StyledAppBodyContainer,
+} from "../../../components/components.style";
 //new library to make confirm delete message, styles in styles.js
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import { StyledBackLink } from "../../../components/components.style";
 
 const StyledSuccessMessage = styled.h5`
   text-align: center;
@@ -18,10 +22,7 @@ const StyledSuccessMessage = styled.h5`
   border-radius: 8px;
 `;
 
-const StyledBackLink = styled(Link)`
-  position: absolute;
-  margin-left: 2rem;
-`;
+
 
 const StyledButton = styled.button`
   background-color: var(--primary-color);
@@ -94,16 +95,18 @@ export default function EditPage() {
 
   return (
     <>
-      <StyledBackLink href={"/contacts"}>{backSVG}</StyledBackLink>
-      <Form
-        onSubmit={handleEdit}
-        formName={"edit-contact"}
-        defaultData={contact}
-      />
-      <StyledButtonsContainer>
-        <StyledButton onClick={submitDelete}>loschen</StyledButton>
-      </StyledButtonsContainer>
-      <Navigation />
+      <StyledAppBodyContainer>
+        <StyledBackLink href={"/contacts"}>{backSVG}</StyledBackLink>
+        <Form
+          onSubmit={handleEdit}
+          formName={"edit-contact"}
+          defaultData={contact}
+        />
+        <StyledButtonsContainer>
+          <StyledButton onClick={submitDelete}>loschen</StyledButton>
+        </StyledButtonsContainer>
+        <Navigation />
+      </StyledAppBodyContainer>
     </>
   );
 }
