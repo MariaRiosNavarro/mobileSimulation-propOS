@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { StyledSvgContainer } from "../Layout";
+import { ThemeContext } from "../../pages/_app";
+import { useContext } from "react";
 
 const StyledSvg = styled.svg`
   color: black;
@@ -8,9 +10,10 @@ const StyledSvg = styled.svg`
 `;
 
 export default function StyledAppContainer({ StyledSvg, selected, disabled }) {
+  const { theme } = useContext(ThemeContext);
   return (
     <>
-      <StyledSvgContainer selected={selected} disabled={disabled}>
+      <StyledSvgContainer selected={selected} disabled={disabled} theme={theme}>
         {StyledSvg}
       </StyledSvgContainer>
     </>

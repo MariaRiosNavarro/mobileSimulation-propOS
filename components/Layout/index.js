@@ -39,17 +39,59 @@ export const StyledSvgContainer = styled.span`
   align-items: center;
   height: 48px;
   width: 48px;
-  border-radius: 12px;
   background-color: ${(props) => {
-    if (props.disabled) {
-      return "lightGray";
-    } else if (props.selected) {
-      return "#f86f03";
+    if (props.disabled && props.theme === "light") {
+      return "#bbaf98";
+    } else if (props.disabled && props.theme === "dark") {
+      return "#9f9fb4";
+    } else if (props.selected && props.theme === "light") {
+      return "#FFA41B";
+    } else if (!props.selected && props.theme === "light") {
+      return " #ffcb7d ";
+    } else if (props.selected && props.theme === "dark") {
+      return "#a2afe5";
+    } else if (!props.selected && props.theme === "dark") {
+      return "#6479d4";
     } else {
-      return "#ffcb7d";
+      return "transparent";
     }
   }};
+
+  border: ${(props) => {
+    if (props.theme === "custom") {
+      return "1px solid orange";
+    }
+  }};
+
+  outline: ${(props) => {
+    if (props.theme === "custom") {
+      return "1px solid #ffeacc";
+    }
+  }};
+
+  color: ${(props) => {
+    if (props.theme === "light") {
+      return "black";
+    } else if (props.theme === "dark") {
+      return "#ffeacc";
+    } else {
+      return "black";
+    }
+  }};
+
+  border-radius: 5px;
 `;
+
+
+
+
+
+
+
+
+
+
+
 
 export default function Layout({ children }) {
   const { theme } = useContext(ThemeContext);
