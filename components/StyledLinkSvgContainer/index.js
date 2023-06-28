@@ -1,6 +1,9 @@
 import Link from "next/link";
 import styled from "styled-components";
 import { callSVG, infoSVG, addSVG } from "../assets/contactsSVG";
+import { StyledCircularContainer } from "../Layout";
+import { ThemeContext } from "../../pages/_app";
+import { useContext } from "react";
 
 const StyledLink = styled(Link)`
   height: 20px;
@@ -20,27 +23,6 @@ const StyledSpan = styled.span`
   justify-content: center;
 `;
 
-export const StyledCircularContainer = styled.div`
-  height: 25px;
-  width: 25px;
-  border-radius: 50%;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-  //Code dont work, i will be check in other US
-  /* border:${(props) => {
-    if(props.StyledSvg === "") {
-       return "none";
-      } else {
-        return "1px solid black";
-      }
-    }}; */
-   
-`;
-
 const StyledSvg = styled.svg`
   margin: 0;
   padding: 0;
@@ -55,6 +37,8 @@ export default function StyledLinkSvgContainer({
   isFavorite,
   onClick,
 }) {
+  const { theme } = useContext(ThemeContext);
+  
   function handleClick() {
     if (onClick) {
       onClick();
@@ -73,7 +57,11 @@ export default function StyledLinkSvgContainer({
   }
 
   return (
-    <StyledCircularContainer onClick={handleClick} isFavorite={isFavorite}>
+    <StyledCircularContainer
+      onClick={handleClick}
+      isFavorite={isFavorite}
+      theme={theme}
+    >
       <StyledLink href={href}>
         <StyledSpan>{StyledSvg}</StyledSpan>
       </StyledLink>

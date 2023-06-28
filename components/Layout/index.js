@@ -82,7 +82,6 @@ export const StyledSvgContainer = styled.span`
   border-radius: 5px;
 `;
 
-
 //Apps headings in Home are in DarkMode Black, here will be change it:
 
 export const StyledAppHeading = styled.h5`
@@ -98,12 +97,27 @@ export const StyledAppHeading = styled.h5`
   }};
 `;
 
+//Little buttons in Contacts
 
-
-
-
-
-
+export const StyledCircularContainer = styled.span`
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: ${(props) => {
+    if (props.theme === "light") {
+      return "transparent";
+    } else if (props.theme === "dark") {
+      return "#a2afe5";
+    } else {
+      return "transparent";
+    }
+  }};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+`;
 
 export default function Layout({ children }) {
   const { theme } = useContext(ThemeContext);
