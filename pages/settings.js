@@ -41,7 +41,7 @@ export default function SettingsPage() {
           {theme === "dark" ? "Aktiviert" : "Aktivieren"}
         </StyledLabel>
       </StyledButtonContainer>
-      <Navigation />
+      <Navigation selected={"settings"} />
     </>
   );
 }
