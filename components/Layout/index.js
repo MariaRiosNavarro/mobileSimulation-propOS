@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { ThemeContext } from "styled-components";
+import { ThemeContext } from "../../pages/_app";
 
 //This will be the general container that will give the style to the app,
 // and through it we will be able to change its appearance.

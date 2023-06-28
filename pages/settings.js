@@ -1,8 +1,9 @@
 //i will use useContext and ThemeContext in _app and Layout to handle the apparence change of the APP
 import { useContext } from "react";
-import { ThemeContext } from "styled-components";
+import { ThemeContext } from "../pages/_app";
 import Navigation from "../components/Navigation";
 import styled from "styled-components";
+import Layout from "../components/Layout";
 
 const StyledBiGlHeading = styled.h3``;
 const StyledSmallHeading = styled.h5``;
@@ -13,7 +14,9 @@ const StyledLabel = styled.label``;
 export default function SettingsPage() {
   const { theme, setTheme } = useContext(ThemeContext);
 
-  function handleThemeChange(selectedTheme) {}
+  function handleThemeChange(selectedTheme) {
+    setTheme(selectedTheme);
+  }
 
   return (
     <>
@@ -22,12 +25,20 @@ export default function SettingsPage() {
       <StyledButtonContainer>
         <StyledLabel>
           Hell
-          <StyledButton onClick={() => handleThemeChange("light")} />
+          <StyledButton
+            onClick={() => handleThemeChange("light")}
+            disabled={theme === "light"}
+          />
+          {theme === "light" ? "Aktiviert" : "Aktivieren"}
         </StyledLabel>
       </StyledButtonContainer>
       <StyledButtonContainer>
         <StyledLabel>
-          <StyledButton onClick={() => handleThemeChange("dark")} />
+          <StyledButton
+            onClick={() => handleThemeChange("dark")}
+            disabled={theme === "dark"}
+          />
+          {theme === "dark" ? "Aktiviert" : "Aktivieren"}
         </StyledLabel>
       </StyledButtonContainer>
       <Navigation />

@@ -41,7 +41,7 @@ export default function Navigation({ selected }) {
           selected={selected === "message"}
         />
       </Link>
-      <Link href={"/"}>
+      <Link href={"/settings"}>
         <StyledAppContainer
           StyledSvg={settingsSVG}
           selected={selected === "settings"}
