@@ -119,6 +119,33 @@ export const StyledCircularContainer = styled.span`
   margin: 0;
 `;
 
+//Badge at the Contacts are to dark in dark mode
+
+export const StyledlitleTabContainer = styled.span`
+  display: flex;
+  font-size: 12px;
+  font-weight: 900;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 8px 8px 0 0;
+  color: black;
+  font-weight: 400;
+  padding: 0.7rem;
+  margin: 0;
+  background-color: ${(props) => {
+    if (props.theme === "light") {
+      return "transparent";
+    } else if (props.theme === "dark") {
+      return "#a2afe5";
+    } else {
+      return "transparent";
+    }
+  }};
+`;
+
+
+
 export default function Layout({ children }) {
   const { theme } = useContext(ThemeContext);
   return (
