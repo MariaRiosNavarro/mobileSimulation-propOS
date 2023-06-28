@@ -21,6 +21,10 @@ import {
   trainSVG,
 } from "../components/assets/homeSVG";
 
+import { ThemeContext } from "./_app";
+import { useContext } from "react";
+import { StyledAppHeading } from "../components/Layout";
+
 const StyledMain = styled.main`
   padding-top: 1rem;
   width: 100%;
@@ -35,11 +39,6 @@ const StyledMain = styled.main`
   height: 92vh;
 `;
 
-const StyledAppHeading = styled.h5`
-  font-size: 10px;
-  color: black;
-`;
-
 const StyledWrapAppLink = styled(Link)`
   display: flex;
   flex-direction: column;
@@ -51,72 +50,73 @@ const StyledWrapAppLink = styled(Link)`
 //----------------------------------------------- FUNCTION------------HERE
 
 export default function Home() {
+  const { theme } = useContext(ThemeContext);
   return (
     <>
       <StyledMain>
         <StyledWrapAppLink href={"/"}>
           <StyledAppContainer StyledSvg={calenderSVG} disabled />
-          <StyledAppHeading>Kalender</StyledAppHeading>
+          <StyledAppHeading theme={theme}>Kalender</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
           <StyledAppContainer StyledSvg={beachSVG} disabled />
-          <StyledAppHeading>Wetter</StyledAppHeading>
+          <StyledAppHeading theme={theme}>Wetter</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
           <StyledAppContainer StyledSvg={alarmSVG} disabled />
-          <StyledAppHeading>Uhr</StyledAppHeading>
+          <StyledAppHeading theme={theme}>Uhr</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
           <StyledAppContainer StyledSvg={musicSVG} disabled />
-          <StyledAppHeading>Audio</StyledAppHeading>
+          <StyledAppHeading theme={theme}>Audio</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
           <StyledAppContainer StyledSvg={sportSVG} disabled />
-          <StyledAppHeading>Spiele</StyledAppHeading>
+          <StyledAppHeading theme={theme}>Spiele</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
           <StyledAppContainer StyledSvg={roundaboutSVG} disabled />
-          <StyledAppHeading>Navigation</StyledAppHeading>
+          <StyledAppHeading theme={theme}>Navigation</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
           <StyledAppContainer StyledSvg={trainSVG} disabled />
-          <StyledAppHeading>Transport</StyledAppHeading>
+          <StyledAppHeading theme={theme}>Transport</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
           <StyledAppContainer StyledSvg={shoppingSVG} disabled />
-          <StyledAppHeading>Einkaufen</StyledAppHeading>
+          <StyledAppHeading theme={theme}>Einkaufen</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
           <StyledAppContainer StyledSvg={cameraSVG} disabled />
-          <StyledAppHeading>Sozial Media</StyledAppHeading>
+          <StyledAppHeading theme={theme}>Sozial Media</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
           <StyledAppContainer StyledSvg={questionSVG} disabled />
-          <StyledAppHeading>Chats</StyledAppHeading>
+          <StyledAppHeading theme={theme}>Chats</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
           <StyledAppContainer StyledSvg={checkSVG} disabled />
-          <StyledAppHeading>ToDo</StyledAppHeading>
+          <StyledAppHeading theme={theme}>ToDo</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
           <StyledAppContainer StyledSvg={languageSVG} disabled />
-          <StyledAppHeading>Internet</StyledAppHeading>
+          <StyledAppHeading theme={theme}>Internet</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
           <StyledAppContainer StyledSvg={lensSVG} disabled />
-          <StyledAppHeading>Galerie</StyledAppHeading>
+          <StyledAppHeading theme={theme}>Galerie</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
           <StyledAppContainer StyledSvg={photoCamSVG} disabled />
-          <StyledAppHeading>Kamera</StyledAppHeading>
+          <StyledAppHeading theme={theme}>Kamera</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
           <StyledAppContainer StyledSvg={mailSVG} disabled />
-          <StyledAppHeading>Mail</StyledAppHeading>
+          <StyledAppHeading theme={theme}>Mail</StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/contacts"}>
           <StyledAppContainer StyledSvg={permContactSVG} />
-          <StyledAppHeading>Kontakte</StyledAppHeading>
+          <StyledAppHeading theme={theme}>Kontakte</StyledAppHeading>
         </StyledWrapAppLink>
       </StyledMain>
       <Navigation selected={"home"} />

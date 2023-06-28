@@ -83,8 +83,20 @@ export const StyledSvgContainer = styled.span`
 `;
 
 
+//Apps headings in Home are in DarkMode Black, here will be change it:
 
-
+export const StyledAppHeading = styled.h5`
+  font-size: 10px;
+  color: ${(props) => {
+    if (props.theme === "light") {
+      return "black";
+    } else if (props.theme === "dark") {
+      return "#ffeacc";
+    } else {
+      return "black";
+    }
+  }};
+`;
 
 
 
