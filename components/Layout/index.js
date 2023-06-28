@@ -144,7 +144,28 @@ export const StyledlitleTabContainer = styled.span`
   }};
 `;
 
+//placeholder in input name darkmode
 
+export const StyledInputName = styled.input`
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid var(--primary-color);
+  &::placeholder {
+    margin-left: -0.5rem;
+    text-align: center;
+    font-weight: bolder;
+    font-size: large;
+    color: ${(props) => {
+      if (props.theme === "light") {
+        return "black";
+      } else if (props.theme === "dark") {
+        return "#ffeacc";
+      } else {
+        return "black";
+      }
+    }};
+  }
+`;
 
 export default function Layout({ children }) {
   const { theme } = useContext(ThemeContext);
