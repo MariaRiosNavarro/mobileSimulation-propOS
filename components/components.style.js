@@ -42,7 +42,27 @@ export const StyledLoading = styled.div`
   font-weight: bold;
 `;
 
+
+//APPS reusable parts
+
 export const StyledAppBodyContainer = styled.div`
 position: relative;
 min-height: 100vh;
+`;
+
+
+//This StyledMain removes the standard schrollin-bar above the navigation,
+// making it not look like a mobile
+// (no mobile has the bar above the navigation).
+// Thanks Stack Overflow. Schrolling still works
+
+
+export const StyledMainNoSchrollbar = styled.main`
+  height: 90vh;
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
 `;

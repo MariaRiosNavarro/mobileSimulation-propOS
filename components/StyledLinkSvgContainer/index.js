@@ -30,7 +30,15 @@ export const StyledCircularContainer = styled.div`
   justify-content: center;
   padding: 0;
   margin: 0;
-  border: 1px solid black;
+  //Code dont work, i will be check in other US
+  /* border:${(props) => {
+    if(props.StyledSvg === "") {
+       return "none";
+      } else {
+        return "1px solid black";
+      }
+    }}; */
+   
 `;
 
 const StyledSvg = styled.svg`
