@@ -1,3 +1,4 @@
+//i will use useContext and ThemeContext in _app and Layout to handle the apparence change of the APP
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
 import Navigation from "../components/Navigation";
