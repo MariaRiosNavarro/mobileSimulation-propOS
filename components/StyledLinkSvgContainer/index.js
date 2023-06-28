@@ -20,19 +20,55 @@ const StyledSpan = styled.span`
   justify-content: center;
 `;
 
-export default function StyledLinkSvgContainer({ id, svg }) {
+export const StyledCircularContainer = styled.div`
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  border: 1px solid black;
+`;
+
+const StyledSvg = styled.svg`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export default function StyledLinkSvgContainer({
+  id,
+  StyledSvg,
+  isFavorite,
+  onClick,
+}) {
+  function handleClick() {
+    if (onClick) {
+      onClick();
+    }
+  }
+
   let href = "";
-  if (svg === infoSVG) {
+  if (StyledSvg === infoSVG) {
     href = `/contacts/${id}`;
-  } else if (svg === callSVG) {
+  } else if (StyledSvg === callSVG) {
     href = `/contacts-call/${id}`;
-  } else if (svg === addSVG) {
+  } else if (StyledSvg === addSVG) {
     href = `/create`;
+  } else {
+    href = ``;
   }
 
   return (
-    <StyledLink href={href}>
-      <StyledSpan>{svg}</StyledSpan>
-    </StyledLink>
+    <StyledCircularContainer onClick={handleClick} isFavorite={isFavorite}>
+      <StyledLink href={href}>
+        <StyledSpan>{StyledSvg}</StyledSpan>
+      </StyledLink>
+    </StyledCircularContainer>
   );
 }

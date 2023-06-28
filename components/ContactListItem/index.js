@@ -1,9 +1,7 @@
 import styled from "styled-components";
-import { StyledHR } from "../StyledHR";
 import StyledLinkSvgContainer from "../StyledLinkSvgContainer";
-import { infoSVG, callSVG } from "../assets/contactsSVG";
+import { infoSVG, callSVG, starSVG, starFillSVG } from "../assets/contactsSVG";
 import { StyledImagePlaceholder } from "../components.style";
-
 
 const StyledContainer = styled.div`
   display: flex;
@@ -26,20 +24,30 @@ const StyledBadgetContainer = styled.div`
 const StyledListItem = styled.li`
   margin: 0;
   padding: 0;
+  border-bottom: 1px solid lightgray;
 `;
 
-export default function ContactListItem({ name, id }) {
+export default function ContactListItem({
+  name,
+  id,
+  isFavorite,
+  toggleFavorite,
+}) {
   return (
     <StyledListItem>
       <StyledContainer>
         <StyledImagePlaceholder />
         <StyledName>{name}</StyledName>
         <StyledBadgetContainer>
-          <StyledLinkSvgContainer svg={callSVG} id={id} />
-          <StyledLinkSvgContainer svg={infoSVG} id={id} />
+          <StyledLinkSvgContainer StyledSvg={callSVG} id={id} />
+          <StyledLinkSvgContainer
+            StyledSvg={isFavorite ? starFillSVG : starSVG}
+            isFavorite={isFavorite}
+            onClick={() => toggleFavorite(id)}
+          />
+          <StyledLinkSvgContainer StyledSvg={infoSVG} id={id} />
         </StyledBadgetContainer>
       </StyledContainer>
-      <StyledHR />
     </StyledListItem>
   );
 }

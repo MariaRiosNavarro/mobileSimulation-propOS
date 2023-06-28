@@ -16,6 +16,7 @@ export const StyledHeadingandFoto = styled.div`
   align-items: center;
   gap: 0.5rem;
   margin: 2rem;
+  border-bottom: 1px solid lightgray;
 `;
 
 export const StyledFieldsContainer = styled.div`
