@@ -1,17 +1,13 @@
 import tinycolor from "tinycolor2";
 
 export function getComplementaryColor(color) {
-  // Entferne das führende "#"
   const hex = color.slice(1);
-  // Wandele die Hex-Farbe in RGB um
   const r = parseInt(hex.substr(0, 2), 16);
   const g = parseInt(hex.substr(2, 2), 16);
   const b = parseInt(hex.substr(4, 2), 16);
-  // Berechne die komplementäre Farbe
   const complementaryR = 255 - r;
   const complementaryG = 255 - g;
   const complementaryB = 255 - b;
-  // Wandele die RGB-Farbe in Hex um
   const complementaryHex = `#${complementaryR
     .toString(16)
     .padStart(2, "0")}${complementaryG
@@ -21,27 +17,27 @@ export function getComplementaryColor(color) {
 }
 
 export function getSecondaryColor(color) {
-  // Entferne das führende "#"
+
   const hex = color.slice(1);
 
-  // Wandele die Hex-Farbe in RGB um
+
   const r = parseInt(hex.substr(0, 2), 16);
   const g = parseInt(hex.substr(2, 2), 16);
   const b = parseInt(hex.substr(4, 2), 16);
 
-  // Definiere den Verschiebungswert im Farbkreis (z.B. 180 Grad für eine gegenüberliegende Farbe)
+
   const shift = 180;
 
-  // Konvertiere die RGB-Farbe in das HSL-Farbmodell
+
   const hsl = rgbToHsl(r, g, b);
 
-  // Verschiebe den Hue-Wert um den angegebenen Wert im Farbkreis
+
   const shiftedHue = (hsl.h + shift) % 360;
 
-  // Konvertiere die HSL-Farbe zurück in RGB
+
   const shiftedRgb = hslToRgb(shiftedHue, hsl.s, hsl.l);
 
-  // Wandele die RGB-Farbe in Hex um
+
   const shiftedHex = `#${shiftedRgb.r
     .toString(16)
     .padStart(2, "0")}${shiftedRgb.g
@@ -51,7 +47,6 @@ export function getSecondaryColor(color) {
   return shiftedHex;
 }
 
-// Hilfsfunktionen für die Konvertierung von RGB zu HSL und umgekehrt
 
 const rgbToHsl = (r, g, b) => {
   r /= 255;
@@ -66,7 +61,7 @@ const rgbToHsl = (r, g, b) => {
   l = (max + min) / 2;
 
   if (max === min) {
-    h = s = 0; // achromatic
+    h = s = 0; 
   } else {
     const d = max - min;
     s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
@@ -101,7 +96,7 @@ const hslToRgb = (h, s, l) => {
   let r, g, b;
 
   if (s === 0) {
-    r = g = b = l; // achromatic
+    r = g = b = l; 
   } else {
     const hue2rgb = (p, q, t) => {
       if (t < 0) t += 1;
@@ -130,28 +125,26 @@ const hslToRgb = (h, s, l) => {
 //   Lightencolorfunction
 
 export function getLightenColor(color, amount) {
-  // Konvertiere die gegebene Farbe in das HSL-Farbmodell
+  
   const hsl = tinycolor(color).toHsl();
 
-  // Erhöhe den Helligkeitswert um den gegebenen Betrag
+
   const newLightness = Math.min(hsl.l + amount, 1);
 
-  // Erzeuge die heller erscheinende Farbe
+  
   const newColor = tinycolor({ ...hsl, l: newLightness }).toHexString();
 
   return newColor;
 }
 
-// analogusColor
+// AnalogusColor
 
-// Funktion, um einen analogen Farbwert zu berechnen
 export function getAnalogousColor(color) {
-  const angle = 30; // Winkel zwischen den analogen Farben (in Grad)
+  const angle = 30; 
 
-  // Konvertiere die gegebene Farbe in das HSL-Farbmodell
   const hsl = tinycolor(color).toHsl();
 
-  // Berechne den analogen Farbwert
+
   const newHue = (hsl.h + angle) % 360;
   const newColor = tinycolor({ ...hsl, h: newHue }).toHexString();
 
