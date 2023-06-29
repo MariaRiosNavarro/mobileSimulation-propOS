@@ -2,6 +2,14 @@ import { useContext } from "react";
 import styled from "styled-components";
 import { ThemeContext } from "../../pages/_app";
 
+//I find a ComplementaryColor Function and SecundaryColor functions to change colors,
+//so that i can use dynamical to change the apparence dynamical in theme Dark and Custom,
+//only with one color
+import {
+  getComplementaryColor,
+  getSecondaryColor,
+} from "./changeColorFunctions";
+
 //This will be the general container that will give the style to the app,
 // and through it we will be able to change its appearance.
 // I'm going to take this container to the _app,
@@ -9,31 +17,35 @@ import { ThemeContext } from "../../pages/_app";
 
 const StyledAplicationContainer = styled.div`
   height: 100vh;
-  /* which will dynamically change the background according to the chosen thema. */
+  /* dynamically change the background according to the chosen thema. */
   background-color: ${(props) => {
     if (props.theme === "light") {
-      return "#ffeacc";
+      return "var(----lightBG)";
     } else if (props.theme === "dark") {
-      return "#192559";
+      return "var(--darkBG)";
     } else if (props.theme === "custom") {
       return props.customColor;
     } else {
-      return "#ffeacc";
+      return "var(----lightBG)";
     }
   }};
-  /* which will dynamically change the color according to the chosen thema. */
+  /* dynamically change the color according to the chosen thema. */
   color: ${(props) => {
     if (props.theme === "light") {
       return "black";
     } else if (props.theme === "dark") {
-      return "#ffeacc";
+      const complementaryColor = getComplementaryColor("#192559");
+      return complementaryColor;
+    } else if (props.theme === "custom") {
+      const complementaryColor = getComplementaryColor(props.customColor);
+      return complementaryColor;
     } else {
       return "black";
     }
   }};
 `;
 
-//Add more Styles for the APPS at Home and Navigation that we can change with ours theme
+//Styles for the APPS at Home and Navigation that we can change with ours theme
 
 export const StyledSvgContainer = styled.span`
   display: flex;
@@ -43,17 +55,17 @@ export const StyledSvgContainer = styled.span`
   width: 48px;
   background-color: ${(props) => {
     if (props.disabled && props.theme === "light") {
-      return "#bbaf98";
+      return "var(--lightAPPDisabled)";
     } else if (props.disabled && props.theme === "dark") {
-      return "#9f9fb4";
+      return "var(--darkAPPDisabled)";
     } else if (props.selected && props.theme === "light") {
-      return "#FFA41B";
+      return "var(--lightAPPSelected)";
     } else if (!props.selected && props.theme === "light") {
-      return " #ffcb7d ";
+      return "var(--lightAPPAktiv)";
     } else if (props.selected && props.theme === "dark") {
-      return "#a2afe5";
+      return "var(--darkAPPSelected)";
     } else if (!props.selected && props.theme === "dark") {
-      return "#6479d4";
+      return "var(--darkAPPAktiv)";
     } else {
       return "transparent";
     }

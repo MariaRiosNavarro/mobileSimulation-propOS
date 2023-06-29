@@ -21,6 +21,17 @@ export default createGlobalStyle`
     --bg-color:#ffeacc;
     --detail-color:#848dea;
     --nav-color:#3a3a3a;
+/* dynamical used */
+    --lightBG:#ffeacc;
+    --lightAPPAktiv:#ffcb7d;
+    --lightAPPSelected:#FFA41B;
+    --lightAPPDisabled:#bbaf98;
+    --darkBG:#192559;
+    --darkAPPAktiv:#6479d4;
+    --darkAPPSelected:#a2afe5;
+    --darkAPPDisabled:#9f9fb4;
+     
+
   }
 
   //ConfirmAlert library Styles to Style delete ALert
