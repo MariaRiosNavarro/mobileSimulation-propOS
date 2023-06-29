@@ -15,8 +15,10 @@ const StyledAplicationContainer = styled.div`
       return "#ffeacc";
     } else if (props.theme === "dark") {
       return "#192559";
+    } else if (props.theme === "custom") {
+      return props.customColor;
     } else {
-      return "transparent";
+      return "#ffeacc";
     }
   }};
   /* which will dynamically change the color according to the chosen thema. */
@@ -176,9 +178,9 @@ export const StyledInputName = styled.input`
 `;
 
 export default function Layout({ children }) {
-  const { theme } = useContext(ThemeContext);
+  const { theme, customColor } = useContext(ThemeContext);
   return (
-    <StyledAplicationContainer theme={theme}>
+    <StyledAplicationContainer theme={theme} customColor={customColor}>
       {children}
     </StyledAplicationContainer>
   );
