@@ -20,7 +20,7 @@ export default function PhoneApp() {
           <ContactListWithFavorite />
         </StyledContentContainer>
       </StyledMainNoSchrollbar>
-      <Navigation />
+      <Navigation selected={"phone"} />
     </StyledAppBodyContainer>
   );
 }
