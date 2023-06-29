@@ -74,8 +74,8 @@ export const StyledSvgContainer = styled.span`
     } else if (!props.selected && props.theme === "dark") {
       return "var(--darkAPPAktiv)";
     } else if (props.disabled && props.theme === "custom") {
-      const secundaryColor = getSecondaryColor(props.customColor);
-      return secundaryColor;
+      const lighterColor = getLightenColor(props.customColor, 0.2);
+      return lighterColor;
     } else if (props.selected && props.theme === "custom") {
       const lightColor = getLightenColor(props.customColor, 0.1);
       return lightColor;
