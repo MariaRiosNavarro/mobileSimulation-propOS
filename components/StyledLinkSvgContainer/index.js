@@ -37,8 +37,8 @@ export default function StyledLinkSvgContainer({
   isFavorite,
   onClick,
 }) {
-  const { theme } = useContext(ThemeContext);
-  
+  const { theme, customColor } = useContext(ThemeContext);
+
   function handleClick() {
     if (onClick) {
       onClick();
@@ -61,6 +61,7 @@ export default function StyledLinkSvgContainer({
       onClick={handleClick}
       isFavorite={isFavorite}
       theme={theme}
+      customColor={customColor}
     >
       <StyledLink href={href}>
         <StyledSpan>{StyledSvg}</StyledSpan>

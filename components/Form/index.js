@@ -9,7 +9,6 @@ import { ThemeContext } from "../../pages/_app";
 import { useContext } from "react";
 import { StyledInputName } from "../Layout";
 
-
 //------------------------------------------STYLE
 
 //DO the ugly upload files input invisible
@@ -57,58 +56,57 @@ const StyledTextareaGray = styled.textarea`
 `;
 
 export default function Form({ onSubmit, formName, defaultData, onClick }) {
-  const { theme } = useContext(ThemeContext);
+  const { theme, customColor } = useContext(ThemeContext);
   return (
     <>
-     
-        <form onSubmit={onSubmit} aria-labelledby={formName}>
-          <StyledHeadingandFoto>
-            {/* NAME INPUT */}
-            <label htmlFor="name">
-              <StyledInputName
-                id="name"
-                name="name"
-                type="type"
-                placeholder="Name *"
-                defaultValue={defaultData?.name}
-                theme={theme}
-                required
-              />
-            </label>
-            {/* PHOTO INPUT -not required- in this US not save. Upload Fotos will be add in the Future */}
-            <StyledPhotoLabel htmlFor="photo">
-              <StyledInputPhoto
-                type="file"
-                id="photo"
-                defaultValue={defaultData?.photo}
-              />
-            </StyledPhotoLabel>
-          </StyledHeadingandFoto>
+      <form onSubmit={onSubmit} aria-labelledby={formName}>
+        <StyledHeadingandFoto>
+          {/* NAME INPUT */}
+          <label htmlFor="name">
+            <StyledInputName
+              id="name"
+              name="name"
+              type="type"
+              placeholder="Name *"
+              defaultValue={defaultData?.name}
+              theme={theme}
+              customColor={customColor}
+              required
+            />
+          </label>
+          {/* PHOTO INPUT -not required- in this US not save. Upload Fotos will be add in the Future */}
+          <StyledPhotoLabel htmlFor="photo">
+            <StyledInputPhoto
+              type="file"
+              id="photo"
+              defaultValue={defaultData?.photo}
+            />
+          </StyledPhotoLabel>
+        </StyledHeadingandFoto>
 
-          <StyledFieldsContainer>
-            {/* PHONE INPUT */}
-            <label htmlFor="phone">Nummer:</label>
-            <StyledInputGray
-              id="phone"
-              name="phone"
-              type="text"
-              defaultValue={defaultData?.phone}
-            />
-            {/* NOTE TEXTAREA */}
-            <label htmlFor="note">Notizen:</label>
-            <StyledTextareaGray
-              id="note"
-              name="note"
-              type="text"
-              rows={3}
-              defaultValue={defaultData?.note}
-            />
-          </StyledFieldsContainer>
-          <StyledButtonsContainer>
-            <Button type="submit" name="speichern" />
-          </StyledButtonsContainer>
-        </form>
-      
+        <StyledFieldsContainer>
+          {/* PHONE INPUT */}
+          <label htmlFor="phone">Nummer:</label>
+          <StyledInputGray
+            id="phone"
+            name="phone"
+            type="text"
+            defaultValue={defaultData?.phone}
+          />
+          {/* NOTE TEXTAREA */}
+          <label htmlFor="note">Notizen:</label>
+          <StyledTextareaGray
+            id="note"
+            name="note"
+            type="text"
+            rows={3}
+            defaultValue={defaultData?.note}
+          />
+        </StyledFieldsContainer>
+        <StyledButtonsContainer>
+          <Button type="submit" name="speichern" />
+        </StyledButtonsContainer>
+      </form>
     </>
   );
 }

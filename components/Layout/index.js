@@ -2,6 +2,16 @@ import { useContext } from "react";
 import styled from "styled-components";
 import { ThemeContext } from "../../pages/_app";
 
+//I find a ComplementaryColor Function and SecundaryColor functions to change colors,
+//so that i can use dynamical to change the apparence dynamical in theme Dark and Custom,
+//only with one color
+import {
+  getComplementaryColor,
+  getSecondaryColor,
+  getLightenColor,
+  getAnalogousColor,
+} from "./changeColorFunctions";
+
 //This will be the general container that will give the style to the app,
 // and through it we will be able to change its appearance.
 // I'm going to take this container to the _app,
@@ -9,29 +19,40 @@ import { ThemeContext } from "../../pages/_app";
 
 const StyledAplicationContainer = styled.div`
   height: 100vh;
-  /* which will dynamically change the background according to the chosen thema. */
+  /* dynamically change the background according to the chosen thema. */
   background-color: ${(props) => {
     if (props.theme === "light") {
-      return "#ffeacc";
+      return "var(----lightBG)";
     } else if (props.theme === "dark") {
-      return "#192559";
+      return "var(--darkBG)";
+    } else if (props.theme === "custom") {
+      return props.customColor;
     } else {
-      return "transparent";
+      return "var(----lightBG)";
     }
   }};
-  /* which will dynamically change the color according to the chosen thema. */
+
+  /* dynamically change the color according to the choosen thema.
+  I can not use css variable in the getComplementary functions, 
+  also use hard code values, comment above with the original name  */
+
   color: ${(props) => {
     if (props.theme === "light") {
       return "black";
     } else if (props.theme === "dark") {
-      return "#ffeacc";
+      //  --darkBG:#192559;
+      const complementaryColor = getComplementaryColor("#192559");
+      return complementaryColor;
+    } else if (props.theme === "custom") {
+      const complementaryColor = getComplementaryColor(props.customColor);
+      return complementaryColor;
     } else {
       return "black";
     }
   }};
 `;
 
-//Add more Styles that we can change with ours theme
+//Styles for the APPS at Home and Navigation that we can change with ours theme
 
 export const StyledSvgContainer = styled.span`
   display: flex;
@@ -41,17 +62,26 @@ export const StyledSvgContainer = styled.span`
   width: 48px;
   background-color: ${(props) => {
     if (props.disabled && props.theme === "light") {
-      return "#bbaf98";
+      return "var(--lightAPPDisabled)";
     } else if (props.disabled && props.theme === "dark") {
-      return "#9f9fb4";
+      return "var(--darkAPPDisabled)";
     } else if (props.selected && props.theme === "light") {
-      return "#FFA41B";
+      return "var(--lightAPPSelected)";
     } else if (!props.selected && props.theme === "light") {
-      return " #ffcb7d ";
+      return "var(--lightAPPAktiv)";
     } else if (props.selected && props.theme === "dark") {
-      return "#a2afe5";
+      return "var(--darkAPPSelected)";
     } else if (!props.selected && props.theme === "dark") {
-      return "#6479d4";
+      return "var(--darkAPPAktiv)";
+    } else if (props.disabled && props.theme === "custom") {
+      const lighterColor = getLightenColor(props.customColor, 0.2);
+      return lighterColor;
+    } else if (props.selected && props.theme === "custom") {
+      const lightColor = getLightenColor(props.customColor, 0.1);
+      return lightColor;
+    } else if (!props.selected && props.theme === "custom") {
+      const analogColor = getAnalogousColor(props.customColor);
+      return analogColor;
     } else {
       return "transparent";
     }
@@ -69,16 +99,6 @@ export const StyledSvgContainer = styled.span`
     }
   }};
 
-  color: ${(props) => {
-    if (props.theme === "light") {
-      return "black";
-    } else if (props.theme === "dark") {
-      return "#ffeacc";
-    } else {
-      return "black";
-    }
-  }};
-
   border-radius: 5px;
 `;
 
@@ -90,7 +110,12 @@ export const StyledAppHeading = styled.h5`
     if (props.theme === "light") {
       return "black";
     } else if (props.theme === "dark") {
-      return "#ffeacc";
+      //  --darkBG:#192559;
+      const complementaryColor = getComplementaryColor("#192559");
+      return complementaryColor;
+    } else if (props.theme === "custom") {
+      const complementaryColor = getComplementaryColor(props.customColor);
+      return complementaryColor;
     } else {
       return "black";
     }
@@ -105,11 +130,16 @@ export const StyledCircularContainer = styled.span`
   border-radius: 50%;
   background-color: ${(props) => {
     if (props.theme === "light") {
-      return "transparent";
+      return "var(----lightBG)";
+      //  --darkBG:#192559;
     } else if (props.theme === "dark") {
-      return "#a2afe5";
+      const lighterColor = getLightenColor("#192559", 0.3);
+      return lighterColor;
+    } else if (props.theme === "custom") {
+      const lighterColor = getLightenColor(props.customColor, 0.2);
+      return lighterColor;
     } else {
-      return "transparent";
+      return "var(----lightBG)";
     }
   }};
   display: flex;
@@ -135,11 +165,16 @@ export const StyledlitleTabContainer = styled.span`
   margin: 0;
   background-color: ${(props) => {
     if (props.theme === "light") {
-      return "transparent";
+      return "var(----lightBG)";
+      //  --darkBG:#192559;
     } else if (props.theme === "dark") {
-      return "#a2afe5";
+      const lighterColor = getLightenColor("#192559", 0.3);
+      return lighterColor;
+    } else if (props.theme === "custom") {
+      const lighterColor = getLightenColor(props.customColor, 0.2);
+      return lighterColor;
     } else {
-      return "transparent";
+      return "var(----lightBG)";
     }
   }};
 `;
@@ -150,11 +185,16 @@ export const StyledInputName = styled.input`
   border: none;
   background-color: ${(props) => {
     if (props.theme === "light") {
-      return "transparent";
+      return "var(----lightBG)";
+      //  --darkBG:#192559;
     } else if (props.theme === "dark") {
-      return "#ffeacc";
+      const lighterColor = getLightenColor("#192559", 0.3);
+      return lighterColor;
+    } else if (props.theme === "custom") {
+      const lighterColor = getLightenColor(props.customColor, 0.2);
+      return lighterColor;
     } else {
-      return "transparent";
+      return "var(----lightBG)";
     }
   }};
   border-bottom: 2px solid var(--primary-color);
@@ -167,7 +207,12 @@ export const StyledInputName = styled.input`
       if (props.theme === "light") {
         return "black";
       } else if (props.theme === "dark") {
-        return "#ffeacc";
+        //  --darkBG:#192559;
+        const complementaryColor = getComplementaryColor("#192559");
+        return complementaryColor;
+      } else if (props.theme === "custom") {
+        const complementaryColor = getComplementaryColor(props.customColor);
+        return complementaryColor;
       } else {
         return "black";
       }
@@ -176,9 +221,9 @@ export const StyledInputName = styled.input`
 `;
 
 export default function Layout({ children }) {
-  const { theme } = useContext(ThemeContext);
+  const { theme, customColor } = useContext(ThemeContext);
   return (
-    <StyledAplicationContainer theme={theme}>
+    <StyledAplicationContainer theme={theme} customColor={customColor}>
       {children}
     </StyledAplicationContainer>
   );
