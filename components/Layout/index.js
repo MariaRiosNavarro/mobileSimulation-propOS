@@ -8,6 +8,8 @@ import { ThemeContext } from "../../pages/_app";
 import {
   getComplementaryColor,
   getSecondaryColor,
+  getLightenColor,
+  getAnalogousColor,
 } from "./changeColorFunctions";
 
 //This will be the general container that will give the style to the app,
@@ -29,11 +31,16 @@ const StyledAplicationContainer = styled.div`
       return "var(----lightBG)";
     }
   }};
-  /* dynamically change the color according to the chosen thema. */
+
+  /* dynamically change the color according to the choosen thema.
+  I can not use css variable in the getComplementary functions, 
+  also use hard code values, comment above with the original name  */
+
   color: ${(props) => {
     if (props.theme === "light") {
       return "black";
     } else if (props.theme === "dark") {
+      //  --darkBG:#192559;
       const complementaryColor = getComplementaryColor("#192559");
       return complementaryColor;
     } else if (props.theme === "custom") {
@@ -66,6 +73,15 @@ export const StyledSvgContainer = styled.span`
       return "var(--darkAPPSelected)";
     } else if (!props.selected && props.theme === "dark") {
       return "var(--darkAPPAktiv)";
+    } else if (props.disabled && props.theme === "custom") {
+      const secundaryColor = getSecondaryColor(props.customColor);
+      return secundaryColor;
+    } else if (props.selected && props.theme === "custom") {
+      const lightColor = getLightenColor(props.customColor, 0.1);
+      return lightColor;
+    } else if (!props.selected && props.theme === "custom") {
+      const analogColor = getAnalogousColor(props.customColor);
+      return analogColor;
     } else {
       return "transparent";
     }
