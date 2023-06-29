@@ -8,6 +8,7 @@ export const ThemeContext = createContext();
 
 export default function App({ Component, pageProps }) {
   const [theme, setTheme] = useState("light");
+  const [customColor, setCustomColor] = useState("");
 
   return (
     <>
@@ -22,7 +23,9 @@ export default function App({ Component, pageProps }) {
           },
         }}
       >
-        <ThemeContext.Provider value={{ theme, setTheme }}>
+        <ThemeContext.Provider
+          value={{ theme, setTheme, customColor, setCustomColor }}
+        >
           <GlobalStyle />
           <Head>
             <title>propOS</title>
