@@ -4,11 +4,9 @@ import { backSVG } from "../components/assets/contactsSVG";
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import Form from "../components/Form";
+import { StyledAppBodyContainer, StyledBackLink } from "../components/components.style";
 
-const StyledBackLink = styled(Link)`
-  position: absolute;
-  margin-left: 2rem;
-`;
+
 
 const StyledSuccessMessage = styled.h5`
   text-align: center;
@@ -44,13 +42,13 @@ export default function CreateContact() {
   }
 
   return (
-    <>
+    <StyledAppBodyContainer>
       <StyledBackLink href={"/contacts"}>{backSVG}</StyledBackLink>
       <Form onSubmit={handleSubmit} formName={"add-contact"} />
       {showSuccessMessageState && (
         <StyledSuccessMessage>Kontakte gespeichert</StyledSuccessMessage>
       )}
       <Navigation />
-    </>
+    </StyledAppBodyContainer>
   );
 }

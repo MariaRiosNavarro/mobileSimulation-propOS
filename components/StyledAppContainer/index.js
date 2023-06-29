@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { StyledSvgContainer } from "../Layout";
+import { ThemeContext } from "../../pages/_app";
+import { useContext } from "react";
 
 const StyledSvg = styled.svg`
   color: black;
@@ -6,28 +9,11 @@ const StyledSvg = styled.svg`
   width: 40px;
 `;
 
-const StyledSvgContainer = styled.span`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 48px;
-  width: 48px;
-  border-radius: 12px;
-  background-color: ${(props) => {
-    if (props.disabled) {
-      return "lightGray";
-    } else if (props.selected) {
-      return "#f86f03";
-    } else {
-      return "#ffcb7d";
-    }
-  }};
-`;
-
 export default function StyledAppContainer({ StyledSvg, selected, disabled }) {
+  const { theme } = useContext(ThemeContext);
   return (
     <>
-      <StyledSvgContainer selected={selected} disabled={disabled}>
+      <StyledSvgContainer selected={selected} disabled={disabled} theme={theme}>
         {StyledSvg}
       </StyledSvgContainer>
     </>

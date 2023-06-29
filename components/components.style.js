@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { createGlobalStyle } from "../styles";
+import Link from "next/link";
 
 export const StyledImagePlaceholder = styled.div`
   width: 34px;
@@ -26,7 +27,6 @@ export const StyledFieldsContainer = styled.div`
   margin: 2rem;
 `;
 
-
 export const StyledButtonsContainer = styled.div`
   margin: 2rem;
   display: flex;
@@ -40,4 +40,32 @@ export const StyledLoading = styled.div`
   background-color: darkgray;
   color: lightyellow;
   font-weight: bold;
+`;
+
+//APPS reusable parts
+
+export const StyledAppBodyContainer = styled.div`
+  position: relative;
+  min-height: 100vh;
+`;
+
+export const StyledBackLink = styled(Link)`
+  position: relative;
+  top: 2rem;
+  left: 2rem;
+`;
+
+//This StyledMain removes the standard schrollin-bar above the navigation,
+// making it not look like a mobile
+// (no mobile has the bar above the navigation).
+// Thanks Stack Overflow. Schrolling still works
+
+export const StyledMainNoSchrollbar = styled.main`
+  height: 90vh;
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
 `;
