@@ -1,5 +1,9 @@
 import tinycolor from "tinycolor2";
 
+// I find this functions, i write it not self
+
+//-----------------------------COMPLEMENTARY COLOR FUNCTION------------------------------
+
 export function getComplementaryColor(color) {
   const hex = color.slice(1);
   const r = parseInt(hex.substr(0, 2), 16);
@@ -17,26 +21,19 @@ export function getComplementaryColor(color) {
 }
 
 export function getSecondaryColor(color) {
-
   const hex = color.slice(1);
-
 
   const r = parseInt(hex.substr(0, 2), 16);
   const g = parseInt(hex.substr(2, 2), 16);
   const b = parseInt(hex.substr(4, 2), 16);
 
-
   const shift = 180;
-
 
   const hsl = rgbToHsl(r, g, b);
 
-
   const shiftedHue = (hsl.h + shift) % 360;
 
-
   const shiftedRgb = hslToRgb(shiftedHue, hsl.s, hsl.l);
-
 
   const shiftedHex = `#${shiftedRgb.r
     .toString(16)
@@ -46,7 +43,6 @@ export function getSecondaryColor(color) {
 
   return shiftedHex;
 }
-
 
 const rgbToHsl = (r, g, b) => {
   r /= 255;
@@ -61,7 +57,7 @@ const rgbToHsl = (r, g, b) => {
   l = (max + min) / 2;
 
   if (max === min) {
-    h = s = 0; 
+    h = s = 0;
   } else {
     const d = max - min;
     s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
@@ -96,7 +92,7 @@ const hslToRgb = (h, s, l) => {
   let r, g, b;
 
   if (s === 0) {
-    r = g = b = l; 
+    r = g = b = l;
   } else {
     const hue2rgb = (p, q, t) => {
       if (t < 0) t += 1;
@@ -122,28 +118,24 @@ const hslToRgb = (h, s, l) => {
   };
 };
 
-//   Lightencolorfunction
+//-----------------------------LIGHTEN COLOR FUNCTION------------------------------
 
 export function getLightenColor(color, amount) {
-  
   const hsl = tinycolor(color).toHsl();
-
 
   const newLightness = Math.min(hsl.l + amount, 1);
 
-  
   const newColor = tinycolor({ ...hsl, l: newLightness }).toHexString();
 
   return newColor;
 }
 
-// AnalogusColor
+//-----------------------------ANALOGOUS COLOR FUNCTION------------------------------
 
 export function getAnalogousColor(color) {
-  const angle = 30; 
+  const angle = 30;
 
   const hsl = tinycolor(color).toHsl();
-
 
   const newHue = (hsl.h + angle) % 360;
   const newColor = tinycolor({ ...hsl, h: newHue }).toHexString();
