@@ -33,7 +33,7 @@ const StyledAplicationContainer = styled.div`
   }};
 `;
 
-//Add more Styles that we can change with ours theme
+//Add more Styles for the APPS at Home and Navigation that we can change with ours theme
 
 export const StyledSvgContainer = styled.span`
   display: flex;
@@ -97,6 +97,13 @@ export const StyledAppHeading = styled.h5`
       return "black";
     }
   }};
+  border: ${(props) => {
+    if (props.theme === "custom") {
+      return "1px solid #ffeacc";
+    } else {
+      return "none";
+    }
+  }};
 `;
 
 //Little buttons in Contacts
@@ -110,6 +117,8 @@ export const StyledCircularContainer = styled.span`
       return "transparent";
     } else if (props.theme === "dark") {
       return "#a2afe5";
+    } else if (props.theme === "custom") {
+      return "#ffeacc";
     } else {
       return "transparent";
     }
@@ -140,8 +149,10 @@ export const StyledlitleTabContainer = styled.span`
       return "transparent";
     } else if (props.theme === "dark") {
       return "#a2afe5";
+    } else if (props.theme === "custom") {
+      return "#ffeacc";
     } else {
-      return "transparent";
+      return "orange";
     }
   }};
 `;
@@ -154,6 +165,8 @@ export const StyledInputName = styled.input`
     if (props.theme === "light") {
       return "transparent";
     } else if (props.theme === "dark") {
+      return "#ffeacc";
+    } else if (props.theme === "custom") {
       return "#ffeacc";
     } else {
       return "transparent";

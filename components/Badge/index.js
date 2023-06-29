@@ -10,9 +10,9 @@ const StyledBadgeHeading = styled.h6`
 `;
 
 export default function Badge({ children, isActive, badgeHeading }) {
-  const { theme } = useContext(ThemeContext);
+  const { theme, customColor } = useContext(ThemeContext);
   return (
-    <StyledlitleTabContainer isActive={isActive} theme={theme}>
+    <StyledlitleTabContainer isActive={isActive} theme={theme} customColor={customColor}>
       <StyledBadgeHeading>{badgeHeading}</StyledBadgeHeading>
       {children}
     </StyledlitleTabContainer>

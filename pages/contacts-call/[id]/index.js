@@ -58,7 +58,7 @@ const StyledBigImagePlaceholder = styled(StyledImagePlaceholder)`
   height: 9rem;
   margin: 0;
   border: none;
-  background-color: gray;
+  background-color: darkgray;
 `;
 
 
