@@ -24,7 +24,7 @@ const StyledButtonContainer = styled.div`
   align-items: center;
 `;
 const StyledButton = styled.button`
-  margin-top: 1rem;
+  margin-top: 0.8rem;
   background-color: var(--primary-color);
   border: none;
   border-radius: 8px;
@@ -43,11 +43,36 @@ const StyledLabel = styled.label`
   font-weight: 600;
 `;
 
+//
+
+const StyledPopUp = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  align-items: 0;
+  gap: 0.2rem;
+`;
+
+const StyledLitlePopUpHeading = styled.h5`
+  margin: 0;
+  padding: 0;
+`;
+
+const StyledColorInput = styled.input``;
+
 export default function SettingsPage() {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme, setTheme, customColor, setCustomColor } =
+    useContext(ThemeContext);
 
   function handleThemeChange(selectedTheme) {
     setTheme(selectedTheme);
+  }
+
+  function handleCustomColorChange(event) {
+    const color = event.target.value;
+    setCustomColor(color);
   }
 
   return (
@@ -76,6 +101,29 @@ export default function SettingsPage() {
                 disabled={theme === "dark"}
               >
                 {theme === "dark" ? "Aktiviert" : "Aktivieren"}
+              </StyledButton>
+            </StyledLabel>
+          </StyledButtonContainer>
+          <StyledButtonContainer>
+            <StyledLabel>
+              Personalisieren
+              {theme === "custom" && (
+                <StyledPopUp>
+                  <StyledLitlePopUpHeading>
+                    Farbe auswählen:
+                  </StyledLitlePopUpHeading>
+                  <StyledColorInput
+                    type="color"
+                    value={customColor}
+                    onChange={handleCustomColorChange}
+                  />
+                </StyledPopUp>
+              )}
+              <StyledButton
+                onClick={() => handleThemeChange("custom")}
+                disabled={theme === "custom"}
+              >
+                {theme === "custom" ? "Aktiviert" : "Aktivieren"}
               </StyledButton>
             </StyledLabel>
           </StyledButtonContainer>
