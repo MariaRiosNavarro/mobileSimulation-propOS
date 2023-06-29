@@ -29,7 +29,7 @@ export default function Navigation({ selected }) {
           selected={selected === "home"}
         />
       </Link>
-      <Link href={"/"}>
+      <Link href={"/phone"}>
         <StyledAppContainer
           StyledSvg={phoneSVG}
           selected={selected === "phone"}
