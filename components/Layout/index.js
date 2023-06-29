@@ -99,16 +99,6 @@ export const StyledSvgContainer = styled.span`
     }
   }};
 
-  color: ${(props) => {
-    if (props.theme === "light") {
-      return "black";
-    } else if (props.theme === "dark") {
-      return "#ffeacc";
-    } else {
-      return "black";
-    }
-  }};
-
   border-radius: 5px;
 `;
 
@@ -120,16 +110,14 @@ export const StyledAppHeading = styled.h5`
     if (props.theme === "light") {
       return "black";
     } else if (props.theme === "dark") {
-      return "#ffeacc";
+      //  --darkBG:#192559;
+      const complementaryColor = getComplementaryColor("#192559");
+      return complementaryColor;
+    } else if (props.theme === "custom") {
+      const complementaryColor = getComplementaryColor(props.customColor);
+      return complementaryColor;
     } else {
       return "black";
-    }
-  }};
-  border: ${(props) => {
-    if (props.theme === "custom") {
-      return "1px solid #ffeacc";
-    } else {
-      return "none";
     }
   }};
 `;
@@ -142,13 +130,16 @@ export const StyledCircularContainer = styled.span`
   border-radius: 50%;
   background-color: ${(props) => {
     if (props.theme === "light") {
-      return "transparent";
+      return "var(----lightBG)";
+      //  --darkBG:#192559;
     } else if (props.theme === "dark") {
-      return "#a2afe5";
+      const lighterColor = getLightenColor("#192559", 0.3);
+      return lighterColor;
     } else if (props.theme === "custom") {
-      return "#ffeacc";
+      const lighterColor = getLightenColor(props.customColor, 0.2);
+      return lighterColor;
     } else {
-      return "transparent";
+      return "var(----lightBG)";
     }
   }};
   display: flex;
@@ -174,13 +165,16 @@ export const StyledlitleTabContainer = styled.span`
   margin: 0;
   background-color: ${(props) => {
     if (props.theme === "light") {
-      return "transparent";
+      return "var(----lightBG)";
+      //  --darkBG:#192559;
     } else if (props.theme === "dark") {
-      return "#a2afe5";
+      const lighterColor = getLightenColor("#192559", 0.3);
+      return lighterColor;
     } else if (props.theme === "custom") {
-      return "#ffeacc";
+      const lighterColor = getLightenColor(props.customColor, 0.2);
+      return lighterColor;
     } else {
-      return "orange";
+      return "var(----lightBG)";
     }
   }};
 `;
@@ -191,13 +185,16 @@ export const StyledInputName = styled.input`
   border: none;
   background-color: ${(props) => {
     if (props.theme === "light") {
-      return "transparent";
+      return "var(----lightBG)";
+      //  --darkBG:#192559;
     } else if (props.theme === "dark") {
-      return "#ffeacc";
+      const lighterColor = getLightenColor("#192559", 0.3);
+      return lighterColor;
     } else if (props.theme === "custom") {
-      return "#ffeacc";
+      const lighterColor = getLightenColor(props.customColor, 0.2);
+      return lighterColor;
     } else {
-      return "transparent";
+      return "var(----lightBG)";
     }
   }};
   border-bottom: 2px solid var(--primary-color);
@@ -210,7 +207,12 @@ export const StyledInputName = styled.input`
       if (props.theme === "light") {
         return "black";
       } else if (props.theme === "dark") {
-        return "#ffeacc";
+        //  --darkBG:#192559;
+        const complementaryColor = getComplementaryColor("#192559");
+        return complementaryColor;
+      } else if (props.theme === "custom") {
+        const complementaryColor = getComplementaryColor(props.customColor);
+        return complementaryColor;
       } else {
         return "black";
       }
