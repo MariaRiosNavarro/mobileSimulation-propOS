@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { backSVG } from "../../../components/assets/contactsSVG";
 import {
   StyledLoading,
-  // StyledAppBodyContainer,
 } from "../../../components/components.style";
 import AppsHeader from "../../../components/Appsheader";
 import { useRouter } from "next/router";
@@ -11,6 +10,8 @@ import Link from "next/link";
 import { StyledImagePlaceholder } from "../../../components/components.style";
 import MyKeyboard from "../../../components/MyKeyboard";
 import Navigation from "../../../components/Navigation";
+
+
 
 const StyledContainer = styled.div``;
 

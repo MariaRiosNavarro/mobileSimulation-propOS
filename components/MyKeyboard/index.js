@@ -1,8 +1,10 @@
 import { useState } from "react";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
-
 import styled from "styled-components";
+
+// Keyboard: https://hodgef.com/simple-keyboard/getting-started/react/
+
 
 const StyledInput = styled.input`
   width: 100%;
