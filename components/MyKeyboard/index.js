@@ -22,7 +22,7 @@ export default function MyKeyboard() {
 
   const costumlayout = {
     default: [
-      "🚀 🐬 🥳 ❤️ 🤣 👩🏽‍💻 🌹 ☕️ 🍺 😭 \u00DF",
+      "🚀 🐬 🐢 🥳 ❤️ 🤣 👩🏽‍💻 🌹 🍺 😭 😟",
       "1 2 3 4 5 6 7 8 9 0 \u00DF",
       "q w e r t z u i o p \u00FC",
       "a s d f g h j k l \u00F6 \u00E4 {enter}",

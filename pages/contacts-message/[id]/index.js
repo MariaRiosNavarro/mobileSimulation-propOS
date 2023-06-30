@@ -3,13 +3,16 @@ import styled from "styled-components";
 import { backSVG } from "../../../components/assets/contactsSVG";
 import {
   StyledLoading,
-  StyledAppBodyContainer,
+  // StyledAppBodyContainer,
 } from "../../../components/components.style";
 import AppsHeader from "../../../components/Appsheader";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { StyledImagePlaceholder } from "../../../components/components.style";
 import MyKeyboard from "../../../components/MyKeyboard";
+import Navigation from "../../../components/Navigation";
+
+const StyledContainer = styled.div``;
 
 const StyledAppHeaderContainer = styled.div`
   display: flex;
@@ -36,10 +39,11 @@ const StyledLink = styled(Link)`
 const StyledKeyboardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 1rem;
   border: 1px solid black;
-  /* position: relative;
-  bottom: 2rem; */
+  position: absolute;
+  bottom: 5rem;
+  width: 100%;
+  
 `;
 
 //----------------------------------------------- FUNCTION------------HERE
@@ -61,7 +65,7 @@ export default function MessageDetail() {
 
   return (
     <>
-      <StyledAppBodyContainer>
+      <StyledContainer>
         <StyledAppHeaderContainer>
           <StyledLink href={"/contacts"}>{backSVG}</StyledLink>
           <AppsHeader heading="Nachrichten" />
@@ -73,7 +77,8 @@ export default function MessageDetail() {
         <StyledKeyboardContainer>
           <MyKeyboard />
         </StyledKeyboardContainer>
-      </StyledAppBodyContainer>
+        <Navigation selected={"message"} />
+      </StyledContainer>
     </>
   );
 }
