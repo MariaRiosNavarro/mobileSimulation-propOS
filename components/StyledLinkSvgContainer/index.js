@@ -53,7 +53,7 @@ export default function StyledLinkSvgContainer({
   } else if (StyledSvg === addSVG) {
     href = `/create`;
   } else if (StyledSvg === messageSVG) {
-    href = `/message-call/${id}`;
+    href = `/contacts-message/${id}`;
   } else {
     href = ``;
   }
