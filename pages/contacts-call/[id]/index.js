@@ -4,11 +4,11 @@ import { StyledImagePlaceholder } from "../../../components/components.style";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import Link from "next/link";
-import {StyledLoading} from "../../../components/components.style"
+import { StyledLoading } from "../../../components/components.style";
 //--------------------STYLE
 
 const StyledCallContainer = styled.div`
-  background-color: gray;
+  background-color: #080202;
   margin: 0;
   height: 100vh;
   display: flex;
@@ -25,6 +25,7 @@ const StyledBigHeader = styled.h2`
   position: absolute;
   top: 6rem;
   margin: 0;
+  color: var(--lightBG);
 `;
 
 //Animation for the red button
@@ -58,10 +59,8 @@ const StyledBigImagePlaceholder = styled(StyledImagePlaceholder)`
   height: 9rem;
   margin: 0;
   border: none;
-  background-color: darkgray;
+  background-color: transparent;
 `;
-
-
 
 //----------------------------------------------- FUNCTION------------HERE
 
