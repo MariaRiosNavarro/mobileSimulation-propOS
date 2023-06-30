@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import { callSVG, infoSVG, addSVG } from "../assets/contactsSVG";
+import { callSVG, infoSVG, addSVG, messageSVG } from "../assets/contactsSVG";
 import { StyledCircularContainer } from "../Layout";
 import { ThemeContext } from "../../pages/_app";
 import { useContext } from "react";
@@ -52,6 +52,8 @@ export default function StyledLinkSvgContainer({
     href = `/contacts-call/${id}`;
   } else if (StyledSvg === addSVG) {
     href = `/create`;
+  } else if (StyledSvg === messageSVG) {
+    href = `/contacts-message/${id}`;
   } else {
     href = ``;
   }
