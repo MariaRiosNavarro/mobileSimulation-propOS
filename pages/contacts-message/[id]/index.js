@@ -9,6 +9,7 @@ import AppsHeader from "../../../components/Appsheader";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { StyledImagePlaceholder } from "../../../components/components.style";
+import MyKeyboard from "../../../components/MyKeyboard";
 
 const StyledAppHeaderContainer = styled.div`
   display: flex;
@@ -69,7 +70,9 @@ export default function MessageDetail() {
           <StyledHeader>{contact.name}</StyledHeader>
           <StyledImagePlaceholder />
         </StyledContactHeaderContainer>
-        <StyledKeyboardContainer></StyledKeyboardContainer>
+        <StyledKeyboardContainer>
+          <MyKeyboard />
+        </StyledKeyboardContainer>
       </StyledAppBodyContainer>
     </>
   );
