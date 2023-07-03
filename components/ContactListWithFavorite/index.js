@@ -19,6 +19,11 @@ export default function ContactListWithFavorite() {
   const [favoriteContactState, setFavoriteContactState] = useState([]);
   const [filter, setFilter] = useState("all");
 
+
+
+
+  
+
   if (isLoading) {
     return <div>Loading</div>;
   }
