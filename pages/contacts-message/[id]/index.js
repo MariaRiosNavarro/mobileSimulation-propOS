@@ -1,17 +1,13 @@
 import useSWR from "swr";
 import styled from "styled-components";
 import { backSVG } from "../../../components/assets/contactsSVG";
-import {
-  StyledLoading,
-} from "../../../components/components.style";
+import { StyledLoading } from "../../../components/components.style";
 import AppsHeader from "../../../components/Appsheader";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { StyledImagePlaceholder } from "../../../components/components.style";
 import MyKeyboard from "../../../components/MyKeyboard";
 import Navigation from "../../../components/Navigation";
-
-
 
 const StyledContainer = styled.div``;
 
@@ -40,11 +36,9 @@ const StyledLink = styled(Link)`
 const StyledKeyboardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
   position: absolute;
   bottom: 5rem;
   width: 100%;
-  
 `;
 
 //----------------------------------------------- FUNCTION------------HERE
