@@ -9,7 +9,7 @@ import styled from "styled-components";
 //change the input to p to prevent the default keyboard from appearing on mobile phones
 
 const StyledContainer = styled.div`
-  border: 1px solid transparent;
+  border: none;
 `;
 const StyledSendSMSContainer = styled.div`
   display: flex;
@@ -35,7 +35,6 @@ const StyledSendButton = styled.button`
     background-color: var(--hover-color);
   }
 `;
-
 
 // New Paragraph where is the sended Message
 const StyledSendedMessageContainer = styled.div`
