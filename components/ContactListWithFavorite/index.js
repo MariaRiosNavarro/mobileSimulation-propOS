@@ -23,7 +23,9 @@ export default function ContactListWithFavorite() {
 
   useEffect(() => {
     if (data) {
-      const initialFavoriteContacts = data.map((contact) => contact._id);
+      const initialFavoriteContacts = data
+        .filter((contact) => contact.favorite)
+        .map((contact) => contact._id);
       setFavoriteContactState(initialFavoriteContacts);
     }
   }, [data]);
@@ -74,7 +76,7 @@ export default function ContactListWithFavorite() {
   const filteredContacts =
     filter === "favorites" ? data.filter((contact) => contact.favorite) : data;
 
-  const favoriteCount = filteredContacts.length;
+  const favoriteCount = favoriteContactState.length;
 
   return (
     <>
