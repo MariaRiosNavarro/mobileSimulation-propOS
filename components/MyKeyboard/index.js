@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
@@ -8,7 +9,7 @@ import styled from "styled-components";
 //change the input to p to prevent the default keyboard from appearing on mobile phones
 
 const StyledContainer = styled.div`
-  border: none;
+  border: 1px solid transparent;
 `;
 const StyledSendSMSContainer = styled.div`
   display: flex;
@@ -35,8 +36,41 @@ const StyledSendButton = styled.button`
   }
 `;
 
+
+// New Paragraph where is the sended Message
+const StyledSendedMessageContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+`;
+const StyledSendedMessage = styled.p`
+  background-color: lightblue;
+  padding: 0.5rem;
+  width: auto;
+  margin: 0 1rem 0 1rem;
+  border-radius: 20px 20px 0 20px;
+  padding: 0.5rem;
+  /* Render with propierties, if we see the sended Message or not */
+  display: ${(props) => (props.show ? "inline" : "none")};
+`;
+
 export default function MyKeyboard() {
   const [input, setInput] = useState("");
+  const [message, setMessage] = useState("");
+  const [showMessage, setShowMessage] = useState(false);
+
+  useEffect(() => {
+    if (message !== "") {
+      setShowMessage(true);
+    }
+  }, [message]);
+
+  function handleSendSMS() {
+    if (input !== "") {
+      setMessage(input);
+      setInput("");
+    }
+  }
 
   const onChange = (input) => {
     console.log("Input changed", input);
@@ -67,6 +101,9 @@ export default function MyKeyboard() {
 
   return (
     <StyledContainer>
+      <StyledSendedMessageContainer>
+        <StyledSendedMessage show={showMessage}>{message}</StyledSendedMessage>
+      </StyledSendedMessageContainer>
       <StyledSendSMSContainer>
         <StyledPseudoInput
           contentEditable
@@ -75,7 +112,9 @@ export default function MyKeyboard() {
         >
           {input}
         </StyledPseudoInput>
-        <StyledSendButton>{"SMS senden"} </StyledSendButton>
+        <StyledSendButton onClick={handleSendSMS}>
+          {"SMS senden"}
+        </StyledSendButton>
       </StyledSendSMSContainer>
       <Keyboard
         onChange={onChange}
