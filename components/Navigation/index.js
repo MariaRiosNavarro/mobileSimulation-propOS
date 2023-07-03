@@ -35,7 +35,7 @@ export default function Navigation({ selected }) {
           selected={selected === "phone"}
         />
       </Link>
-      <Link href={"/"}>
+      <Link href={"/message"}>
         <StyledAppContainer
           StyledSvg={messageSVG}
           selected={selected === "message"}
