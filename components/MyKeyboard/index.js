@@ -5,11 +5,35 @@ import styled from "styled-components";
 
 // Keyboard: https://hodgef.com/simple-keyboard/getting-started/react/
 
-const StyledPseudoInput = styled.p`
-  width: 80%;
+//change the input to p to prevent the default keyboard from appearing on mobile phones
+
+const StyledContainer = styled.div`
+  border: none;
+`;
+const StyledSendSMSContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const StyledContainer = styled.div``;
+const StyledPseudoInput = styled.p`
+  width: 80%;
+  background-color: white;
+  margin: 0 1rem 0 1rem;
+  border-radius: 8px;
+  padding: 0.5rem;
+`;
+
+const StyledSendButton = styled.button`
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem;
+  width: 10rem;
+  &:hover {
+    background-color: var(--hover-color);
+  }
+`;
 
 export default function MyKeyboard() {
   const [input, setInput] = useState("");
@@ -43,13 +67,16 @@ export default function MyKeyboard() {
 
   return (
     <StyledContainer>
-      <StyledPseudoInput
-        contentEditable
-        suppressContentEditableWarning
-        onblur={(event) => setInput(event.target.innerText)}
-      >
-        {input}
-      </StyledPseudoInput>
+      <StyledSendSMSContainer>
+        <StyledPseudoInput
+          contentEditable
+          suppressContentEditableWarning
+          onblur={(event) => setInput(event.target.innerText)}
+        >
+          {input}
+        </StyledPseudoInput>
+        <StyledSendButton>{"SMS senden"} </StyledSendButton>
+      </StyledSendSMSContainer>
       <Keyboard
         onChange={onChange}
         onKeyPress={onKeyPress}
