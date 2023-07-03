@@ -5,6 +5,8 @@ import { useState } from "react";
 import Tab from "../Tab";
 import Tabs from "../Tabs";
 import Badge from "../Badge";
+import { starSVG, starFillSVG } from "../assets/contactsSVG";
+import { useEffect } from "react";
 
 const StyledList = styled.ul`
   list-style: none;
@@ -15,9 +17,18 @@ const StyledList = styled.ul`
 `;
 
 export default function ContactListWithFavorite() {
-  const { data, isLoading } = useSWR("./api/contacts");
+  const { data, isLoading, mutate } = useSWR("./api/contacts");
   const [favoriteContactState, setFavoriteContactState] = useState([]);
   const [filter, setFilter] = useState("all");
+
+  useEffect(() => {
+    if (data) {
+      const initialFavoriteContacts = data
+        .filter((contact) => contact.favorite)
+        .map((contact) => contact._id);
+      setFavoriteContactState(initialFavoriteContacts);
+    }
+  }, [data]);
 
   if (isLoading) {
     return <div>Loading</div>;
@@ -27,14 +38,33 @@ export default function ContactListWithFavorite() {
     return <h1>Keine Daten Gefunden</h1>;
   }
 
-  function handleToggleFavoriten(id) {
-    if (favoriteContactState.includes(id)) {
-      setFavoriteContactState(favoriteContactState.filter((_id) => _id !== id));
+  async function handleToggleFavoriten(id) {
+    const updatedFavoriteContacts = [...favoriteContactState];
+    if (updatedFavoriteContacts.includes(id)) {
+      const index = updatedFavoriteContacts.indexOf(id);
+      updatedFavoriteContacts.splice(index, 1);
     } else {
-      setFavoriteContactState([...favoriteContactState, id]);
+      updatedFavoriteContacts.push(id);
+    }
+
+    const contactToUpdate = data.find((contact) => contact._id === id);
+    const updatedContact = {
+      ...contactToUpdate,
+      favorite: !contactToUpdate.favorite,
+    };
+
+    const response = await fetch(`/api/contacts/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedContact),
+    });
+
+    if (response.ok) {
+      mutate();
     }
   }
-
   function handleShowFavorite() {
     setFilter("favorites");
   }
@@ -43,12 +73,10 @@ export default function ContactListWithFavorite() {
     setFilter("all");
   }
 
-  const favoriteContacts = data.filter((contact) =>
-    favoriteContactState.includes(contact._id)
-  );
-  const filteredContacts = filter === "favorites" ? favoriteContacts : data;
+  const filteredContacts =
+    filter === "favorites" ? data.filter((contact) => contact.favorite) : data;
 
-  const favoriteCount = favoriteContacts.length;
+  const favoriteCount = favoriteContactState.length;
 
   return (
     <>
@@ -73,6 +101,7 @@ export default function ContactListWithFavorite() {
               name={contact.name}
               isFavorite={favoriteContactState.includes(contact._id)}
               toggleFavorite={handleToggleFavoriten}
+              isFavoriteStyledSvg={contact.favorite ? starFillSVG : starSVG}
             />
           );
         })}

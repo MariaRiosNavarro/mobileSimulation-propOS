@@ -7,7 +7,8 @@ export default async function handler(request, response) {
   if (request.method === "POST") {
     try {
       const contactData = request.body;
-      await Contact.create(contactData);
+      const contact = new Contact(contactData);
+      await contact.save();
       response.status(201).json({ message: "Contact created" });
     } catch (error) {
       console.log(error);
@@ -16,12 +17,15 @@ export default async function handler(request, response) {
   }
 
   if (request.method === "GET") {
-    try {
-      const contacts = await Contact.find();
-      response.status(200).json(contacts);
-    } catch (error) {
-      console.log(error);
-      response.status(400).json({ error: error.messge });
+    const { favorite } = request.query;
+
+    // Favorite Filter
+    if (favorite === "true") {
+      const favoriteContacts = await Contact.find({ favorite: true });
+      return response.status(200).json(favoriteContacts);
     }
+
+    const contacts = await Contact.find();
+    return response.status(200).json(contacts);
   }
 }

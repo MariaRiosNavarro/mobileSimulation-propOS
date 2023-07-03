@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import StyledLinkSvgContainer from "../StyledLinkSvgContainer";
-import {
-  infoSVG,
-  callSVG,
-  starSVG,
-  starFillSVG,
-  messageSVG,
-} from "../assets/contactsSVG";
+import { infoSVG, callSVG, messageSVG } from "../assets/contactsSVG";
 import { StyledImagePlaceholder } from "../components.style";
 
 const StyledContainer = styled.div`
@@ -38,6 +32,7 @@ export default function ContactListItem({
   id,
   isFavorite,
   toggleFavorite,
+  isFavoriteStyledSvg,
 }) {
   return (
     <StyledListItem>
@@ -47,7 +42,7 @@ export default function ContactListItem({
         <StyledBadgetContainer>
           <StyledLinkSvgContainer StyledSvg={callSVG} id={id} />
           <StyledLinkSvgContainer
-            StyledSvg={isFavorite ? starFillSVG : starSVG}
+            StyledSvg={isFavoriteStyledSvg}
             isFavorite={isFavorite}
             onClick={() => toggleFavorite(id)}
           />

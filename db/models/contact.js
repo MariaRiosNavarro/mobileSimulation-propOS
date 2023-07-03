@@ -7,6 +7,7 @@ const contactSchema = new Schema({
   photo: { type: String },
   phone: { type: String },
   note: { type: String },
+  favorite: {type: Boolean, default:false}, //Add favorite as propierty
 });
 
 const Contact =
