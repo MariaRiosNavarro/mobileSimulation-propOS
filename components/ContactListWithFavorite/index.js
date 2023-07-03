@@ -44,26 +44,25 @@ export default function ContactListWithFavorite() {
     } else {
       updatedFavoriteContacts.push(id);
     }
-  
-  const contactToUpdate = data.find((contact) => contact._id === id);
-  const updatedContact = {
-    ...contactToUpdate,
-    favorite: !contactToUpdate.favorite,
-  };
 
-  const response = await fetch(`/api/contacts/${id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(updatedContact),
-  });
+    const contactToUpdate = data.find((contact) => contact._id === id);
+    const updatedContact = {
+      ...contactToUpdate,
+      favorite: !contactToUpdate.favorite,
+    };
 
-  if (response.ok) {
-    mutate();
+    const response = await fetch(`/api/contacts/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedContact),
+    });
+
+    if (response.ok) {
+      mutate();
+    }
   }
-
-}
   function handleShowFavorite() {
     setFilter("favorites");
   }
@@ -72,12 +71,10 @@ export default function ContactListWithFavorite() {
     setFilter("all");
   }
 
-  const favoriteContacts = data.filter((contact) =>
-    favoriteContactState.includes(contact._id)
-  );
-  const filteredContacts = filter === "favorites" ? favoriteContacts : data;
+  const filteredContacts =
+    filter === "favorites" ? data.filter((contact) => contact.favorite) : data;
 
-  const favoriteCount = favoriteContacts.length;
+  const favoriteCount = filteredContacts.length;
 
   return (
     <>
