@@ -15,13 +15,23 @@ export default async function handler(request, response) {
   }
 
   //API for UPDATE
-  if (request.method === "PATCH") {
-    await Contact.findByIdAndUpdate(id, {
-      $set: request.body,
-    });
-    console.log(response);
-    response.status(200).json({ status: `Contact updated` });
-    return;
+  if (request.method === "PUT") {
+    try {
+      const { favorite } = request.body;
+      const contact = await Contact.findById(id);
+
+      if (!contact) {
+        return response.status(404).json({ error: "Contact not found" });
+      }
+
+      contact.favorite = favorite;
+      await contact.save();
+
+      return response.status(200).json({ message: "Contact updated" });
+    } catch (error) {
+      console.log(error);
+      return response.status(500).json({ error: "Server error" });
+    }
   }
 
   if (request.method === "DELETE") {
