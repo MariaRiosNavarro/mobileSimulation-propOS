@@ -5,10 +5,11 @@ import styled from "styled-components";
 
 // Keyboard: https://hodgef.com/simple-keyboard/getting-started/react/
 
-
-const StyledInput = styled.input`
-  width: 100%;
+const StyledPseudoInput = styled.p`
+  width: 80%;
 `;
+
+const StyledContainer = styled.div``;
 
 export default function MyKeyboard() {
   const [input, setInput] = useState("");
@@ -41,17 +42,19 @@ export default function MyKeyboard() {
   };
 
   return (
-    <div>
-      <StyledInput
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      />
+    <StyledContainer>
+      <StyledPseudoInput
+        contentEditable
+        suppressContentEditableWarning
+        onblur={(event) => setInput(event.target.innerText)}
+      >
+        {input}
+      </StyledPseudoInput>
       <Keyboard
         onChange={onChange}
         onKeyPress={onKeyPress}
         layout={costumlayout}
       />
-    </div>
+    </StyledContainer>
   );
 }
