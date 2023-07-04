@@ -3,12 +3,51 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Button from "../Button";
 
-const StyledBigContainer = styled.div``;
-const StyledSectionContainer = styled.div``;
-const StyledSectionHeading = styled.h4``;
-const StyledForm = styled.form``;
-const StyledLabel = styled.label``;
-const StyledInput = styled.input``;
+const StyledBigContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+`;
+const StyledSectionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--primary-color);
+  padding: 0.3rem;
+  border-radius: 8px;
+`;
+const StyledSectionHeading = styled.h4`
+  text-align: center;
+  margin-top: 0.3rem;
+`;
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+const StyledLabel = styled.label`
+  font-weight: 500;
+  color: darkgray;
+`;
+const StyledInput = styled.input`
+  border-radius: 4px;
+  border: none;
+  padding: 0.5rem;
+`;
+
+const StyledButton = styled.button`
+  width: 10rem;
+  margin-top: 1rem;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem;
+
+  &:hover {
+    background-color: var(--hover-color);
+  }
+`;
 
 export default function LoginPage() {
   const router = useRouter();
@@ -49,7 +88,7 @@ export default function LoginPage() {
               id="loginPassword"
               name="loginPassword"
             ></StyledInput>
-            <Button type="submit" name={"Einloggen"} />
+            <StyledButton type="submit">Einloggen</StyledButton>
           </StyledForm>
         </StyledSectionContainer>
         <StyledSectionContainer>
@@ -61,19 +100,21 @@ export default function LoginPage() {
               id="registrationEmail"
               name="registrationEmail"
             ></StyledInput>
-            <StyledLabel htmlFor="registrationEmailConfirmation"></StyledLabel>
+            <StyledLabel htmlFor="registrationEmailConfirmation">
+              Email bestätigen
+            </StyledLabel>
             <StyledInput
               type="email"
               id="registrationEmailConfirmation"
               name="registrationEmailConfirmation"
             ></StyledInput>
-            <StyledLabel htmlFor="registrationPassword"></StyledLabel>
+            <StyledLabel htmlFor="registrationPassword">Password</StyledLabel>
             <StyledInput
               type="password"
               id="registrationPassword"
               name="registrationPassword"
             ></StyledInput>
-            <Button type="submit" name={"Speichern"} />
+            <StyledButton type="submit">Speichern</StyledButton>
           </StyledForm>
         </StyledSectionContainer>
       </StyledBigContainer>
