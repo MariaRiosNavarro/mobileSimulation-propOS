@@ -23,7 +23,7 @@ const StyledNavigationContainer = styled.div`
 export default function Navigation({ selected }) {
   return (
     <StyledNavigationContainer>
-      <Link href={"/"}>
+      <Link href={"/home"}>
         <StyledAppContainer
           StyledSvg={homeSVG}
           selected={selected === "home"}

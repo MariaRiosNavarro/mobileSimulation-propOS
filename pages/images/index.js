@@ -24,7 +24,7 @@ export default function Gallery() {
   return (
     <>
       <StyledHeadingContainer>
-        <Link href={"/"}>{backSVG}</Link>
+        <Link href={"/home"}>{backSVG}</Link>
         <StyledHeading>Galerie</StyledHeading>
         <Link href={"/images/upload"}>{addSVG}</Link>
       </StyledHeadingContainer>

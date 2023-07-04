@@ -52,7 +52,7 @@ export default function StyledLinkSvgContainer({
   } else if (StyledSvg === cameraSmallSVG) {
     href = `/images/upload`;
   } else {
-    href = ``;
+    href = `/home`;
   }
 
   return (

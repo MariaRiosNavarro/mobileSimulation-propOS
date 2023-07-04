@@ -54,73 +54,73 @@ export default function Home() {
   return (
     <>
       <StyledMain>
-        <StyledWrapAppLink href={"/"}>
+        <StyledWrapAppLink href={"/home"}>
           <StyledAppContainer StyledSvg={calenderSVG} disabled />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Kalender
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/"}>
+        <StyledWrapAppLink href={"/home"}>
           <StyledAppContainer StyledSvg={beachSVG} disabled />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Wetter
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/"}>
+        <StyledWrapAppLink href={"/home"}>
           <StyledAppContainer StyledSvg={alarmSVG} disabled />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Uhr
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/"}>
+        <StyledWrapAppLink href={"/home"}>
           <StyledAppContainer StyledSvg={musicSVG} disabled />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Audio
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/"}>
+        <StyledWrapAppLink href={"/home"}>
           <StyledAppContainer StyledSvg={sportSVG} disabled />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Spiele
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/"}>
+        <StyledWrapAppLink href={"/home"}>
           <StyledAppContainer StyledSvg={roundaboutSVG} disabled />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Navigation
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/"}>
+        <StyledWrapAppLink href={"/home"}>
           <StyledAppContainer StyledSvg={trainSVG} disabled />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Transport
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/"}>
+        <StyledWrapAppLink href={"/home"}>
           <StyledAppContainer StyledSvg={shoppingSVG} disabled />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Einkaufen
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/"}>
+        <StyledWrapAppLink href={"/home"}>
           <StyledAppContainer StyledSvg={lensSVG} disabled />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Sozial Media
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/"}>
+        <StyledWrapAppLink href={"/home"}>
           <StyledAppContainer StyledSvg={questionSVG} disabled />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Chats
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/"}>
+        <StyledWrapAppLink href={"/home"}>
           <StyledAppContainer StyledSvg={checkSVG} disabled />
           <StyledAppHeading theme={theme} customColor={customColor}>
             ToDo
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/"}>
+        <StyledWrapAppLink href={"/home"}>
           <StyledAppContainer StyledSvg={languageSVG} disabled />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Internet
