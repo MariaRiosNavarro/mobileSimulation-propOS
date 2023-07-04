@@ -126,7 +126,7 @@ export default function Home() {
             Internet
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/gallery"}>
+        <StyledWrapAppLink href={"/images"}>
           <StyledAppContainer StyledSvg={cameraSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Galerie
