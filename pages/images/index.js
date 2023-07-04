@@ -1,5 +1,6 @@
 import styled from "styled-components";
-
+import PhotoList from "../../components/PhotoList";
+import Link from "next/link";
 import { backSVG, addSVG } from "../../components/assets/contactsSVG";
 import Navigation from "../../components/Navigation";
 
@@ -19,8 +20,6 @@ const StyledHeadingContainer = styled.div`
   border-bottom: 1px solid lightgray;
 `;
 
-import PhotoList from "../../components/PhotoList";
-import Link from "next/link";
 export default function Gallery() {
   return (
     <>
