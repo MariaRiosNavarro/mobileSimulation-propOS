@@ -79,6 +79,7 @@ export default function Form({ onSubmit, formName, defaultData, onClick }) {
             <StyledInputPhoto
               type="file"
               id="photo"
+              name="photo"
               defaultValue={defaultData?.photo}
             />
           </StyledPhotoLabel>
