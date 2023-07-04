@@ -14,16 +14,18 @@ const Form = styled.form`
   flex-direction: column;
 `;
 const StyledInput = styled.input`
-  width: 20rem;
-  display: none;
+  width: auto;
+  /* display: none; */
   height: 2rem;
 `;
 
 const StyledLabel = styled.label`
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
   align-items: center;
   justify-content: center;
-  border-radius: 15%;
+  border-radius: 8px;
   background-color: lightgray;
   border: 2px solid var(--primary-color);
   width: auto;
