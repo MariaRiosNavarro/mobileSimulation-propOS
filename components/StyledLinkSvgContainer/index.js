@@ -50,7 +50,7 @@ export default function StyledLinkSvgContainer({
   } else if (StyledSvg === messageSVG) {
     href = `/contacts-message/${id}`;
   } else if (StyledSvg === cameraSmallSVG) {
-    href = `/gallery/upload`;
+    href = `/images/upload`;
   } else {
     href = ``;
   }

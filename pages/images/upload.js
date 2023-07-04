@@ -81,7 +81,7 @@ export default function PhotoUploadForm() {
   return (
     <>
       <StyledHeadingContainer>
-        <Link href={"/gallery"}>{backSVG}</Link>
+        <Link href={"/images"}>{backSVG}</Link>
         <StyledHeading>Gallerie</StyledHeading>
       </StyledHeadingContainer>
       <StyledSubHeading>Fotos Hochladen</StyledSubHeading>
