@@ -4,6 +4,7 @@ import useSWR from "swr";
 import Button from "../../components/Button";
 import Link from "next/link";
 import { backSVG } from "../../components/assets/contactsSVG";
+import Navigation from "../../components/Navigation";
 
 const Form = styled.form`
   margin: 0;
@@ -82,7 +83,7 @@ export default function PhotoUploadForm() {
     <>
       <StyledHeadingContainer>
         <Link href={"/images"}>{backSVG}</Link>
-        <StyledHeading>Gallerie</StyledHeading>
+        <StyledHeading>Galerie</StyledHeading>
       </StyledHeadingContainer>
       <StyledSubHeading>Fotos Hochladen</StyledSubHeading>
       <Form onSubmit={submitImage}>
@@ -94,6 +95,7 @@ export default function PhotoUploadForm() {
         <p>{uploadStatus}</p>
         {error && <p>{error.message}</p>}
       </Form>
+      <Navigation />
     </>
   );
 }
