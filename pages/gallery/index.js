@@ -1,11 +1,11 @@
 import ApppHeader from "../../components/AppsHeader";
-import { cameraSVG } from "../../components/assets/homeSVG";
+import { cameraSmallSVG } from "../../components/assets/homeSVG";
 
 import PhotoList from "../../components/PhotoList";
 export default function Gallery() {
   return (
     <>
-      <ApppHeader heading={"Gallerie"} StyledSvg={cameraSVG} />
+      <ApppHeader heading={"Gallerie"} StyledSvg={cameraSmallSVG} />
       <PhotoList></PhotoList>
     </>
   );
