@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { cameraSmallSVG } from "../../components/assets/homeSVG";
-import { backSVG } from "../../components/assets/contactsSVG";
+
+import { backSVG, addSVG } from "../../components/assets/contactsSVG";
 import Navigation from "../../components/Navigation";
 
 const StyledHeading = styled.h5`
@@ -27,7 +27,7 @@ export default function Gallery() {
       <StyledHeadingContainer>
         <Link href={"/"}>{backSVG}</Link>
         <StyledHeading>Galerie</StyledHeading>
-        <Link href={"/images/upload"}>{cameraSmallSVG}</Link>
+        <Link href={"/images/upload"}>{addSVG}</Link>
       </StyledHeadingContainer>
       <PhotoList></PhotoList>
       <Navigation />
