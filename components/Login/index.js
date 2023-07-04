@@ -36,7 +36,7 @@ export default function LoginPage() {
       <StyledBigContainer>
         <StyledSectionContainer>
           <StyledSectionHeading>Einloggen</StyledSectionHeading>
-          <StyledForm>
+          <StyledForm onSubmit={handleLoginSubmit}>
             <StyledLabel htmlFor="loginEmail">Email</StyledLabel>
             <StyledInput
               type="email"
@@ -49,12 +49,12 @@ export default function LoginPage() {
               id="loginPassword"
               name="loginPassword"
             ></StyledInput>
-            <Button>Einloggen</Button>
+            <Button type="submit" name={"Einloggen"} />
           </StyledForm>
         </StyledSectionContainer>
         <StyledSectionContainer>
           <StyledSectionHeading>Registrieren</StyledSectionHeading>
-          <StyledForm>
+          <StyledForm onSubmit={handleRegistrationSubmit}>
             <StyledLabel htmlFor="registrationEmail">Email</StyledLabel>
             <StyledInput
               type="email"
@@ -73,7 +73,7 @@ export default function LoginPage() {
               id="registrationPassword"
               name="registrationPassword"
             ></StyledInput>
-            <Button>Speichern</Button>
+            <Button type="submit" name={"Speichern"} />
           </StyledForm>
         </StyledSectionContainer>
       </StyledBigContainer>
