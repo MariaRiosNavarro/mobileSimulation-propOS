@@ -47,7 +47,7 @@ const StyledSendedBackMessage = styled.p`
   padding: 0.5rem;
   width: auto;
   margin: 0 1rem 0 1rem;
-  border-radius: 20px 20px 0 20px;
+  border-radius: 20px 20px 20px 0;
   padding: 0.5rem;
   /* Render with propierties, if we see the sended Message or not */
   display: ${(props) => (props.show ? "inline" : "none")};
@@ -74,6 +74,7 @@ export default function MyKeyboard() {
   const [input, setInput] = useState("");
   const [message, setMessage] = useState("");
   const [showMessage, setShowMessage] = useState(false);
+  const [showMessageBack, setShowMessageBack] = useState(false);
 
   useEffect(() => {
     if (message !== "") {
@@ -81,10 +82,15 @@ export default function MyKeyboard() {
     }
   }, [message]);
 
+  let messageBack = "Hey, wie geht´s? 😃";
+
   function handleSendSMS() {
     if (input !== "") {
       setMessage(input);
       setInput("");
+      setTimeout(() => {
+        setShowMessageBack(true);
+      }, 2000);
     }
   }
 
@@ -118,8 +124,8 @@ export default function MyKeyboard() {
   return (
     <StyledContainer>
       <StyledSendedBackMessageContainer>
-        <StyledSendedBackMessage show={showMessage}>
-          {message}
+        <StyledSendedBackMessage show={showMessageBack}>
+          {messageBack}
         </StyledSendedBackMessage>
       </StyledSendedBackMessageContainer>
       <StyledSendedMessageContainer>
