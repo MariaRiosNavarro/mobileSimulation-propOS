@@ -3,13 +3,38 @@ import styled from "styled-components";
 import Link from "next/link";
 import useSWR from "swr";
 
-const StyledList = styled.ul``;
+const StyledList = styled.ul`
+  list-style: none;
+  padding: 0;
+  width: 100vw;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+`;
 
-const StyledListItem = styled.li``;
+const StyledListItem = styled.li`
+  display: flex;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ccc;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+`;
 
-const StyledImage = styled(Image)``;
+const StyledImage = styled(Image)`
+  border-radius: 0.5rem;
+  width: 20vw;
+  object-fit: contain;
+  height: 20vw;
+  border-color: aliceblue;
+`;
 
 const StyledTag = styled.span``;
+
+const StyledNoTag = styled.span`
+  color: gray;
+`;
 
 const StyledTagParagrph = styled.p``;
 
@@ -38,7 +63,7 @@ export default function PhotoList() {
                   <StyledTag key={`tag-${index}`}>{tag}</StyledTag>
                 ))
               ) : (
-                <i>Ohne Tag</i>
+                <StyledNoTag>Ohne Tag</StyledNoTag>
               )}
             </StyledTagParagrph>
           </StyledListItem>

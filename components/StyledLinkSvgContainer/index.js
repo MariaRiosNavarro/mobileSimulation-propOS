@@ -4,6 +4,7 @@ import { callSVG, infoSVG, addSVG, messageSVG } from "../assets/contactsSVG";
 import { StyledCircularContainer } from "../Layout";
 import { ThemeContext } from "../../pages/_app";
 import { useContext } from "react";
+import { cameraSVG } from "../assets/homeSVG";
 
 const StyledLink = styled(Link)`
   height: 20px;
@@ -23,13 +24,7 @@ const StyledSpan = styled.span`
   justify-content: center;
 `;
 
-const StyledSvg = styled.svg`
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+const StyledSvg = styled.svg``;
 
 export default function StyledLinkSvgContainer({
   id,
@@ -54,6 +49,8 @@ export default function StyledLinkSvgContainer({
     href = `/create`;
   } else if (StyledSvg === messageSVG) {
     href = `/contacts-message/${id}`;
+  } else if (StyledSvg === cameraSVG) {
+    href = `/gallery-form`;
   } else {
     href = ``;
   }
