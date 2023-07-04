@@ -11,6 +11,8 @@ const StyledImage = styled(Image)``;
 
 const StyledTag = styled.span``;
 
+const StyledTagParagrph = styled.p``;
+
 export default function PhotoList() {
   const { data, error } = useSWR("api/images");
   if (error) return <div>könnte nicht geladen werden</div>;
@@ -19,9 +21,28 @@ export default function PhotoList() {
   return (
     <>
       <StyledList>
-        <StyledListItem></StyledListItem>
-        <StyledImage></StyledImage>
-        <StyledTag></StyledTag>
+        {data.resources.map((image) => (
+          <StyledListItem key={image.asset_id}>
+            <Link href={`/images/${image.public_id}`} key={image.asset_id}>
+              <StyledImage
+                key={image.public_id}
+                src={image.url}
+                width={image.width}
+                height={image.height}
+                alt={`Photo-Id: ${image.public_id}`}
+              />
+            </Link>
+            <StyledTagParagrph>
+              {image.tags.length > 0 ? (
+                image.tags.map((tag, index) => (
+                  <StyledTag key={`tag-${index}`}>{tag}</StyledTag>
+                ))
+              ) : (
+                <i>Ohne Tag</i>
+              )}
+            </StyledTagParagrph>
+          </StyledListItem>
+        ))}
       </StyledList>
     </>
   );
