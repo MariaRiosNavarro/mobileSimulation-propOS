@@ -28,7 +28,7 @@ export default function Gallery() {
         <StyledHeading>Galerie</StyledHeading>
         <Link href={"/images/upload"}>{addSVG}</Link>
       </StyledHeadingContainer>
-      <PhotoList></PhotoList>
+      <PhotoList />
       <Navigation />
     </>
   );
