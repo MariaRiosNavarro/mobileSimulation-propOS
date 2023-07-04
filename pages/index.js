@@ -103,7 +103,7 @@ export default function Home() {
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={cameraSVG} disabled />
+          <StyledAppContainer StyledSvg={lensSVG} disabled />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Sozial Media
           </StyledAppHeading>
@@ -126,8 +126,8 @@ export default function Home() {
             Internet
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={lensSVG} disabled />
+        <StyledWrapAppLink href={"/gallery"}>
+          <StyledAppContainer StyledSvg={cameraSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Galerie
           </StyledAppHeading>
