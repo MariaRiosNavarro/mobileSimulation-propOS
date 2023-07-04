@@ -60,7 +60,7 @@ export default function PhotoUploadForm() {
   const [uploadStatus, setUploadStatus] = useState(false);
   const [error, setError] = useState(undefined);
 
-  async function submitImage(event) {
+  async function handleSubmitImage(event) {
     event.preventDefault();
     setUploadStatus("Uploading...");
     const formData = new FormData(event.target);
@@ -86,7 +86,7 @@ export default function PhotoUploadForm() {
         <StyledHeading>Galerie</StyledHeading>
       </StyledHeadingContainer>
       <StyledSubHeading>Fotos Hochladen</StyledSubHeading>
-      <Form onSubmit={submitImage}>
+      <Form onSubmit={handleSubmitImage}>
         <StyledLabel htmlFor="photoUpload">
           Auswählen
           <StyledInput type="file" name="file" id="photoUpload" />
