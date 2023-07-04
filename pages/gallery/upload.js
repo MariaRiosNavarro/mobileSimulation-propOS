@@ -1,6 +1,58 @@
 import { useState } from "react";
 import styled from "styled-components";
 import useSWR from "swr";
+import Button from "../../components/Button";
+import Link from "next/link";
+import { backSVG } from "../../components/assets/contactsSVG";
+
+const Form = styled.form`
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+const StyledInput = styled.input`
+  width: 20rem;
+  display: none;
+  height: 2rem;
+`;
+
+const StyledLabel = styled.label`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15%;
+  background-color: lightgray;
+  border: 2px solid var(--primary-color);
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  outline: none;
+  &:hover {
+    border: 2px solid var(--hover-color);
+  }
+`;
+const StyledHeading = styled.h4`
+  padding: 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+`;
+const StyledSubHeading = styled.h5`
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 0;
+`;
+
+const StyledHeadingContainer = styled.div`
+  margin: 0 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+`;
 
 export default function PhotoUploadForm() {
   const { mutate } = useSWR("/api/images/");
@@ -28,23 +80,20 @@ export default function PhotoUploadForm() {
 
   return (
     <>
-      <h2>Image Upload</h2>
+      <StyledHeadingContainer>
+        <Link href={"/gallery"}>{backSVG}</Link>
+        <StyledHeading>Gallerie</StyledHeading>
+      </StyledHeadingContainer>
+      <StyledSubHeading>Fotos Hochladen</StyledSubHeading>
       <Form onSubmit={submitImage}>
-        <input type="file" name="file" />
-        <StyledButton type="submit">Upload</StyledButton>
+        <StyledLabel htmlFor="photoUpload">
+          Auswählen
+          <StyledInput type="file" name="file" id="photoUpload" />
+        </StyledLabel>
+        <Button type="submit" name={"Fotos Hochladen"} />
         <p>{uploadStatus}</p>
         {error && <p>{error.message}</p>}
       </Form>
     </>
   );
 }
-const Form = styled.form`
-  margin: 2rem auto;
-`;
-const StyledButton = styled.button`
-  background-color: green;
-  margin-top: 0.5rem;
-  border-radius: 0.5rem;
-  padding: 0.25rem 1rem;
-  color: white;
-`;

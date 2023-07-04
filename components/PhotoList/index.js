@@ -30,6 +30,8 @@ const StyledImage = styled(Image)`
   border-color: aliceblue;
 `;
 
+
+
 const StyledTag = styled.span``;
 
 const StyledNoTag = styled.span`
