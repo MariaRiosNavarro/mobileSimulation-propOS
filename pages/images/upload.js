@@ -14,16 +14,18 @@ const Form = styled.form`
   flex-direction: column;
 `;
 const StyledInput = styled.input`
-  width: 20rem;
-  display: none;
+  width: auto;
+  /* display: none; */
   height: 2rem;
 `;
 
 const StyledLabel = styled.label`
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
   align-items: center;
   justify-content: center;
-  border-radius: 15%;
+  border-radius: 8px;
   background-color: lightgray;
   border: 2px solid var(--primary-color);
   width: auto;
@@ -60,7 +62,7 @@ export default function PhotoUploadForm() {
   const [uploadStatus, setUploadStatus] = useState(false);
   const [error, setError] = useState(undefined);
 
-  async function submitImage(event) {
+  async function handleSubmitImage(event) {
     event.preventDefault();
     setUploadStatus("Uploading...");
     const formData = new FormData(event.target);
@@ -86,7 +88,7 @@ export default function PhotoUploadForm() {
         <StyledHeading>Galerie</StyledHeading>
       </StyledHeadingContainer>
       <StyledSubHeading>Fotos Hochladen</StyledSubHeading>
-      <Form onSubmit={submitImage}>
+      <Form onSubmit={handleSubmitImage}>
         <StyledLabel htmlFor="photoUpload">
           Auswählen
           <StyledInput type="file" name="file" id="photoUpload" />

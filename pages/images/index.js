@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { cameraSmallSVG } from "../../components/assets/homeSVG";
-import { backSVG } from "../../components/assets/contactsSVG";
+import PhotoList from "../../components/PhotoList";
+import Link from "next/link";
+import { backSVG, addSVG } from "../../components/assets/contactsSVG";
 import Navigation from "../../components/Navigation";
 
 const StyledHeading = styled.h5`
@@ -19,17 +20,15 @@ const StyledHeadingContainer = styled.div`
   border-bottom: 1px solid lightgray;
 `;
 
-import PhotoList from "../../components/PhotoList";
-import Link from "next/link";
 export default function Gallery() {
   return (
     <>
       <StyledHeadingContainer>
         <Link href={"/"}>{backSVG}</Link>
         <StyledHeading>Galerie</StyledHeading>
-        <Link href={"/images/upload"}>{cameraSmallSVG}</Link>
+        <Link href={"/images/upload"}>{addSVG}</Link>
       </StyledHeadingContainer>
-      <PhotoList></PhotoList>
+      <PhotoList />
       <Navigation />
     </>
   );
