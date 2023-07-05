@@ -58,15 +58,15 @@ export default function Form({ onSubmit, defaultData, onClick }) {
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const file = formData.get("file");
-    console.log(`file.name: ${file.name}`); // Output: Name of the uploaded file
-    console.log(`file.lastModified: ${file.lastModified}`); // Output: Last modified timestamp of the file
-    // Rest of the code...
+    const ContactFormData = Object.fromEntries(formData);
     const response = await fetch("/api/images/upload", {
-      method: "post",
+      method: "POST",
       body: formData,
     });
-    // Handle the response...
+    const photoDetails = await response.json();
+    photoUrl = photoDetails.url;
+    ContactFormData.photo = photoUrl;
+    onSubmit(ContactFormData);
   }
   return (
     <>
