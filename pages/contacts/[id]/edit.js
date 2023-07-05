@@ -22,8 +22,6 @@ const StyledSuccessMessage = styled.h5`
   border-radius: 8px;
 `;
 
-
-
 const StyledButton = styled.button`
   background-color: var(--primary-color);
   border: none;
@@ -47,10 +45,7 @@ export default function EditPage() {
     mutate,
   } = useSWR(`/api/contacts/${id}`);
 
-  async function handleEdit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const contactData = Object.fromEntries(formData);
+  async function handleEdit(contactData) {
     const response = await fetch(`/api/contacts/${id}`, {
       method: "PATCH",
       headers: {
