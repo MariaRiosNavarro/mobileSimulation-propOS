@@ -19,6 +19,7 @@ export default async function handler(request, response) {
     try {
       const result = await cloudinary.v2.search
         .expression(`public_id:${public_id}`)
+        .with_field("tags")
         .execute();
       response.status(200).json(result);
     } catch (error) {
