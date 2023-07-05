@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import StyledLinkSvgContainer from "../StyledLinkSvgContainer";
 import { infoSVG, callSVG, messageSVG } from "../assets/contactsSVG";
-import { StyledImagePlaceholder } from "../components.style";
+import Image from "next/image";
+// import { StyledImagePlaceholder } from "../components.style";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -27,17 +28,22 @@ const StyledListItem = styled.li`
   border-bottom: 1px solid lightgray;
 `;
 
+const StyledImage = styled(Image)`
+  border-radius: 50%;
+`;
+
 export default function ContactListItem({
   name,
   id,
   isFavorite,
   toggleFavorite,
   isFavoriteStyledSvg,
+  src,
 }) {
   return (
     <StyledListItem>
       <StyledContainer>
-        <StyledImagePlaceholder />
+        <StyledImage src={src} alt="Contact Photo" width={34} height={34} />
         <StyledName>{name}</StyledName>
         <StyledBadgetContainer>
           <StyledLinkSvgContainer StyledSvg={callSVG} id={id} />

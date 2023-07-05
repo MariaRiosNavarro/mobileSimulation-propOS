@@ -99,6 +99,7 @@ export default function ContactListWithFavorite() {
               key={contact._id}
               id={contact._id}
               name={contact.name}
+              src={contact.photo}
               isFavorite={favoriteContactState.includes(contact._id)}
               toggleFavorite={handleToggleFavoriten}
               isFavoriteStyledSvg={contact.favorite ? starFillSVG : starSVG}
