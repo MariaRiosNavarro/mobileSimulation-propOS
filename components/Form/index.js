@@ -10,16 +10,12 @@ import { useContext } from "react";
 import { StyledInputName } from "../Layout";
 import { useState } from "react";
 import { useRouter } from "next/router";
-
 //------------------------------------------STYLE
-
 //DO the ugly upload files input invisible
 const StyledInputPhoto = styled.input`
   /* display: none; */
 `;
-
 //Style for the input Photo label to replace the ugly uplaud file
-
 const StyledPhotoLabel = styled.label`
   display: flex;
   align-items: center;
@@ -34,7 +30,6 @@ const StyledPhotoLabel = styled.label`
     border: 2px solid var(--hover-color);
   }
 `;
-
 const StyledInputGray = styled.input`
   background-color: lightgray;
   border: none;
@@ -45,7 +40,6 @@ const StyledInputGray = styled.input`
     border-bottom: 2px solid var(--primary-color);
   }
 `;
-
 const StyledTextareaGray = styled.textarea`
   background-color: lightgray;
   border: none;
@@ -56,28 +50,24 @@ const StyledTextareaGray = styled.textarea`
     border-bottom: 2px solid var(--primary-color);
   }
 `;
-
 export default function Form({ onSubmit, defaultData, onClick }) {
   const { theme, customColor } = useContext(ThemeContext);
   // const [photo, setPhoto] = useState("");
   const router = useRouter();
-
   let photoUrl = "";
-
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const ContactFormData = Object.fromEntries(formData);
-    const response = await fetch("/api/image/upload", {
-      method: "POST",
+    const file = formData.get("file");
+    console.log(`file.name: ${file.name}`); // Output: Name of the uploaded file
+    console.log(`file.lastModified: ${file.lastModified}`); // Output: Last modified timestamp of the file
+    // Rest of the code...
+    const response = await fetch("/api/images/upload", {
+      method: "post",
       body: formData,
     });
-    const photoDetails = await response.json();
-    photoUrl = photoDetails.url;
-    ContactFormData.photo = photoUrl;
-    onSubmit(ContactFormData);
+    // Handle the response...
   }
-
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -97,16 +87,9 @@ export default function Form({ onSubmit, defaultData, onClick }) {
           </label>
           {/* PHOTO INPUT -not required- in this US not save. Upload Fotos will be add in the Future */}
           <StyledPhotoLabel htmlFor="photo">
-            <StyledInputPhoto
-              type="file"
-              id="photo"
-              name="photo"
-              defaultValue={defaultData?.photo}
-              // onChange={setPhoto}
-            />
+            <StyledInputPhoto type="file" id="photo" name="file" />
           </StyledPhotoLabel>
         </StyledHeadingandFoto>
-
         <StyledFieldsContainer>
           {/* PHONE INPUT */}
           <label htmlFor="phone">Nummer:</label>

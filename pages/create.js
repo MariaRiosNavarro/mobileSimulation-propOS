@@ -8,6 +8,7 @@ import {
   StyledAppBodyContainer,
   StyledBackLink,
 } from "../components/components.style";
+import useSWR from "swr";
 
 const StyledSuccessMessage = styled.h5`
   text-align: center;
@@ -21,6 +22,7 @@ const StyledSuccessMessage = styled.h5`
 
 export default function CreateContact() {
   const [showSuccessMessageState, setShowSuccessMessageState] = useState(false);
+  const { mutate, data } = useSWR("/api/contacts");
 
   async function addContact(newContact) {
     const response = await fetch("/api/contacts", {
@@ -31,7 +33,7 @@ export default function CreateContact() {
       body: JSON.stringify(newContact),
     });
     if (response.ok) {
-      //Green Sucess Message Logic
+      mutate();
       setShowSuccessMessageState(true);
       setTimeout(() => {
         setShowSuccessMessageState(false);
