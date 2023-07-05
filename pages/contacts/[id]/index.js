@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import { backSVG, editSVG } from "../../../components/assets/contactsSVG";
 
-import { StyledImagePlaceholder } from "../../../components/components.style";
+import Image from "next/image";
 import useSWR from "swr";
 import Link from "next/link";
 import Navigation from "../../../components/Navigation";
@@ -51,6 +51,10 @@ const StyledLink = styled(Link)`
   align-items: center;
 `;
 
+const StyledImage = styled(Image)`
+  border-radius: 50%;
+`;
+
 //----------------------------------------------- FUNCTION------------HERE
 export default function ContactDetail() {
   const router = useRouter();
@@ -67,11 +71,16 @@ export default function ContactDetail() {
         <StyledLink href={"/contacts"}>{backSVG}</StyledLink>
         <StyledHeadingandFoto>
           <StyledHeading>{contact.name}</StyledHeading>
-          <StyledImagePlaceholder />
+          <StyledImage
+            src={contact.photo}
+            alt="Contact Photo"
+            width={34}
+            height={34}
+          />
         </StyledHeadingandFoto>
         <StyledLink href={`/contacts/${id}/edit`}>{editSVG}</StyledLink>
       </StyledHeader>
-      
+
       <StyledFieldsContainer>
         <StyledFieldPhoneNote>Nummer:</StyledFieldPhoneNote>
         <StyledInfo>

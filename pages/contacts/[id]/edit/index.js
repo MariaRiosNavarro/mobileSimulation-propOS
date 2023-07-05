@@ -1,18 +1,17 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import { backSVG } from "../../../components/assets/contactsSVG";
-import Link from "next/link";
-import Navigation from "../../../components/Navigation";
-import Form from "../../../components/Form";
+import { backSVG } from "../../../../components/assets/contactsSVG";
+import Navigation from "../../../../components/Navigation";
+import Form from "../../../../components/Form";
 import useSWR from "swr";
 import {
   StyledButtonsContainer,
   StyledAppBodyContainer,
-} from "../../../components/components.style";
+} from "../../../../components/components.style";
 //new library to make confirm delete message, styles in styles.js
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
-import { StyledBackLink } from "../../../components/components.style";
+import { StyledBackLink } from "../../../../components/components.style";
 
 const StyledSuccessMessage = styled.h5`
   text-align: center;
@@ -46,6 +45,7 @@ export default function EditPage() {
   } = useSWR(`/api/contacts/${id}`);
 
   async function handleEdit(contactData) {
+    console.log(contactData);
     const response = await fetch(`/api/contacts/${id}`, {
       method: "PATCH",
       headers: {
@@ -53,7 +53,6 @@ export default function EditPage() {
       },
       body: JSON.stringify(contactData),
     });
-
     if (response.ok) {
       console.log(response);
       mutate();
@@ -82,7 +81,6 @@ export default function EditPage() {
         },
         {
           label: "Abrechen",
-          //onClick: () => alert('Click No')
         },
       ],
     });

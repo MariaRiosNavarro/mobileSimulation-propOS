@@ -50,27 +50,31 @@ const StyledTextareaGray = styled.textarea`
     border-bottom: 2px solid var(--primary-color);
   }
 `;
-export default function Form({ onSubmit, defaultData, onClick }) {
+export default function Form({ onSubmit, defaultData, formName }) {
   const { theme, customColor } = useContext(ThemeContext);
-  // const [photo, setPhoto] = useState("");
+  const [imageChosen, setImageChosen] = useState(false);
+
   const router = useRouter();
   let photoUrl = "";
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const ContactFormData = Object.fromEntries(formData);
-    const response = await fetch("/api/images/upload", {
-      method: "POST",
-      body: formData,
-    });
-    const photoDetails = await response.json();
-    photoUrl = photoDetails.url;
-    ContactFormData.photo = photoUrl;
-    onSubmit(ContactFormData);
+    const contactFormData = Object.fromEntries(formData);
+    if (imageChosen) {
+      const response = await fetch("/api/images/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const photoDetails = await response.json();
+      photoUrl = photoDetails.url;
+      contactFormData.photo = photoUrl;
+    }
+    console.log(contactFormData);
+    onSubmit(contactFormData);
   }
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} formName={formName}>
         <StyledHeadingandFoto>
           {/* NAME INPUT */}
           <label htmlFor="name">
@@ -87,7 +91,12 @@ export default function Form({ onSubmit, defaultData, onClick }) {
           </label>
           {/* PHOTO INPUT -not required- in this US not save. Upload Fotos will be add in the Future */}
           <StyledPhotoLabel htmlFor="photo">
-            <StyledInputPhoto type="file" id="photo" name="file" />
+            <StyledInputPhoto
+              type="file"
+              id="photo"
+              name="file"
+              onChange={() => setImageChosen(true)}
+            />
           </StyledPhotoLabel>
         </StyledHeadingandFoto>
         <StyledFieldsContainer>
