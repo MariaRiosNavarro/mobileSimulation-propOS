@@ -69,7 +69,7 @@ export default function Form({ onSubmit, defaultData, formName }) {
       photoUrl = photoDetails.url;
       contactFormData.photo = photoUrl;
     }
-    console.log(contactFormData);
+
     onSubmit(contactFormData);
   }
   return (
