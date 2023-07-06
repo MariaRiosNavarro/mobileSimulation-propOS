@@ -120,8 +120,8 @@ export default function Home() {
             ToDo
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={languageSVG} disabled />
+        <StyledWrapAppLink href={"/aipage"}>
+          <StyledAppContainer StyledSvg={languageSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Internet
           </StyledAppHeading>
