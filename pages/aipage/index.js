@@ -68,6 +68,7 @@ const StyledHeadingContainer = styled.div`
 const StyledAnswer = styled.div`
   background-color: white;
   border-radius: 8px;
+  font-family: system-ui;
   width: 20rem;
   padding: 1rem;
   border: 2px solid var(--primary-color);
