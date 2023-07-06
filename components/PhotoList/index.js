@@ -48,15 +48,14 @@ export default function PhotoList() {
       <StyledList>
         {data.resources.map((image) => (
           <StyledListItem key={image.asset_id}>
-            <Link href={`/images/${image.public_id}`} key={image.asset_id}>
-              <StyledImage
-                key={image.public_id}
-                src={image.url}
-                width={image.width}
-                height={image.height}
-                alt={`Photo-Id: ${image.public_id}`}
-              />
-            </Link>
+            <StyledImage
+              key={image.public_id}
+              src={image.url}
+              width={image.width}
+              height={image.height}
+              alt={`Photo-Id: ${image.public_id}`}
+            />
+
             <StyledTagParagrph>
               {image.tags.length > 0 ? (
                 image.tags.map((tag, index) => (
