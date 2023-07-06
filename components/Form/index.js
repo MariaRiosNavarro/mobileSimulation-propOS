@@ -8,31 +8,28 @@ import { StyledButtonsContainer } from "../components.style";
 import { ThemeContext } from "../../pages/_app";
 import { useContext } from "react";
 import { StyledInputName } from "../Layout";
-
+import { useState } from "react";
+import { useRouter } from "next/router";
 //------------------------------------------STYLE
-
 //DO the ugly upload files input invisible
 const StyledInputPhoto = styled.input`
-  display: none;
+  /* display: none; */
 `;
-
 //Style for the input Photo label to replace the ugly uplaud file
-
 const StyledPhotoLabel = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   background-color: lightgray;
   border: 2px solid var(--primary-color);
-  width: 34px;
-  height: 34px;
+  /* width: 34px;
+  height: 34px; */
   outline: none;
   &:hover {
     border: 2px solid var(--hover-color);
   }
 `;
-
 const StyledInputGray = styled.input`
   background-color: lightgray;
   border: none;
@@ -43,7 +40,6 @@ const StyledInputGray = styled.input`
     border-bottom: 2px solid var(--primary-color);
   }
 `;
-
 const StyledTextareaGray = styled.textarea`
   background-color: lightgray;
   border: none;
@@ -54,12 +50,31 @@ const StyledTextareaGray = styled.textarea`
     border-bottom: 2px solid var(--primary-color);
   }
 `;
-
-export default function Form({ onSubmit, formName, defaultData, onClick }) {
+export default function Form({ onSubmit, defaultData, formName }) {
   const { theme, customColor } = useContext(ThemeContext);
+  const [imageChosen, setImageChosen] = useState(false);
+
+  const router = useRouter();
+  let photoUrl = "";
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const contactFormData = Object.fromEntries(formData);
+    if (imageChosen) {
+      const response = await fetch("/api/images/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const photoDetails = await response.json();
+      photoUrl = photoDetails.url;
+      contactFormData.photo = photoUrl;
+    }
+
+    onSubmit(contactFormData);
+  }
   return (
     <>
-      <form onSubmit={onSubmit} aria-labelledby={formName}>
+      <form onSubmit={handleSubmit} formName={formName}>
         <StyledHeadingandFoto>
           {/* NAME INPUT */}
           <label htmlFor="name">
@@ -79,12 +94,11 @@ export default function Form({ onSubmit, formName, defaultData, onClick }) {
             <StyledInputPhoto
               type="file"
               id="photo"
-              name="photo"
-              defaultValue={defaultData?.photo}
+              name="file"
+              onChange={() => setImageChosen(true)}
             />
           </StyledPhotoLabel>
         </StyledHeadingandFoto>
-
         <StyledFieldsContainer>
           {/* PHONE INPUT */}
           <label htmlFor="phone">Nummer:</label>

@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import Link from "next/link";
 import { StyledLoading } from "../../../components/components.style";
+import Image from "next/image";
 //--------------------STYLE
 
 const StyledCallContainer = styled.div`
@@ -62,6 +63,11 @@ const StyledBigImagePlaceholder = styled(StyledImagePlaceholder)`
   background-color: transparent;
 `;
 
+const StyledImage = styled(Image)`
+  border-radius: 50%;
+  padding-bottom: 0.5rem;
+`;
+
 //----------------------------------------------- FUNCTION------------HERE
 
 export default function CallContactsDetail() {
@@ -83,7 +89,12 @@ export default function CallContactsDetail() {
     <>
       <StyledCallContainer>
         <StyledBigHeader>{contact.name}</StyledBigHeader>
-        <StyledBigImagePlaceholder />
+        <StyledImage
+          src={contact.photo}
+          alt="Contact Photo"
+          width={200}
+          height={200}
+        />
         <Link href={"/contacts"}>
           <StyledButton>{callEndSVG}</StyledButton>
         </Link>

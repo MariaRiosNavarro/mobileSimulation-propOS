@@ -4,9 +4,11 @@ import { backSVG } from "../components/assets/contactsSVG";
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import Form from "../components/Form";
-import { StyledAppBodyContainer, StyledBackLink } from "../components/components.style";
-
-
+import {
+  StyledAppBodyContainer,
+  StyledBackLink,
+} from "../components/components.style";
+import useSWR from "swr";
 
 const StyledSuccessMessage = styled.h5`
   text-align: center;
@@ -20,20 +22,18 @@ const StyledSuccessMessage = styled.h5`
 
 export default function CreateContact() {
   const [showSuccessMessageState, setShowSuccessMessageState] = useState(false);
+  const { mutate, data } = useSWR("/api/contacts");
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const contactData = Object.fromEntries(formData);
+  async function addContact(newContact) {
     const response = await fetch("/api/contacts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(contactData),
+      body: JSON.stringify(newContact),
     });
     if (response.ok) {
-      //Green Sucess Message Logic
+      mutate();
       setShowSuccessMessageState(true);
       setTimeout(() => {
         setShowSuccessMessageState(false);
@@ -44,7 +44,7 @@ export default function CreateContact() {
   return (
     <StyledAppBodyContainer>
       <StyledBackLink href={"/contacts"}>{backSVG}</StyledBackLink>
-      <Form onSubmit={handleSubmit} formName={"add-contact"} />
+      <Form onSubmit={addContact} formName={"add-contact"} />
       {showSuccessMessageState && (
         <StyledSuccessMessage>Kontakte gespeichert</StyledSuccessMessage>
       )}
