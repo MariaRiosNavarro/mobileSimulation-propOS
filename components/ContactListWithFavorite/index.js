@@ -54,7 +54,7 @@ export default function ContactListWithFavorite() {
     };
 
     const response = await fetch(`/api/contacts/${id}`, {
-      method: "PUT",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
