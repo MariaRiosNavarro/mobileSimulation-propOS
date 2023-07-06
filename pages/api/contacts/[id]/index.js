@@ -52,7 +52,7 @@ export default async function handler(request, response) {
   }
 
   if (request.method === "DELETE") {
-    await Place.findByIdAndDelete(id);
+    await Contact.findByIdAndDelete(id);
     response.status(200).json({ status: "Contact deleted!" });
   }
 }
