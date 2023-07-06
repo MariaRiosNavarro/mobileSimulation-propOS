@@ -14,7 +14,7 @@ export default async function handler(request, response) {
         },
       ],
     });
-    console.log(chatCompletion);
+
     const responseText = chatCompletion.data.choices[0].message.content;
     const responseObject = JSON.parse(responseText);
 
