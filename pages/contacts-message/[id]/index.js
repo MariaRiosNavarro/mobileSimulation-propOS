@@ -8,6 +8,7 @@ import Link from "next/link";
 import { StyledImagePlaceholder } from "../../../components/components.style";
 import MyKeyboard from "../../../components/MyKeyboard";
 import Navigation from "../../../components/Navigation";
+import Image from "next/image";
 
 const StyledContainer = styled.div``;
 
@@ -41,6 +42,10 @@ const StyledKeyboardContainer = styled.div`
   width: 100%;
 `;
 
+const StyledImage = styled(Image)`
+  border-radius: 50%;
+`;
+
 //----------------------------------------------- FUNCTION------------HERE
 
 export default function MessageDetail() {
@@ -67,7 +72,12 @@ export default function MessageDetail() {
         </StyledAppHeaderContainer>
         <StyledContactHeaderContainer>
           <StyledHeader>{contact.name}</StyledHeader>
-          <StyledImagePlaceholder />
+          <StyledImage
+            src={contact.photo}
+            alt="Contact Photo"
+            width={34}
+            height={34}
+          />
         </StyledContactHeaderContainer>
         <StyledKeyboardContainer>
           <MyKeyboard />
