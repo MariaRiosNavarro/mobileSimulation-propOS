@@ -12,7 +12,7 @@ export const StyledImagePlaceholder = styled.div`
 
 export const StyledHeadingandFoto = styled.div`
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
@@ -49,11 +49,7 @@ export const StyledAppBodyContainer = styled.div`
   min-height: 100vh;
 `;
 
-export const StyledBackLink = styled(Link)`
-  position: relative;
-  top: 2rem;
-  left: 2rem;
-`;
+
 
 //This StyledMain removes the standard schrollin-bar above the navigation,
 // making it not look like a mobile

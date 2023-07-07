@@ -2,7 +2,9 @@ import styled from "styled-components";
 import {
   StyledHeadingandFoto,
   StyledFieldsContainer,
+  StyledBackLink,
 } from "../components.style";
+import { backSVG } from "../assets/contactsSVG";
 import Button from "../Button";
 import { StyledButtonsContainer } from "../components.style";
 import { ThemeContext } from "../../pages/_app";
@@ -10,6 +12,7 @@ import { useContext } from "react";
 import { StyledInputName } from "../Layout";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 //------------------------------------------STYLE
 
 const StyledPhotoInput = styled.input`
@@ -52,6 +55,22 @@ const StyledTextareaGray = styled.textarea`
     border-bottom: 2px solid var(--primary-color);
   }
 `;
+
+const PositioningContainer = styled.div`
+  display: flex;
+  background-color: transparent;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const EmptyContainerHelpToPositioning = styled.div`
+  background-color: transparent;
+  width: 2rem;
+`;
+
+const BackLink = styled(Link)``;
+
 export default function Form({ onSubmit, defaultData, formName }) {
   const { theme, customColor } = useContext(ThemeContext);
   const [imageChosen, setImageChosen] = useState(false);
@@ -78,7 +97,21 @@ export default function Form({ onSubmit, defaultData, formName }) {
     <>
       <form onSubmit={handleSubmit} formName={formName}>
         <StyledHeadingandFoto>
-          {/* NAME INPUT */}
+          <PositioningContainer>
+            <BackLink href={"/contacts"}>{backSVG}</BackLink>
+            {/*-------------------------------- PHOTO INPUT  */}
+            <StyledPhotoLabel htmlFor="photo">
+              Kontact Foto auswählen:
+              <StyledPhotoInput
+                type="file"
+                id="photo"
+                name="file"
+                onChange={() => setImageChosen(true)}
+              />
+            </StyledPhotoLabel>
+            <EmptyContainerHelpToPositioning />
+          </PositioningContainer>
+          {/* --------------------------------NAME INPUT */}
           <label htmlFor="name">
             <StyledInputName
               id="name"
@@ -91,16 +124,6 @@ export default function Form({ onSubmit, defaultData, formName }) {
               required
             />
           </label>
-          {/* PHOTO INPUT -not required- in this US not save. Upload Fotos will be add in the Future */}
-          <StyledPhotoLabel htmlFor="photo">
-            Kontact Foto auswählen:
-            <StyledPhotoInput
-              type="file"
-              id="photo"
-              name="file"
-              onChange={() => setImageChosen(true)}
-            />
-          </StyledPhotoLabel>
         </StyledHeadingandFoto>
         <StyledFieldsContainer>
           {/* PHONE INPUT */}

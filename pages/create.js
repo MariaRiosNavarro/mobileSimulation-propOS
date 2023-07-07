@@ -43,7 +43,7 @@ export default function CreateContact() {
 
   return (
     <StyledAppBodyContainer>
-      <StyledBackLink href={"/contacts"}>{backSVG}</StyledBackLink>
+      
       <Form onSubmit={addContact} formName={"add-contact"} />
       {showSuccessMessageState && (
         <StyledSuccessMessage>Kontakte gespeichert</StyledSuccessMessage>
