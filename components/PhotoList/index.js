@@ -9,7 +9,7 @@ const StyledList = styled.ul`
   width: 100vw;
   height: auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 `;
 
 const StyledListItem = styled.li`
@@ -24,24 +24,33 @@ const StyledListItem = styled.li`
 
 const StyledImage = styled(Image)`
   border-radius: 0.5rem;
-  width: 20vw;
+  width: 40vw;
   object-fit: contain;
   height: 20vw;
-  border-color: aliceblue;
 `;
 
-const StyledTag = styled.span``;
+const StyledTag = styled.span`
+  font-weight: 800;
+`;
 
 const StyledNoTag = styled.span`
   color: gray;
+  font-size: smaller;
 `;
 
-const StyledTagParagrph = styled.p``;
+const StyledTagParagrph = styled.p`
+  text-align: center;
+`;
+
+const StyledMessage = styled.p`
+  background-color: darkgray;
+  color: var(--bg-color);
+`;
 
 export default function PhotoList() {
   const { data, error } = useSWR("api/images");
-  if (error) return <div>könnte nicht geladen werden</div>;
-  if (!data) return <div>Fotos werden geladen...</div>;
+  if (error) return <StyledMessage>könnte nicht geladen werden</StyledMessage>;
+  if (!data) return <StyledMessage>Fotos werden geladen...</StyledMessage>;
 
   return (
     <>
