@@ -2,7 +2,6 @@ import styled from "styled-components";
 import {
   StyledHeadingandFoto,
   StyledFieldsContainer,
-  StyledBackLink,
 } from "../components.style";
 import { backSVG } from "../assets/contactsSVG";
 import Button from "../Button";
@@ -69,9 +68,12 @@ const EmptyContainerHelpToPositioning = styled.div`
   width: 2rem;
 `;
 
-const BackLink = styled(Link)``;
+const BackLink = styled(Link)`
 
-export default function Form({ onSubmit, defaultData, formName }) {
+
+`;
+
+export default function ContactForm({ onSubmit, defaultData, formName }) {
   const { theme, customColor } = useContext(ThemeContext);
   const [imageChosen, setImageChosen] = useState(false);
 

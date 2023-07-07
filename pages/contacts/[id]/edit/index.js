@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import { backSVG } from "../../../../components/assets/contactsSVG";
 import Navigation from "../../../../components/Navigation";
-import Form from "../../../../components/Form";
+import ContactForm from "../../../../components/ContactForm";
 import useSWR from "swr";
 import {
   StyledButtonsContainer,
@@ -11,7 +10,6 @@ import {
 //new library to make confirm delete message, styles in styles.js
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
-import { StyledBackLink } from "../../../../components/components.style";
 
 const StyledSuccessMessage = styled.h5`
   text-align: center;
@@ -89,8 +87,7 @@ export default function EditPage() {
   return (
     <>
       <StyledAppBodyContainer>
-        <StyledBackLink href={"/contacts"}>{backSVG}</StyledBackLink>
-        <Form
+        <ContactForm
           onSubmit={handleEdit}
           formName={"edit-contact"}
           defaultData={contact}
