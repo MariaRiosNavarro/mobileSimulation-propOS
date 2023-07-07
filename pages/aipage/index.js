@@ -1,6 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Navigation from "../../components/Navigation";
+import { StyledAnswer } from "../../components/Layout";
+import { ThemeContext } from "../../pages/_app";
+import { useContext } from "react";
+import { StyledQuestionLabel } from "../../components/Layout";
 
 const StyledLoading = styled.p`
   background-color: gray;
@@ -53,12 +57,6 @@ const StyledButton = styled.button`
   }
 `;
 
-const StyledLabel = styled.label`
-  font-size: large;
-  font-weight: bolder;
-  color: var(--secondary-color);
-`;
-
 const StyledHeadingContainer = styled.div`
   margin-top: 3rem;
   border: 2px solid var(--primary-color);
@@ -69,22 +67,11 @@ const StyledHeadingContainer = styled.div`
   }
 `;
 
-const StyledAnswer = styled.div`
-  background-color: white;
-  border-radius: 8px;
-  font-family: system-ui;
-  width: 20rem;
-  padding: 1rem;
-  border: 2px solid var(--primary-color);
-  &:hover {
-    border: 2px solid var(--hover-color);
-  }
-`;
-
 export default function AskAI() {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [isFetching, setIsFetching] = useState(false); // loading state
+  const { theme, customColor } = useContext(ThemeContext);
 
   if (isFetching) {
     return <StyledLoading>Laden...</StyledLoading>;
@@ -129,9 +116,19 @@ export default function AskAI() {
             <strong>Assistentin</strong>
           </StyledHeading>
         </StyledHeadingContainer>
-        {answer && <StyledAnswer id="answer">{answer}</StyledAnswer>}
+        {answer && (
+          <StyledAnswer id="answer" theme={theme} customColor={customColor}>
+            {answer}
+          </StyledAnswer>
+        )}
         <StyledForm onSubmit={handleSubmit}>
-          <StyledLabel htmlFor="question">Frage: </StyledLabel>
+          <StyledQuestionLabel
+            htmlFor="question"
+            theme={theme}
+            customColor={customColor}
+          >
+            Frage:
+          </StyledQuestionLabel>
           <StyledTextarea
             value={question}
             type="text"

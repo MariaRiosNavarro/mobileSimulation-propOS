@@ -270,6 +270,43 @@ export const StyledInfo = styled.p`
   margin: 0;
 `;
 
+//AI Page Dark Modus
+
+export const StyledAnswer = styled.div`
+  background-color: ${(props) => {
+    if (props.theme === "light") {
+      return "white";
+    } else if (props.theme === "dark") {
+      return "transparent";
+    } else if (props.theme === "custom") {
+      return "transparent";
+    }
+  }};
+  border-radius: 8px;
+  font-family: system-ui;
+  width: 20rem;
+  padding: 1rem;
+  border: 2px solid var(--primary-color);
+  &:hover {
+    border: 2px solid var(--hover-color);
+  }
+`;
+
+export const StyledQuestionLabel = styled.label`
+  font-size: large;
+  font-weight: bolder;
+  color: ${(props) => {
+    if (props.theme === "light") {
+      return "var(--secondary-color)";
+    } else if (props.theme === "dark") {
+      return "var(--primary-color)";
+    } else if (props.theme === "custom") {
+      const complementaryColor = getComplementaryColor(props.customColor);
+      return complementaryColor;
+    }
+  }};
+`;
+
 export default function Layout({ children }) {
   const { theme, customColor } = useContext(ThemeContext);
   return (
