@@ -17,8 +17,10 @@ const StyledContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  margin-top: 3rem;
+  margin-top: 0;
   padding-bottom: 5rem;
+  background-color: rosybrown;
+  height: 100vh;
 `;
 
 const StyledForm = styled.form`
@@ -59,6 +61,7 @@ const StyledLabel = styled.label`
 `;
 
 const StyledHeadingContainer = styled.div`
+  margin-top: 3rem;
   border: 2px solid var(--primary-color);
   border-radius: 8px;
   padding: 2rem;
