@@ -68,10 +68,7 @@ const EmptyContainerHelpToPositioning = styled.div`
   width: 2rem;
 `;
 
-const BackLink = styled(Link)`
-
-
-`;
+const BackLink = styled(Link)``;
 
 export default function ContactForm({ onSubmit, defaultData, formName }) {
   const { theme, customColor } = useContext(ThemeContext);
@@ -103,7 +100,7 @@ export default function ContactForm({ onSubmit, defaultData, formName }) {
             <BackLink href={"/contacts"}>{backSVG}</BackLink>
             {/*-------------------------------- PHOTO INPUT  */}
             <StyledPhotoLabel htmlFor="photo">
-              Kontact Foto auswählen:
+              Kontakt Foto auswählen:
               <StyledPhotoInput
                 type="file"
                 id="photo"
