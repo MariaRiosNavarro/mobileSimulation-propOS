@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { backSVG, editSVG } from "../../../components/assets/contactsSVG";
-
+import {
+  StyledInfo,
+  StyledCircularContainer,
+} from "../../../components/Layout";
 import Image from "next/image";
 import useSWR from "swr";
 import Link from "next/link";
@@ -11,6 +14,8 @@ import {
   StyledFieldsContainer,
   StyledLoading,
 } from "../../../components/components.style";
+import { ThemeContext } from "../../_app";
+import { useContext } from "react";
 
 const StyledHeader = styled.div`
   margin: 0 2rem 0 2rem;
@@ -33,14 +38,6 @@ const StyledFieldPhoneNote = styled.p`
   padding: 0;
 `;
 
-const StyledInfo = styled.p`
-  background-color: lightgray;
-  padding: 1rem;
-  border-radius: 8px;
-  font-weight: 400;
-  margin: 0;
-`;
-
 const StyledLink = styled(Link)`
   height: 1.5rem;
   text-align: center;
@@ -61,6 +58,7 @@ export default function ContactDetail() {
   const { query } = router;
   const { id } = query;
   const { data: contact, isLoading, error } = useSWR(`/api/contacts/${id}`);
+  const { theme, customColor } = useContext(ThemeContext);
 
   if (isLoading) return <StyledLoading>Kontakt wird gesucht...</StyledLoading>;
   if (error) return <h2>Error...</h2>;
@@ -68,7 +66,9 @@ export default function ContactDetail() {
   return (
     <>
       <StyledHeader>
-        <StyledLink href={"/contacts"}>{backSVG}</StyledLink>
+        <StyledCircularContainer theme={theme} customColor={customColor}>
+          <StyledLink href={"/contacts"}>{backSVG}</StyledLink>
+        </StyledCircularContainer>
         <StyledHeadingandFoto>
           <StyledHeading>{contact.name}</StyledHeading>
           <StyledImage
@@ -78,16 +78,18 @@ export default function ContactDetail() {
             height={34}
           />
         </StyledHeadingandFoto>
-        <StyledLink href={`/contacts/${id}/edit`}>{editSVG}</StyledLink>
+        <StyledCircularContainer theme={theme} customColor={customColor}>
+          <StyledLink href={`/contacts/${id}/edit`}>{editSVG}</StyledLink>
+        </StyledCircularContainer>
       </StyledHeader>
 
       <StyledFieldsContainer>
         <StyledFieldPhoneNote>Nummer:</StyledFieldPhoneNote>
-        <StyledInfo>
+        <StyledInfo theme={theme} customColor={customColor}>
           <strong>{contact.phone}</strong>
         </StyledInfo>
         <StyledFieldPhoneNote>Notizen:</StyledFieldPhoneNote>
-        <StyledInfo>
+        <StyledInfo theme={theme} customColor={customColor}>
           <strong>{contact.note}</strong>
         </StyledInfo>
       </StyledFieldsContainer>

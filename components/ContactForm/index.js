@@ -8,11 +8,24 @@ import Button from "../Button";
 import { StyledButtonsContainer } from "../components.style";
 import { ThemeContext } from "../../pages/_app";
 import { useContext } from "react";
-import { StyledInputName } from "../Layout";
+import {
+  StyledInputName,
+  StyledTextareaGray,
+  StyledInputGray,
+  StyledCircularContainer,
+} from "../Layout";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 //------------------------------------------STYLE
+
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0;
+  height: 100vh;
+`;
 
 const StyledPhotoInput = styled.input`
   background-color: transparent;
@@ -32,26 +45,6 @@ const StyledPhotoLabel = styled.label`
   border: 2px solid var(--primary-color);
   &:hover {
     border: 2px solid var(--hover-color);
-  }
-`;
-const StyledInputGray = styled.input`
-  background-color: lightgray;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  padding: 0.8rem;
-  &:focus {
-    border-bottom: 2px solid var(--primary-color);
-  }
-`;
-const StyledTextareaGray = styled.textarea`
-  background-color: lightgray;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  padding: 0.8rem;
-  &:focus {
-    border-bottom: 2px solid var(--primary-color);
   }
 `;
 
@@ -94,59 +87,67 @@ export default function ContactForm({ onSubmit, defaultData, formName }) {
   }
   return (
     <>
-      <form onSubmit={handleSubmit} formName={formName}>
-        <StyledHeadingandFoto>
-          <PositioningContainer>
-            <BackLink href={"/contacts"}>{backSVG}</BackLink>
-            {/*-------------------------------- PHOTO INPUT  */}
-            <StyledPhotoLabel htmlFor="photo">
-              Kontakt Foto auswählen:
-              <StyledPhotoInput
-                type="file"
-                id="photo"
-                name="file"
-                onChange={() => setImageChosen(true)}
+      <FormContainer>
+        <form onSubmit={handleSubmit} formName={formName}>
+          <StyledHeadingandFoto>
+            <PositioningContainer>
+              <StyledCircularContainer theme={theme} customColor={customColor}>
+                <BackLink href={"/contacts"}>{backSVG}</BackLink>
+              </StyledCircularContainer>
+              {/*-------------------------------- PHOTO INPUT  */}
+              <StyledPhotoLabel htmlFor="photo">
+                Kontakt Foto auswählen:
+                <StyledPhotoInput
+                  type="file"
+                  id="photo"
+                  name="file"
+                  onChange={() => setImageChosen(true)}
+                />
+              </StyledPhotoLabel>
+              <EmptyContainerHelpToPositioning />
+            </PositioningContainer>
+            {/* --------------------------------NAME INPUT */}
+            <label htmlFor="name">
+              <StyledInputName
+                id="name"
+                name="name"
+                type="type"
+                placeholder="Name *"
+                defaultValue={defaultData?.name}
+                theme={theme}
+                customColor={customColor}
+                required
               />
-            </StyledPhotoLabel>
-            <EmptyContainerHelpToPositioning />
-          </PositioningContainer>
-          {/* --------------------------------NAME INPUT */}
-          <label htmlFor="name">
-            <StyledInputName
-              id="name"
-              name="name"
-              type="type"
-              placeholder="Name *"
-              defaultValue={defaultData?.name}
+            </label>
+          </StyledHeadingandFoto>
+          <StyledFieldsContainer>
+            {/* PHONE INPUT */}
+            <label htmlFor="phone">Nummer:</label>
+            <StyledInputGray
+              id="phone"
+              name="phone"
+              type="text"
+              defaultValue={defaultData?.phone}
               theme={theme}
               customColor={customColor}
-              required
             />
-          </label>
-        </StyledHeadingandFoto>
-        <StyledFieldsContainer>
-          {/* PHONE INPUT */}
-          <label htmlFor="phone">Nummer:</label>
-          <StyledInputGray
-            id="phone"
-            name="phone"
-            type="text"
-            defaultValue={defaultData?.phone}
-          />
-          {/* NOTE TEXTAREA */}
-          <label htmlFor="note">Notizen:</label>
-          <StyledTextareaGray
-            id="note"
-            name="note"
-            type="text"
-            rows={3}
-            defaultValue={defaultData?.note}
-          />
-        </StyledFieldsContainer>
-        <StyledButtonsContainer>
-          <Button type="submit" name="speichern" />
-        </StyledButtonsContainer>
-      </form>
+            {/* NOTE TEXTAREA */}
+            <label htmlFor="note">Notizen:</label>
+            <StyledTextareaGray
+              id="note"
+              name="note"
+              type="text"
+              rows={3}
+              defaultValue={defaultData?.note}
+              theme={theme}
+              customColor={customColor}
+            />
+          </StyledFieldsContainer>
+          <StyledButtonsContainer>
+            <Button type="submit" name="speichern" />
+          </StyledButtonsContainer>
+        </form>
+      </FormContainer>
     </>
   );
 }

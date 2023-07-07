@@ -136,7 +136,7 @@ export const StyledCircularContainer = styled.span`
       return "var(----lightBG)";
       //  --darkBG:#192559;
     } else if (props.theme === "dark") {
-      const lighterColor = getLightenColor("#192559", 0.3);
+      const lighterColor = getLightenColor("#192559", 0.5);
       return lighterColor;
     } else if (props.theme === "custom") {
       const lighterColor = getLightenColor(props.customColor, 0.2);
@@ -166,7 +166,7 @@ export const StyledlitleTabContainer = styled.span`
       return "var(----lightBG)";
       //  --darkBG:#192559;
     } else if (props.theme === "dark") {
-      const lighterColor = getLightenColor("#192559", 0.3);
+      const lighterColor = getLightenColor("#192559", 0.5);
       return lighterColor;
     } else if (props.theme === "custom") {
       const lighterColor = getLightenColor(props.customColor, 0.2);
@@ -216,6 +216,58 @@ export const StyledInputName = styled.input`
       }
     }};
   }
+`;
+
+//Contactform Dark styles
+
+export const StyledTextareaGray = styled.textarea`
+  background-color: lightgray;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  padding: 0.8rem;
+  &:focus {
+    border-bottom: 2px solid var(--primary-color);
+  }
+  color: ${(props) => {
+    if (props.theme === "light") {
+      return "black";
+    } else if (props.theme === "dark") {
+      return "black";
+    } else if (props.theme === "custom") {
+      return "black";
+    }
+  }};
+`;
+
+export const StyledInputGray = styled.input`
+  background-color: lightgray;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  padding: 0.8rem;
+  &:focus {
+    border-bottom: 2px solid var(--primary-color);
+  }
+  color: black;
+`;
+
+//Contactfields in Contact details
+
+export const StyledInfo = styled.p`
+  background-color: ${(props) => {
+    if (props.theme === "light") {
+      return "lightgray";
+    } else if (props.theme === "dark") {
+      return "transparent";
+    } else if (props.theme === "custom") {
+      return "transparent";
+    }
+  }};
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 400;
+  margin: 0;
 `;
 
 export default function Layout({ children }) {

@@ -45,6 +45,7 @@ export const StyledLoading = styled.div`
 //APPS reusable parts
 
 export const StyledAppBodyContainer = styled.div`
+  margin-top: 0;
   position: relative;
   min-height: 100vh;
 `;
