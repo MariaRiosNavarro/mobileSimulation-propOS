@@ -18,6 +18,7 @@ const StyledContainer = styled.div`
   align-items: center;
   gap: 1rem;
   margin-top: 3rem;
+  padding-bottom: 3rem;
 `;
 
 const StyledForm = styled.form`
