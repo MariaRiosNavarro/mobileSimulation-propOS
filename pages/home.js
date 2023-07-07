@@ -132,7 +132,7 @@ export default function Home() {
             Galerie
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/"}>
+        <StyledWrapAppLink href={"/home"}>
           <StyledAppContainer StyledSvg={photoCamSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Kamera
