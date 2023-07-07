@@ -15,8 +15,10 @@ const Form = styled.form`
 `;
 const StyledInput = styled.input`
   width: auto;
-  /* display: none; */
   height: 2rem;
+  background-color: transparent;
+  padding: 0.3rem;
+  border-radius: 3px;
 `;
 
 const StyledLabel = styled.label`
@@ -26,10 +28,9 @@ const StyledLabel = styled.label`
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  background-color: lightgray;
+  background-color: transparent;
   border: 2px solid var(--primary-color);
-  width: auto;
-  height: auto;
+  width: 20rem;
   padding: 1rem;
   outline: none;
   &:hover {
