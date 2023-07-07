@@ -28,7 +28,7 @@ const StyledPhotoLabel = styled.label`
   border-radius: 8px;
   padding: 0.5rem;
   gap: 0.5rem;
-  width: 20rem;
+  width: auto;
   outline: none;
   border: 2px solid var(--primary-color);
   &:hover {
