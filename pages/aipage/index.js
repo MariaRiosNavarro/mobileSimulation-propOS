@@ -19,7 +19,6 @@ const StyledContainer = styled.div`
   gap: 1rem;
   margin-top: 0;
   padding-bottom: 5rem;
-  background-color: rosybrown;
   height: 100vh;
 `;
 

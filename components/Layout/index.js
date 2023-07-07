@@ -127,6 +127,9 @@ export const StyledAppHeading = styled.h5`
 export const StyledCircularContainer = styled.span`
   height: 25px;
   width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   background-color: ${(props) => {
     if (props.theme === "light") {
@@ -142,11 +145,6 @@ export const StyledCircularContainer = styled.span`
       return "var(----lightBG)";
     }
   }};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
 `;
 
 //Badge at the Contacts are to dark in dark mode

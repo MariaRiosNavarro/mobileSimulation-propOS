@@ -5,6 +5,9 @@ import Button from "../../components/Button";
 import Link from "next/link";
 import { backSVG } from "../../components/assets/contactsSVG";
 import Navigation from "../../components/Navigation";
+import { StyledCircularContainer } from "../../components/Layout/index";
+import { ThemeContext } from "../_app";
+import { useContext } from "react";
 
 const Form = styled.form`
   margin: 0;
@@ -62,6 +65,7 @@ export default function PhotoUploadForm() {
   const { mutate } = useSWR("/api/images/");
   const [uploadStatus, setUploadStatus] = useState(false);
   const [error, setError] = useState(undefined);
+  const { theme, customColor } = useContext(ThemeContext);
 
   async function handleSubmitImage(event) {
     event.preventDefault();
@@ -85,7 +89,9 @@ export default function PhotoUploadForm() {
   return (
     <>
       <StyledHeadingContainer>
-        <Link href={"/images"}>{backSVG}</Link>
+        <StyledCircularContainer theme={theme} customColor={customColor}>
+          <Link href={"/images"}>{backSVG}</Link>
+        </StyledCircularContainer>
         <StyledHeading>Galerie</StyledHeading>
       </StyledHeadingContainer>
       <StyledSubHeading>Fotos Hochladen</StyledSubHeading>
