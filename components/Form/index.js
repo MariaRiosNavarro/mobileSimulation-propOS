@@ -11,21 +11,23 @@ import { StyledInputName } from "../Layout";
 import { useState } from "react";
 import { useRouter } from "next/router";
 //------------------------------------------STYLE
-//DO the ugly upload files input invisible
+
 const StyledInputPhoto = styled.input`
-  /* display: none; */
+  background-color: transparent;
 `;
-//Style for the input Photo label to replace the ugly uplaud file
+
 const StyledPhotoLabel = styled.label`
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
-  /* border-radius: 50%; */
-  background-color: lightgray;
-  border: 2px solid var(--primary-color);
-  /* width: 34px;
-  height: 34px; */
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  width: 20rem;
   outline: none;
+  border: 2px solid var(--primary-color);
   &:hover {
     border: 2px solid var(--hover-color);
   }
@@ -91,6 +93,7 @@ export default function Form({ onSubmit, defaultData, formName }) {
           </label>
           {/* PHOTO INPUT -not required- in this US not save. Upload Fotos will be add in the Future */}
           <StyledPhotoLabel htmlFor="photo">
+            Kontact Foto auswählen:
             <StyledInputPhoto
               type="file"
               id="photo"
