@@ -12,7 +12,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 //------------------------------------------STYLE
 
-const StyledInputPhoto = styled.input`
+const StyledPhotoInput = styled.input`
   background-color: transparent;
 `;
 
@@ -94,7 +94,7 @@ export default function Form({ onSubmit, defaultData, formName }) {
           {/* PHOTO INPUT -not required- in this US not save. Upload Fotos will be add in the Future */}
           <StyledPhotoLabel htmlFor="photo">
             Kontact Foto auswählen:
-            <StyledInputPhoto
+            <StyledPhotoInput
               type="file"
               id="photo"
               name="file"

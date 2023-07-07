@@ -15,7 +15,7 @@ export const StyledHeadingandFoto = styled.div`
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   margin: 2rem;
   border-bottom: 1px solid lightgray;
 `;
