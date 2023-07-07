@@ -18,7 +18,7 @@ const StyledContainer = styled.div`
   align-items: center;
   gap: 1rem;
   margin-top: 3rem;
-  padding-bottom: 3rem;
+  padding-bottom: 5rem;
 `;
 
 const StyledForm = styled.form`
@@ -29,6 +29,7 @@ const StyledForm = styled.form`
 `;
 
 const StyledTextarea = styled.textarea`
+  padding: 1rem;
   border-radius: 8px;
   width: 20rem;
   &:focus {
