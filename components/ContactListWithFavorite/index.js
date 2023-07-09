@@ -7,6 +7,7 @@ import Tabs from "../Tabs";
 import Badge from "../Badge";
 import { starSVG, starFillSVG } from "../assets/contactsSVG";
 import { useEffect } from "react";
+import contactplaceholder  from "../assets/contactplaceholder.jpg";
 
 const StyledList = styled.ul`
   list-style: none;
@@ -65,6 +66,7 @@ export default function ContactListWithFavorite() {
       mutate();
     }
   }
+
   function handleShowFavorite() {
     setFilter("favorites");
   }
@@ -99,7 +101,7 @@ export default function ContactListWithFavorite() {
               key={contact._id}
               id={contact._id}
               name={contact.name}
-              src={contact.photo}
+              src={contact.photo || contactplaceholder}
               isFavorite={favoriteContactState.includes(contact._id)}
               toggleFavorite={handleToggleFavoriten}
               isFavoriteStyledSvg={contact.favorite ? starFillSVG : starSVG}

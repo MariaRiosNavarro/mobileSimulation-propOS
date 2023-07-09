@@ -6,6 +6,7 @@ import useSWR from "swr";
 import Link from "next/link";
 import { StyledLoading } from "../../../components/components.style";
 import Image from "next/image";
+import contactplaceholder from "../../../components/assets/contactplaceholder.jpg";
 //--------------------STYLE
 
 const StyledCallContainer = styled.div`
@@ -55,14 +56,6 @@ const StyledButton = styled.div`
   animation: ${callanimation} 2s infinite;
 `;
 
-const StyledBigImagePlaceholder = styled(StyledImagePlaceholder)`
-  width: 9rem;
-  height: 9rem;
-  margin: 0;
-  border: none;
-  background-color: transparent;
-`;
-
 const StyledImage = styled(Image)`
   border-radius: 50%;
   padding-bottom: 0.5rem;
@@ -90,7 +83,7 @@ export default function CallContactsDetail() {
       <StyledCallContainer>
         <StyledBigHeader>{contact.name}</StyledBigHeader>
         <StyledImage
-          src={contact.photo}
+          src={contact.photo || contactplaceholder}
           alt="Contact Photo"
           width={200}
           height={200}

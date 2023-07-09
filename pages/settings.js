@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { ThemeContext } from "../pages/_app";
 import Navigation from "../components/Navigation";
 import styled from "styled-components";
-import Layout from "../components/Layout";
 import { StyledAppBodyContainer } from "../components/components.style";
 import AppsHeader from "../components/Appsheader";
 
@@ -62,6 +61,16 @@ const StyledLitlePopUpHeading = styled.h5`
 
 const StyledColorInput = styled.input``;
 
+const SytlingBorder = styled.div`
+  border: 1px solid var(--primary-color);
+  padding-bottom: 2rem;
+  margin: 2rem 3rem 0 3rem;
+  border-radius: 8px;
+  &:hover {
+    border: 1px solid var(--hover-color);
+  }
+`;
+
 export default function SettingsPage() {
   const { theme, setTheme, customColor, setCustomColor } =
     useContext(ThemeContext);
@@ -79,55 +88,56 @@ export default function SettingsPage() {
     <>
       <StyledAppBodyContainer>
         <AppsHeader heading="Einstellungen" />
-
-        <StyledSmallHeading>Profil auswählen:</StyledSmallHeading>
-        <StyledThemeContainer>
-          <StyledButtonContainer>
-            <StyledLabel>
-              Hell
-              <StyledButton
-                onClick={() => handleThemeChange("light")}
-                disabled={theme === "light"}
-              >
-                {theme === "light" ? "Aktiviert" : "Aktivieren"}
-              </StyledButton>
-            </StyledLabel>
-          </StyledButtonContainer>
-          <StyledButtonContainer>
-            <StyledLabel>
-              Dunkel
-              <StyledButton
-                onClick={() => handleThemeChange("dark")}
-                disabled={theme === "dark"}
-              >
-                {theme === "dark" ? "Aktiviert" : "Aktivieren"}
-              </StyledButton>
-            </StyledLabel>
-          </StyledButtonContainer>
-          <StyledButtonContainer>
-            <StyledLabel>
-              Personalisieren
-              {theme === "custom" && (
-                <StyledPopUp>
-                  <StyledLitlePopUpHeading>
-                    Farbe auswählen:
-                  </StyledLitlePopUpHeading>
-                  <StyledColorInput
-                    type="color"
-                    value={customColor}
-                    onChange={handleCustomColorChange}
-                  />
-                </StyledPopUp>
-              )}
-              <StyledButton
-                onClick={() => handleThemeChange("custom")}
-                disabled={theme === "custom"}
-              >
-                {theme === "custom" ? "Aktiviert" : "Aktivieren"}
-              </StyledButton>
-            </StyledLabel>
-          </StyledButtonContainer>
-        </StyledThemeContainer>
+        <SytlingBorder>
+          <StyledSmallHeading>Profil auswählen:</StyledSmallHeading>
+          <StyledThemeContainer>
+            <StyledButtonContainer>
+              <StyledLabel>
+                Hell
+                <StyledButton
+                  onClick={() => handleThemeChange("light")}
+                  disabled={theme === "light"}
+                >
+                  {theme === "light" ? "Aktiviert" : "Aktivieren"}
+                </StyledButton>
+              </StyledLabel>
+            </StyledButtonContainer>
+            <StyledButtonContainer>
+              <StyledLabel>
+                Dunkel
+                <StyledButton
+                  onClick={() => handleThemeChange("dark")}
+                  disabled={theme === "dark"}
+                >
+                  {theme === "dark" ? "Aktiviert" : "Aktivieren"}
+                </StyledButton>
+              </StyledLabel>
+            </StyledButtonContainer>
+            <StyledButtonContainer>
+              <StyledLabel>
+                Personalisieren
+                {theme === "custom" && (
+                  <StyledPopUp>
+                    <StyledLitlePopUpHeading>
+                      Farbe auswählen:
+                    </StyledLitlePopUpHeading>
+                    <StyledColorInput
+                      type="color"
+                      value={customColor}
+                      onChange={handleCustomColorChange}
+                    />
+                  </StyledPopUp>
+                )}
+                <StyledButton
+                  onClick={() => handleThemeChange("custom")}
+                  disabled={theme === "custom"}
+                >
+                  {theme === "custom" ? "Aktiviert" : "Aktivieren"}
+                </StyledButton>
+              </StyledLabel>
+            </StyledButtonContainer>
+          </StyledThemeContainer>
+        </SytlingBorder>
         <Navigation selected={"settings"} />
       </StyledAppBodyContainer>
     </>

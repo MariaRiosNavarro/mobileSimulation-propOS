@@ -127,13 +127,16 @@ export const StyledAppHeading = styled.h5`
 export const StyledCircularContainer = styled.span`
   height: 25px;
   width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   background-color: ${(props) => {
     if (props.theme === "light") {
       return "var(----lightBG)";
       //  --darkBG:#192559;
     } else if (props.theme === "dark") {
-      const lighterColor = getLightenColor("#192559", 0.3);
+      const lighterColor = getLightenColor("#192559", 0.5);
       return lighterColor;
     } else if (props.theme === "custom") {
       const lighterColor = getLightenColor(props.customColor, 0.2);
@@ -142,11 +145,6 @@ export const StyledCircularContainer = styled.span`
       return "var(----lightBG)";
     }
   }};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
 `;
 
 //Badge at the Contacts are to dark in dark mode
@@ -168,7 +166,7 @@ export const StyledlitleTabContainer = styled.span`
       return "var(----lightBG)";
       //  --darkBG:#192559;
     } else if (props.theme === "dark") {
-      const lighterColor = getLightenColor("#192559", 0.3);
+      const lighterColor = getLightenColor("#192559", 0.5);
       return lighterColor;
     } else if (props.theme === "custom") {
       const lighterColor = getLightenColor(props.customColor, 0.2);
@@ -218,6 +216,95 @@ export const StyledInputName = styled.input`
       }
     }};
   }
+`;
+
+//Contactform Dark styles
+
+export const StyledTextareaGray = styled.textarea`
+  background-color: lightgray;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  padding: 0.8rem;
+  &:focus {
+    border-bottom: 2px solid var(--primary-color);
+  }
+  color: ${(props) => {
+    if (props.theme === "light") {
+      return "black";
+    } else if (props.theme === "dark") {
+      return "black";
+    } else if (props.theme === "custom") {
+      return "black";
+    }
+  }};
+`;
+
+export const StyledInputGray = styled.input`
+  background-color: lightgray;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  padding: 0.8rem;
+  &:focus {
+    border-bottom: 2px solid var(--primary-color);
+  }
+  color: black;
+`;
+
+//Contactfields in Contact details
+
+export const StyledInfo = styled.p`
+  background-color: ${(props) => {
+    if (props.theme === "light") {
+      return "lightgray";
+    } else if (props.theme === "dark") {
+      return "transparent";
+    } else if (props.theme === "custom") {
+      return "transparent";
+    }
+  }};
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 400;
+  margin: 0;
+`;
+
+//AI Page Dark Modus
+
+export const StyledAnswer = styled.div`
+  background-color: ${(props) => {
+    if (props.theme === "light") {
+      return "white";
+    } else if (props.theme === "dark") {
+      return "transparent";
+    } else if (props.theme === "custom") {
+      return "transparent";
+    }
+  }};
+  border-radius: 8px;
+  font-family: system-ui;
+  width: 20rem;
+  padding: 1rem;
+  border: 2px solid var(--primary-color);
+  &:hover {
+    border: 2px solid var(--hover-color);
+  }
+`;
+
+export const StyledQuestionLabel = styled.label`
+  font-size: large;
+  font-weight: bolder;
+  color: ${(props) => {
+    if (props.theme === "light") {
+      return "var(--secondary-color)";
+    } else if (props.theme === "dark") {
+      return "var(--primary-color)";
+    } else if (props.theme === "custom") {
+      const complementaryColor = getComplementaryColor(props.customColor);
+      return complementaryColor;
+    }
+  }};
 `;
 
 export default function Layout({ children }) {

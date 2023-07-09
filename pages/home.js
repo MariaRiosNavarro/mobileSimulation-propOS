@@ -55,75 +55,75 @@ export default function Home() {
     <>
       <StyledMain>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={calenderSVG} disabled />
+          <StyledAppContainer StyledSvg={calenderSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Kalender
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={beachSVG} disabled />
+          <StyledAppContainer StyledSvg={beachSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Wetter
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={alarmSVG} disabled />
+          <StyledAppContainer StyledSvg={alarmSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Uhr
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={musicSVG} disabled />
+          <StyledAppContainer StyledSvg={musicSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Audio
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={sportSVG} disabled />
+          <StyledAppContainer StyledSvg={sportSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Spiele
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={roundaboutSVG} disabled />
+          <StyledAppContainer StyledSvg={roundaboutSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Navigation
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={trainSVG} disabled />
+          <StyledAppContainer StyledSvg={trainSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Transport
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={shoppingSVG} disabled />
+          <StyledAppContainer StyledSvg={shoppingSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Einkaufen
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={lensSVG} disabled />
+          <StyledAppContainer StyledSvg={lensSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Sozial Media
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={questionSVG} disabled />
+          <StyledAppContainer StyledSvg={questionSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Chats
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={checkSVG} disabled />
+          <StyledAppContainer StyledSvg={checkSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             ToDo
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/aipage"}>
-          <StyledAppContainer StyledSvg={languageSVG} />
+        <StyledWrapAppLink href={"/home"}>
+          <StyledAppContainer StyledSvg={mailSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
-            Internet
+            Mail
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/images"}>
@@ -132,16 +132,16 @@ export default function Home() {
             Galerie
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={photoCamSVG} disabled />
+        <StyledWrapAppLink href={"/home"}>
+          <StyledAppContainer StyledSvg={photoCamSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Kamera
           </StyledAppHeading>
         </StyledWrapAppLink>
-        <StyledWrapAppLink href={"/"}>
-          <StyledAppContainer StyledSvg={mailSVG} disabled />
+        <StyledWrapAppLink href={"/aipage"}>
+          <StyledAppContainer StyledSvg={languageSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
-            Mail
+            Internet
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/contacts"}>

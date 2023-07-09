@@ -4,7 +4,7 @@ import { callSVG, infoSVG, addSVG, messageSVG } from "../assets/contactsSVG";
 import { StyledCircularContainer } from "../Layout";
 import { ThemeContext } from "../../pages/_app";
 import { useContext } from "react";
-import { cameraSmallSVG } from "../assets/homeSVG";
+
 
 const StyledLink = styled(Link)`
   height: 20px;

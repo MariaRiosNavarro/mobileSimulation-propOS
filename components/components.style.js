@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import { createGlobalStyle } from "../styles";
-import Link from "next/link";
+
+export const PageContainer = styled.div`
+  height: 100vh;
+`;
 
 export const StyledImagePlaceholder = styled.div`
   width: 34px;
@@ -12,10 +14,10 @@ export const StyledImagePlaceholder = styled.div`
 
 export const StyledHeadingandFoto = styled.div`
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   margin: 2rem;
   border-bottom: 1px solid lightgray;
 `;
@@ -24,14 +26,18 @@ export const StyledFieldsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
 `;
 
 export const StyledButtonsContainer = styled.div`
-  margin: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  height: 10%;
 `;
 
 export const StyledLoading = styled.div`
@@ -45,14 +51,9 @@ export const StyledLoading = styled.div`
 //APPS reusable parts
 
 export const StyledAppBodyContainer = styled.div`
+  margin-top: 0;
   position: relative;
   min-height: 100vh;
-`;
-
-export const StyledBackLink = styled(Link)`
-  position: relative;
-  top: 2rem;
-  left: 2rem;
 `;
 
 //This StyledMain removes the standard schrollin-bar above the navigation,
@@ -60,7 +61,7 @@ export const StyledBackLink = styled(Link)`
 // (no mobile has the bar above the navigation).
 // Thanks Stack Overflow. Schrolling still works
 
-export const StyledMainNoSchrollbar = styled.main`
+export const StyledMainNoSchrollbar = styled.div`
   height: 90vh;
   overflow: auto;
   scrollbar-width: none; /* Firefox */

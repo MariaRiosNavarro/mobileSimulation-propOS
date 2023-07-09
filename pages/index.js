@@ -16,7 +16,7 @@ const StyledAppTitle = styled.h1`
 `;
 
 const StyledAppContainer = styled.div`
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
