@@ -11,12 +11,14 @@ const StyledSuccessMessage = styled.h5`
   padding: 1rem;
   margin-top: 1rem;
   border-radius: 8px;
-  width: 85%;
+  width: 82%;
+  margin-left: 2rem;
+  margin-right: 2rem;
 `;
 
 const PageContainer = styled.div`
   width: 100%;
-  background-color: red;
+
   display: flex;
   flex-direction: column;
   align-items: center;

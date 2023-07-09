@@ -19,11 +19,11 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 //------------------------------------------STYLE
 
-const FormContainer = styled.div`
+const Form = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin-top: 0;
+  width: 100%;
 `;
 
 const StyledPhotoInput = styled.input`
@@ -47,7 +47,7 @@ const StyledPhotoLabel = styled.label`
   }
 `;
 
-const PositioningContainer = styled.div`
+const PositioningContainerPhotoInput = styled.div`
   display: flex;
   background-color: transparent;
   width: 100%;
@@ -86,67 +86,65 @@ export default function ContactForm({ onSubmit, defaultData, formName }) {
   }
   return (
     <>
-      <FormContainer>
-        <form onSubmit={handleSubmit} formName={formName}>
-          <StyledHeadingandFoto>
-            <PositioningContainer>
-              <StyledCircularContainer theme={theme} customColor={customColor}>
-                <BackLink href={"/contacts"}>{backSVG}</BackLink>
-              </StyledCircularContainer>
-              {/*-------------------------------- PHOTO INPUT  */}
-              <StyledPhotoLabel htmlFor="photo">
-                Kontakt Foto auswählen:
-                <StyledPhotoInput
-                  type="file"
-                  id="photo"
-                  name="file"
-                  onChange={() => setImageChosen(true)}
-                />
-              </StyledPhotoLabel>
-              <EmptyContainerHelpToPositioning />
-            </PositioningContainer>
-            {/* --------------------------------NAME INPUT */}
-            <label htmlFor="name">
-              <StyledInputName
-                id="name"
-                name="name"
-                type="type"
-                placeholder="Name *"
-                defaultValue={defaultData?.name}
-                theme={theme}
-                customColor={customColor}
-                required
+      <Form onSubmit={handleSubmit} formName={formName}>
+        <StyledHeadingandFoto>
+          <PositioningContainerPhotoInput>
+            <StyledCircularContainer theme={theme} customColor={customColor}>
+              <BackLink href={"/contacts"}>{backSVG}</BackLink>
+            </StyledCircularContainer>
+            {/*-------------------------------- PHOTO INPUT  */}
+            <StyledPhotoLabel htmlFor="photo">
+              Kontakt Foto auswählen:
+              <StyledPhotoInput
+                type="file"
+                id="photo"
+                name="file"
+                onChange={() => setImageChosen(true)}
               />
-            </label>
-          </StyledHeadingandFoto>
-          <StyledFieldsContainer>
-            {/* PHONE INPUT */}
-            <label htmlFor="phone">Nummer:</label>
-            <StyledInputGray
-              id="phone"
-              name="phone"
-              type="text"
-              defaultValue={defaultData?.phone}
+            </StyledPhotoLabel>
+            <EmptyContainerHelpToPositioning />
+          </PositioningContainerPhotoInput>
+          {/* --------------------------------NAME INPUT */}
+          <label htmlFor="name">
+            <StyledInputName
+              id="name"
+              name="name"
+              type="type"
+              placeholder="Name *"
+              defaultValue={defaultData?.name}
               theme={theme}
               customColor={customColor}
+              required
             />
-            {/* NOTE TEXTAREA */}
-            <label htmlFor="note">Notizen:</label>
-            <StyledTextareaGray
-              id="note"
-              name="note"
-              type="text"
-              rows={3}
-              defaultValue={defaultData?.note}
-              theme={theme}
-              customColor={customColor}
-            />
-          </StyledFieldsContainer>
-          <StyledButtonsContainer>
-            <Button type="submit" name="speichern" />
-          </StyledButtonsContainer>
-        </form>
-      </FormContainer>
+          </label>
+        </StyledHeadingandFoto>
+        <StyledFieldsContainer>
+          {/* PHONE INPUT */}
+          <label htmlFor="phone">Nummer:</label>
+          <StyledInputGray
+            id="phone"
+            name="phone"
+            type="text"
+            defaultValue={defaultData?.phone}
+            theme={theme}
+            customColor={customColor}
+          />
+          {/* NOTE TEXTAREA */}
+          <label htmlFor="note">Notizen:</label>
+          <StyledTextareaGray
+            id="note"
+            name="note"
+            type="text"
+            rows={3}
+            defaultValue={defaultData?.note}
+            theme={theme}
+            customColor={customColor}
+          />
+        </StyledFieldsContainer>
+        <StyledButtonsContainer>
+          <Button type="submit" name="speichern" />
+        </StyledButtonsContainer>
+      </Form>
     </>
   );
 }
