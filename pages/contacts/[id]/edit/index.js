@@ -3,10 +3,15 @@ import { useRouter } from "next/router";
 import Navigation from "../../../../components/Navigation";
 import ContactForm from "../../../../components/ContactForm";
 import useSWR from "swr";
-import { StyledButtonsContainer } from "../../../../components/components.style";
+import {
+  PageContainer,
+  StyledButtonsContainer,
+} from "../../../../components/components.style";
 //new library to make confirm delete message, styles in styles.js
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import { ThemeContext } from "../../../_app";
+import { useContext } from "react";
 
 const StyledSuccessMessage = styled.h5`
   text-align: center;
@@ -38,6 +43,8 @@ export default function EditPage() {
     error,
     mutate,
   } = useSWR(`/api/contacts/${id}`);
+
+  const { theme, customColor } = useContext(ThemeContext);
 
   async function handleEdit(contactData) {
     console.log(contactData);
@@ -83,15 +90,17 @@ export default function EditPage() {
 
   return (
     <>
-      <ContactForm
-        onSubmit={handleEdit}
-        formName="edit-contact"
-        defaultData={contact}
-      />
-      <StyledButtonsContainer>
-        <StyledButton onClick={submitDelete}>loschen</StyledButton>
-      </StyledButtonsContainer>
-      <Navigation />
+      <PageContainer theme={theme} customColor={customColor}>
+        <ContactForm
+          onSubmit={handleEdit}
+          formName="edit-contact"
+          defaultData={contact}
+        />
+        <StyledButtonsContainer>
+          <StyledButton onClick={submitDelete}>loschen</StyledButton>
+        </StyledButtonsContainer>
+        <Navigation />
+      </PageContainer>
     </>
   );
 }

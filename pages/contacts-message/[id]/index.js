@@ -9,8 +9,8 @@ import MyKeyboard from "../../../components/MyKeyboard";
 import Navigation from "../../../components/Navigation";
 import Image from "next/image";
 import contactplaceholder from "../../../components/assets/contactplaceholder.jpg";
+import { PageContainer } from "../../../components/components.style";
 
-const StyledContainer = styled.div``;
 
 const StyledAppHeaderContainer = styled.div`
   display: flex;
@@ -65,7 +65,7 @@ export default function MessageDetail() {
 
   return (
     <>
-      <StyledContainer>
+      <PageContainer>
         <StyledAppHeaderContainer>
           <StyledLink href={"/contacts"}>{backSVG}</StyledLink>
           <AppsHeader heading="Nachrichten" />
@@ -83,7 +83,7 @@ export default function MessageDetail() {
           <MyKeyboard />
         </StyledKeyboardContainer>
         <Navigation selected={"message"} />
-      </StyledContainer>
+      </PageContainer>
     </>
   );
 }

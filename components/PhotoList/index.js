@@ -1,7 +1,8 @@
 import Image from "next/image";
 import styled from "styled-components";
-import Link from "next/link";
 import useSWR from "swr";
+import { useContext } from "react";
+import { ThemeContext } from "../../pages/_app";
 
 const StyledList = styled.ul`
   list-style: none;
@@ -49,12 +50,14 @@ const StyledMessage = styled.p`
 
 export default function PhotoList() {
   const { data, error } = useSWR("api/images");
+  const { theme, customColor } = useContext(ThemeContext);
+
   if (error) return <StyledMessage>könnte nicht geladen werden</StyledMessage>;
   if (!data) return <StyledMessage>Fotos werden geladen...</StyledMessage>;
 
   return (
     <>
-      <StyledList>
+      <StyledList theme={theme} customColor={customColor}>
         {data.resources.map((image) => (
           <StyledListItem key={image.asset_id}>
             <StyledImage

@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import { createGlobalStyle } from "../styles";
-import Link from "next/link";
+
+export const PageContainer = styled.div`
+  height: 100vh;
+`;
 
 export const StyledImagePlaceholder = styled.div`
   width: 34px;

@@ -13,6 +13,7 @@ import {
   StyledHeadingandFoto,
   StyledFieldsContainer,
   StyledLoading,
+  PageContainer,
 } from "../../../components/components.style";
 import { ThemeContext } from "../../_app";
 import { useContext } from "react";
@@ -65,7 +66,7 @@ export default function ContactDetail() {
   if (error) return <h2>Error...</h2>;
 
   return (
-    <>
+    <PageContainer theme={theme} customColor={customColor}>
       <StyledHeader>
         <StyledCircularContainer theme={theme} customColor={customColor}>
           <StyledLink href={"/contacts"}>{backSVG}</StyledLink>
@@ -95,6 +96,6 @@ export default function ContactDetail() {
         </StyledInfo>
       </StyledFieldsContainer>
       <Navigation />
-    </>
+    </PageContainer>
   );
 }
