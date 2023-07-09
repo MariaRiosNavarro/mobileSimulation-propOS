@@ -3,9 +3,7 @@ import { useRouter } from "next/router";
 import Navigation from "../../../../components/Navigation";
 import ContactForm from "../../../../components/ContactForm";
 import useSWR from "swr";
-import {
-  StyledButtonsContainer,
-} from "../../../../components/components.style";
+import { StyledButtonsContainer } from "../../../../components/components.style";
 //new library to make confirm delete message, styles in styles.js
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
@@ -87,7 +85,7 @@ export default function EditPage() {
     <>
       <ContactForm
         onSubmit={handleEdit}
-        formName={"edit-contact"}
+        formName="edit-contact"
         defaultData={contact}
       />
       <StyledButtonsContainer>

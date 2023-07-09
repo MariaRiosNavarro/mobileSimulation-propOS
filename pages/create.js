@@ -50,7 +50,7 @@ export default function CreateContact() {
 
   return (
     <PageContainer>
-      <ContactForm onSubmit={addContact} formName={"add-contact"} />
+      <ContactForm onSubmit={addContact} formName="add-contact" />
       {showSuccessMessageState && (
         <StyledSuccessMessage>Kontakte gespeichert</StyledSuccessMessage>
       )}
