@@ -24,7 +24,6 @@ const FormContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 0;
-  height: 100vh;
 `;
 
 const StyledPhotoInput = styled.input`

@@ -5,7 +5,6 @@ import ContactForm from "../../../../components/ContactForm";
 import useSWR from "swr";
 import {
   StyledButtonsContainer,
-  StyledAppBodyContainer,
 } from "../../../../components/components.style";
 //new library to make confirm delete message, styles in styles.js
 import { confirmAlert } from "react-confirm-alert";
@@ -86,17 +85,15 @@ export default function EditPage() {
 
   return (
     <>
-      <StyledAppBodyContainer>
-        <ContactForm
-          onSubmit={handleEdit}
-          formName={"edit-contact"}
-          defaultData={contact}
-        />
-        <StyledButtonsContainer>
-          <StyledButton onClick={submitDelete}>loschen</StyledButton>
-        </StyledButtonsContainer>
-        <Navigation />
-      </StyledAppBodyContainer>
+      <ContactForm
+        onSubmit={handleEdit}
+        formName={"edit-contact"}
+        defaultData={contact}
+      />
+      <StyledButtonsContainer>
+        <StyledButton onClick={submitDelete}>loschen</StyledButton>
+      </StyledButtonsContainer>
+      <Navigation />
     </>
   );
 }

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import Navigation from "../components/Navigation";
 import ContactForm from "../components/ContactForm";
-import { StyledAppBodyContainer } from "../components/components.style";
+
 import useSWR from "swr";
 
 const StyledSuccessMessage = styled.h5`
@@ -37,12 +37,12 @@ export default function CreateContact() {
   }
 
   return (
-    <StyledAppBodyContainer>
+    <>
       <ContactForm onSubmit={addContact} formName={"add-contact"} />
       {showSuccessMessageState && (
         <StyledSuccessMessage>Kontakte gespeichert</StyledSuccessMessage>
       )}
       <Navigation />
-    </StyledAppBodyContainer>
+    </>
   );
 }
