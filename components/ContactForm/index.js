@@ -67,7 +67,7 @@ export default function ContactForm({ onSubmit, defaultData, formName }) {
   const [imageChosen, setImageChosen] = useState(false);
 
   const router = useRouter();
-  let photoUrl = "";
+  let photoUrl = "contactplaceholder.js";
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
