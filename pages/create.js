@@ -9,8 +9,18 @@ const StyledSuccessMessage = styled.h5`
   text-align: center;
   background-color: green;
   padding: 1rem;
-  margin: 4rem;
+  margin-top: 1rem;
   border-radius: 8px;
+  width: 85%;
+`;
+
+const PageContainer = styled.div`
+  width: 100%;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 //----------------------------------------------- FUNCTION------------HERE
@@ -37,12 +47,12 @@ export default function CreateContact() {
   }
 
   return (
-    <>
+    <PageContainer>
       <ContactForm onSubmit={addContact} formName={"add-contact"} />
       {showSuccessMessageState && (
         <StyledSuccessMessage>Kontakte gespeichert</StyledSuccessMessage>
       )}
       <Navigation />
-    </>
+    </PageContainer>
   );
 }
