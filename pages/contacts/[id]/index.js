@@ -16,6 +16,7 @@ import {
 } from "../../../components/components.style";
 import { ThemeContext } from "../../_app";
 import { useContext } from "react";
+import contactplaceholder from "../../../components/assets/contactplaceholder.jpg";
 
 const StyledHeader = styled.div`
   margin: 0 2rem 0 2rem;
@@ -72,7 +73,7 @@ export default function ContactDetail() {
         <StyledHeadingandFoto>
           <StyledHeading>{contact.name}</StyledHeading>
           <StyledImage
-            src={contact.photo}
+            src={contact.photo || contactplaceholder}
             alt="Contact Photo"
             width={34}
             height={34}
