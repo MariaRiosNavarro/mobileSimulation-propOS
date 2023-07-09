@@ -23,10 +23,15 @@ const StyledHeadingContainer = styled.div`
   border-bottom: 1px solid lightgray;
 `;
 
+const PageContainer = styled.div`
+  height: 100%;
+`;
+
 export default function Gallery() {
   const { theme, customColor } = useContext(ThemeContext);
   return (
     <>
+    <
       <StyledHeadingContainer>
         <StyledCircularContainer theme={theme} customColor={customColor}>
           <Link href={"/home"}>{backSVG}</Link>
