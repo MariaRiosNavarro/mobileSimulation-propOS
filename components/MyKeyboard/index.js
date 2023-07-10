@@ -144,6 +144,7 @@ export default function MyKeyboard() {
         </StyledSendButton>
       </StyledSendSMSContainer>
       <Keyboard
+        theme={"hg-theme-default hg-layout-default myTheme"}
         onChange={onChange}
         onKeyPress={onKeyPress}
         layout={costumlayout}
