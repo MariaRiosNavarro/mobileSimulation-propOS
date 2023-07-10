@@ -3,6 +3,9 @@ import { useState } from "react";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import styled from "styled-components";
+import { ThemeContext } from "../../pages/_app";
+import { useContext } from "react";
+import { getLightenColor } from "../Layout/changeColorFunctions";
 
 // Keyboard: https://hodgef.com/simple-keyboard/getting-started/react/
 
@@ -19,7 +22,24 @@ const StyledSendSMSContainer = styled.div`
 
 const StyledPseudoInput = styled.p`
   width: 80%;
-  background-color: white;
+  background-color: ${(props) => {
+    if (props.theme === "light") {
+      return "white";
+    } else if (props.theme === "dark") {
+      return "white";
+    } else if (props.theme === "custom") {
+      return "white";
+    }
+  }};
+  color: ${(props) => {
+    if (props.theme === "light") {
+      return "black";
+    } else if (props.theme === "dark") {
+      return "black";
+    } else if (props.theme === "custom") {
+      return "black";
+    }
+  }};
   margin: 0 1rem 0 1rem;
   border-radius: 8px;
   padding: 0.5rem;
@@ -44,12 +64,29 @@ const StyledSendedBackMessageContainer = styled.div`
   padding: 1rem;
 `;
 const StyledSendedBackMessage = styled.p`
-  background-color: lightgray;
-  padding: 0.5rem;
+  background-color: ${(props) => {
+    if (props.theme === "light") {
+      return "lightgray";
+    } else if (props.theme === "dark") {
+      return "lightgray";
+    } else if (props.theme === "custom") {
+      return "lightgray";
+    }
+  }};
+
+  color: ${(props) => {
+    if (props.theme === "light") {
+      return "black";
+    } else if (props.theme === "dark") {
+      return "black";
+    } else if (props.theme === "custom") {
+      return "black";
+    }
+  }};
+  padding: 0.3rem;
   width: auto;
   margin: 0 1rem 0 1rem;
   border-radius: 20px 20px 20px 0;
-  padding: 0.5rem;
   /* Render with propierties, if we see the sended Message or not */
   display: ${(props) => (props.show ? "inline" : "none")};
 `;
@@ -61,12 +98,30 @@ const StyledSendedMessageContainer = styled.div`
   padding: 1rem;
 `;
 const StyledSendedMessage = styled.p`
-  background-color: lightblue;
+  background-color: ${(props) => {
+    if (props.theme === "light") {
+      return "lightblue";
+    } else if (props.theme === "dark") {
+      return "lightblue";
+    } else if (props.theme === "custom") {
+      return "lightblue";
+    }
+  }};
+  color: ${(props) => {
+    if (props.theme === "light") {
+      return "black";
+    } else if (props.theme === "dark") {
+      return "black";
+    } else if (props.theme === "custom") {
+      return "black";
+    }
+  }};
+
   padding: 0.5rem;
   width: auto;
   margin: 0 1rem 0 1rem;
   border-radius: 20px 20px 0 20px;
-  padding: 0.5rem;
+  padding: 0.3rem;
   /* Render with propierties, if we see the sended Message or not */
   display: ${(props) => (props.show ? "inline" : "none")};
 `;
@@ -77,6 +132,7 @@ export default function MyKeyboard() {
   const [showMessage, setShowMessage] = useState(false);
   const [showMessageBack, setShowMessageBack] = useState(false);
   const [layoutName, setLayoutName] = useState("default");
+  const { theme, customColor } = useContext(ThemeContext);
 
   useEffect(() => {
     if (message !== "") {
@@ -129,15 +185,27 @@ export default function MyKeyboard() {
   return (
     <StyledContainer>
       <StyledSendedBackMessageContainer>
-        <StyledSendedBackMessage show={showMessageBack}>
+        <StyledSendedBackMessage
+          theme={theme}
+          customColor={customColor}
+          show={showMessageBack}
+        >
           {messageBack}
         </StyledSendedBackMessage>
       </StyledSendedBackMessageContainer>
       <StyledSendedMessageContainer>
-        <StyledSendedMessage show={showMessage}>{message}</StyledSendedMessage>
+        <StyledSendedMessage
+          show={showMessage}
+          theme={theme}
+          customColor={customColor}
+        >
+          {message}
+        </StyledSendedMessage>
       </StyledSendedMessageContainer>
       <StyledSendSMSContainer>
         <StyledPseudoInput
+          theme={theme}
+          customColor={customColor}
           contentEditable
           suppressContentEditableWarning
           onblur={(event) => setInput(event.target.innerText)}
