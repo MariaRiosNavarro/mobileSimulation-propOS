@@ -34,6 +34,7 @@ const StyledSendButton = styled.button`
   &:hover {
     background-color: var(--hover-color);
   }
+  margin-right: 0.5rem;
 `;
 
 // New Paragraph where is the sended Message
@@ -75,6 +76,7 @@ export default function MyKeyboard() {
   const [message, setMessage] = useState("");
   const [showMessage, setShowMessage] = useState(false);
   const [showMessageBack, setShowMessageBack] = useState(false);
+  const [layoutName, setLayoutName] = useState("default");
 
   useEffect(() => {
     if (message !== "") {
@@ -101,6 +103,9 @@ export default function MyKeyboard() {
 
   const onKeyPress = (button) => {
     console.log("Button pressed", button);
+    if (button === "{shift}" || button === "{lock}") {
+      setLayoutName(layoutName === "default" ? "shift" : "default");
+    }
   };
 
   const costumlayout = {
@@ -113,9 +118,9 @@ export default function MyKeyboard() {
       ".com @ {space}",
     ],
     shift: [
-      '\u00B0 ! " \u00A7 $ % & / ( ) = ? ` ',
+      '\u00B0 ! " \u00A7 $ % & / ( ) = ? `',
       "{tab} Q W E R T Z U I O P \u00DC *",
-      "{lock} A S D F G H J K L \u00D6 \u00C4 ' ",
+      "{lock} A S D F G H J K L \u00D6 \u00C4 '",
       "{shift} > Y X C V B N M ; : _ {shift}",
       ".com @ {space}",
     ],
@@ -148,6 +153,7 @@ export default function MyKeyboard() {
         theme={"hg-theme-default hg-layout-default myTheme"}
         onChange={onChange}
         onKeyPress={onKeyPress}
+        layoutName={layoutName}
         layout={costumlayout}
         buttonTheme={[
           {
