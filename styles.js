@@ -34,6 +34,21 @@ export default createGlobalStyle`
 
   }
 
+//Keyboard Styles
+
+.simple-keyboard.hg-theme-default.myTheme {
+  border-radius: 8px;
+  background-color: var(--nav-color);
+  margin-bottom: 0.2rem;
+
+}
+
+.simple-keyboard.hg-layout-default .hg-button.hg-dark {
+  background: var(--nav-color) !important;
+  color: var(--primary-color) !important;
+  box-shadow: 0px 0px 1px 1px var(--primary-color) !important;
+}
+
   //ConfirmAlert library Styles to Style delete ALert
 
   #react-confirm-alert{
