@@ -39,14 +39,13 @@ export default createGlobalStyle`
 .simple-keyboard.hg-theme-default.myTheme {
   border-radius: 8px;
   background-color: var(--nav-color);
-  margin: 10px;
-  width: calc(100% - 20px);
-  height: 40%;
+  margin-bottom: 0.2rem;
+
 }
 
 .simple-keyboard.hg-layout-default .hg-button.hg-dark {
   background: var(--nav-color) !important;
-  color: var(--background-color) !important;
+  color: var(--primary-color) !important;
   box-shadow: 0px 0px 1px 1px var(--primary-color) !important;
 }
 
