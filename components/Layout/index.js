@@ -7,7 +7,6 @@ import { ThemeContext } from "../../pages/_app";
 //only with one color
 import {
   getComplementaryColor,
-  getSecondaryColor,
   getLightenColor,
   getAnalogousColor,
 } from "./changeColorFunctions";
@@ -54,18 +53,14 @@ const StyledAplicationContainer = styled.div`
 
 //Styles for the APPS at Home and Navigation that we can change with ours theme
 
-export const StyledSvgContainer = styled.span`
+export const StyledSvgContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 48px;
   width: 48px;
   background-color: ${(props) => {
-    if (props.disabled && props.theme === "light") {
-      return "var(--lightAPPDisabled)";
-    } else if (props.disabled && props.theme === "dark") {
-      return "var(--darkAPPDisabled)";
-    } else if (props.selected && props.theme === "light") {
+   if (props.selected && props.theme === "light") {
       return "var(--lightAPPSelected)";
     } else if (!props.selected && props.theme === "light") {
       return "var(--lightAPPAktiv)";
@@ -73,9 +68,6 @@ export const StyledSvgContainer = styled.span`
       return "var(--darkAPPSelected)";
     } else if (!props.selected && props.theme === "dark") {
       return "var(--darkAPPAktiv)";
-    } else if (props.disabled && props.theme === "custom") {
-      const lighterColor = getLightenColor(props.customColor, 0.2);
-      return lighterColor;
     } else if (props.selected && props.theme === "custom") {
       const lightColor = getLightenColor(props.customColor, 0.1);
       return lightColor;
