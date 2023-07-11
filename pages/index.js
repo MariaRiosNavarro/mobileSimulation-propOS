@@ -20,7 +20,7 @@ const StyledAppContainer = styled.div`
   justify-content: center;
 `;
 
-//----------------------------------------------- FUNCTION------------HERE
+//-----------------------------------------------FUNCTION
 
 export default function indexPage() {
   return (
