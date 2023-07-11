@@ -11,6 +11,8 @@ import {
 } from "../../components/components.style";
 import Button from "../../components/Button";
 
+// -----------------------------------------STYLE
+
 const StyledLoading = styled.p`
   background-color: gray;
 `;
@@ -58,6 +60,8 @@ const StyledHeadingContainer = styled.div`
   }
   width: 20rem;
 `;
+
+// -----------------------------------------FUNCTION
 
 export default function AskAI() {
   const [question, setQuestion] = useState("");
