@@ -25,7 +25,7 @@ export const beachSVG = (
 export const calenderSVG = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    enable-background="new 0 0 20 20"
+    enableBackground="new 0 0 20 20"
     height="48px"
     viewBox="0 0 20 20"
     width="48px"
@@ -56,7 +56,7 @@ export const cameraSVG = (
 export const checkSVG = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    enable-background="new 0 0 20 20"
+    enableBackground="new 0 0 20 20"
     height="48px"
     viewBox="0 0 20 20"
     width="48px"
@@ -98,7 +98,7 @@ export const languageSVG = (
 export const lensSVG = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    enable-background="new 0 0 24 24"
+    enableBackground="new 0 0 24 24"
     height="48px"
     viewBox="0 0 24 24"
     width="48px"
@@ -171,7 +171,7 @@ export const questionSVG = (
 export const roundaboutSVG = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    enable-background="new 0 0 20 20"
+    enableBackground="new 0 0 20 20"
     height="48px"
     viewBox="0 0 20 20"
     width="48px"
@@ -202,7 +202,7 @@ export const shoppingSVG = (
 export const sportSVG = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    enable-background="new 0 0 20 20"
+    enableBackground="new 0 0 20 20"
     height="48px"
     viewBox="0 0 20 20"
     width="48px"

@@ -1,26 +1,23 @@
-import styled from "styled-components";
+
 import {
-  StyledAppBodyContainer,
-  StyledMainNoSchrollbar,
+  AppContainer,
+  NoSchrollbarContainer,
 } from "../components/components.style";
 import Navigation from "../components/Navigation";
 import ContactListWithFavorite from "../components/ContactListWithFavorite";
 import AppsHeader from "../components/Appsheader";
 
-const StyledContentContainer = styled.div``;
-
-//----------------------------------------------- FUNCTION------------HERE
+//-----------------------------------------------FUNCTION
 
 export default function PhoneApp() {
   return (
-    <StyledAppBodyContainer>
-      <StyledMainNoSchrollbar>
+    <AppContainer>
+      <NoSchrollbarContainer>
         <AppsHeader heading="Telefon" />
-        <StyledContentContainer>
-          <ContactListWithFavorite />
-        </StyledContentContainer>
-      </StyledMainNoSchrollbar>
+
+        <ContactListWithFavorite />
+      </NoSchrollbarContainer>
       <Navigation selected={"phone"} />
-    </StyledAppBodyContainer>
+    </AppContainer>
   );
 }

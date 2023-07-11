@@ -1,10 +1,15 @@
 //i will use useContext and ThemeContext in _app and Layout to handle the apparence change of the APP
+
 import { useContext } from "react";
 import { ThemeContext } from "../pages/_app";
 import Navigation from "../components/Navigation";
 import styled from "styled-components";
-import { StyledAppBodyContainer } from "../components/components.style";
+import { AppContainer } from "../components/components.style";
 import AppsHeader from "../components/Appsheader";
+
+
+//-----------------------------------------------STYLE
+
 
 const StyledSmallHeading = styled.h5`
   text-align: center;
@@ -59,7 +64,9 @@ const StyledLitlePopUpHeading = styled.h5`
   padding: 0;
 `;
 
-const StyledColorInput = styled.input``;
+const StyledColorInput = styled.input`
+  border-radius: 8px;
+`;
 
 const SytlingBorder = styled.div`
   border: 1px solid var(--primary-color);
@@ -70,6 +77,9 @@ const SytlingBorder = styled.div`
     border: 1px solid var(--hover-color);
   }
 `;
+
+
+//-----------------------------------------------FUNCTION
 
 export default function SettingsPage() {
   const { theme, setTheme, customColor, setCustomColor } =
@@ -86,7 +96,7 @@ export default function SettingsPage() {
 
   return (
     <>
-      <StyledAppBodyContainer>
+      <AppContainer>
         <AppsHeader heading="Einstellungen" />
         <SytlingBorder>
           <StyledSmallHeading>Profil auswählen:</StyledSmallHeading>
@@ -139,7 +149,7 @@ export default function SettingsPage() {
           </StyledThemeContainer>
         </SytlingBorder>
         <Navigation selected={"settings"} />
-      </StyledAppBodyContainer>
+      </AppContainer>
     </>
   );
 }

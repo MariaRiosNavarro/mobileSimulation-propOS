@@ -2,15 +2,19 @@ import { useContext } from "react";
 import styled from "styled-components";
 import { ThemeContext } from "../../pages/_app";
 
-//I find a ComplementaryColor Function and SecundaryColor functions to change colors,
+//I use ComplementaryColor Function and SecundaryColor functions to change colors,
 //so that i can use dynamical to change the apparence dynamical in theme Dark and Custom,
 //only with one color
+
 import {
   getComplementaryColor,
-  getSecondaryColor,
   getLightenColor,
   getAnalogousColor,
 } from "./changeColorFunctions";
+
+
+//DYNAMICAL STYLES OF THE APLICATION ARE HERE (exception in MyKeyboard: MyKeyboard needs the properties in its own component also for a time-out function, so the dynamic styles that are only used there, I leave them in the same component.)
+
 
 //This will be the general container that will give the style to the app,
 // and through it we will be able to change its appearance.
@@ -34,7 +38,7 @@ const StyledAplicationContainer = styled.div`
 
   /* dynamically change the color according to the choosen thema.
   I can not use css variable in the getComplementary functions, 
-  also use hard code values, comment above with the original name  */
+  also use hard code values, comment above with the original value  */
 
   color: ${(props) => {
     if (props.theme === "light") {
@@ -52,20 +56,16 @@ const StyledAplicationContainer = styled.div`
   }};
 `;
 
-//Styles for the APPS at Home and Navigation that we can change with ours theme
+//Styles for the APPS at "Home" and "Navigation" that we can change with ours theme
 
-export const StyledSvgContainer = styled.span`
+export const StyledSvgContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 48px;
   width: 48px;
   background-color: ${(props) => {
-    if (props.disabled && props.theme === "light") {
-      return "var(--lightAPPDisabled)";
-    } else if (props.disabled && props.theme === "dark") {
-      return "var(--darkAPPDisabled)";
-    } else if (props.selected && props.theme === "light") {
+   if (props.selected && props.theme === "light") {
       return "var(--lightAPPSelected)";
     } else if (!props.selected && props.theme === "light") {
       return "var(--lightAPPAktiv)";
@@ -73,9 +73,6 @@ export const StyledSvgContainer = styled.span`
       return "var(--darkAPPSelected)";
     } else if (!props.selected && props.theme === "dark") {
       return "var(--darkAPPAktiv)";
-    } else if (props.disabled && props.theme === "custom") {
-      const lighterColor = getLightenColor(props.customColor, 0.2);
-      return lighterColor;
     } else if (props.selected && props.theme === "custom") {
       const lightColor = getLightenColor(props.customColor, 0.1);
       return lightColor;
@@ -102,7 +99,7 @@ export const StyledSvgContainer = styled.span`
   border-radius: 5px;
 `;
 
-//Apps headings in Home are in DarkMode Black, here will be change it:
+//Apps Headings in "Home":
 
 export const StyledAppHeading = styled.h5`
   font-size: 10px;
@@ -122,7 +119,7 @@ export const StyledAppHeading = styled.h5`
   }};
 `;
 
-//Little buttons in Contacts
+//Little SVG Buttons with Call, Message, Info and Favorites
 
 export const StyledCircularContainer = styled.span`
   height: 25px;
@@ -147,7 +144,7 @@ export const StyledCircularContainer = styled.span`
   }};
 `;
 
-//Badge at the Contacts are to dark in dark mode
+//Badge for the Tabs in ContactList
 
 export const StyledlitleTabContainer = styled.span`
   display: flex;
@@ -177,7 +174,7 @@ export const StyledlitleTabContainer = styled.span`
   }};
 `;
 
-//placeholder in input name darkmode
+//Placeholder in input name in create Contact
 
 export const StyledInputName = styled.input`
   border: none;
@@ -218,7 +215,7 @@ export const StyledInputName = styled.input`
   }
 `;
 
-//Contactform Dark styles
+//Contactform 
 
 export const StyledTextareaGray = styled.textarea`
   background-color: lightgray;
@@ -252,7 +249,7 @@ export const StyledInputGray = styled.input`
   color: black;
 `;
 
-//Contactfields in Contact details
+//Contactfields in Contact details in ContactForm
 
 export const StyledInfo = styled.p`
   background-color: ${(props) => {
@@ -270,7 +267,7 @@ export const StyledInfo = styled.p`
   margin: 0;
 `;
 
-//AI Page Dark Modus
+//AI Page 
 
 export const StyledAnswer = styled.div`
   background-color: ${(props) => {
@@ -306,6 +303,8 @@ export const StyledQuestionLabel = styled.label`
     }
   }};
 `;
+
+// -------------------------------------------------------------FUNCTION
 
 export default function Layout({ children }) {
   const { theme, customColor } = useContext(ThemeContext);

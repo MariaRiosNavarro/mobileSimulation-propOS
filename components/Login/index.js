@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import Button from "../Button";
 
 const StyledBigContainer = styled.div`
   display: flex;
@@ -82,11 +81,11 @@ export default function LoginPage() {
               id="loginEmail"
               name="loginEmail"
             ></StyledInput>
-            <StyledLabel htmlFor="loginPassword">Password</StyledLabel>
+            <StyledLabel htmlFor="login-password">Password</StyledLabel>
             <StyledInput
               type="password"
-              id="loginPassword"
-              name="loginPassword"
+              id="login-password"
+              name="login-password"
             ></StyledInput>
             <StyledButton type="submit">Einloggen</StyledButton>
           </StyledForm>
@@ -108,11 +107,11 @@ export default function LoginPage() {
               id="registrationEmailConfirmation"
               name="registrationEmailConfirmation"
             ></StyledInput>
-            <StyledLabel htmlFor="registrationPassword">Password</StyledLabel>
+            <StyledLabel htmlFor="registration-password">Password</StyledLabel>
             <StyledInput
               type="password"
-              id="registrationPassword"
-              name="registrationPassword"
+              id="registration-password"
+              name="registration-password"
             ></StyledInput>
             <StyledButton type="submit">Speichern</StyledButton>
           </StyledForm>

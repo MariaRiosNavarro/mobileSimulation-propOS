@@ -5,7 +5,7 @@ import {
   messageSVG,
   settingsSVG,
 } from "../assets/navigationSVG";
-import StyledAppContainer from "../StyledAppContainer";
+import IconAppContainer from "../IconAppContainer";
 import styled from "styled-components";
 
 const StyledNavigationContainer = styled.div`
@@ -24,25 +24,22 @@ export default function Navigation({ selected }) {
   return (
     <StyledNavigationContainer>
       <Link href={"/home"}>
-        <StyledAppContainer
-          StyledSvg={homeSVG}
-          selected={selected === "home"}
-        />
+        <IconAppContainer StyledSvg={homeSVG} selected={selected === "home"} />
       </Link>
       <Link href={"/phone"}>
-        <StyledAppContainer
+        <IconAppContainer
           StyledSvg={phoneSVG}
           selected={selected === "phone"}
         />
       </Link>
       <Link href={"/message"}>
-        <StyledAppContainer
+        <IconAppContainer
           StyledSvg={messageSVG}
           selected={selected === "message"}
         />
       </Link>
       <Link href={"/settings"}>
-        <StyledAppContainer
+        <IconAppContainer
           StyledSvg={settingsSVG}
           selected={selected === "settings"}
         />

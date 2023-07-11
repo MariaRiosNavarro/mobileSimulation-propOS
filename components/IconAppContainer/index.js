@@ -9,13 +9,12 @@ const StyledSvg = styled.svg`
   width: 40px;
 `;
 
-export default function StyledAppContainer({ StyledSvg, selected, disabled }) {
+export default function IconAppContainer({ StyledSvg, selected }) {
   const { theme, customColor } = useContext(ThemeContext);
   return (
     <>
       <StyledSvgContainer
         selected={selected}
-        disabled={disabled}
         theme={theme}
         customColor={customColor}
       >

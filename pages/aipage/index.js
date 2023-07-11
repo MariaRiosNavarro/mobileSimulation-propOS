@@ -5,6 +5,13 @@ import { StyledAnswer } from "../../components/Layout";
 import { ThemeContext } from "../../pages/_app";
 import { useContext } from "react";
 import { StyledQuestionLabel } from "../../components/Layout";
+import {
+  AppContainer,
+  NoSchrollbarContainer,
+} from "../../components/components.style";
+import Button from "../../components/Button";
+
+// -----------------------------------------STYLE
 
 const StyledLoading = styled.p`
   background-color: gray;
@@ -16,14 +23,12 @@ const StyledHeading = styled.h5`
   margin: 0;
 `;
 
-const StyledContainer = styled.div`
+const CenterFlexContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  margin-top: 0;
-  padding-bottom: 5rem;
-  height: 100vh;
+  padding-bottom: 3rem;
 `;
 
 const StyledForm = styled.form`
@@ -45,18 +50,6 @@ const StyledTextarea = styled.textarea`
   }
 `;
 
-const StyledButton = styled.button`
-  margin-top: 2rem;
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 8px;
-  padding: 1rem;
-  width: 20rem;
-  &:hover {
-    background-color: var(--hover-color);
-  }
-`;
-
 const StyledHeadingContainer = styled.div`
   margin-top: 3rem;
   border: 2px solid var(--primary-color);
@@ -65,7 +58,10 @@ const StyledHeadingContainer = styled.div`
   &:hover {
     border: 2px solid var(--hover-color);
   }
+  width: 20rem;
 `;
+
+// -----------------------------------------FUNCTION
 
 export default function AskAI() {
   const [question, setQuestion] = useState("");
@@ -107,42 +103,46 @@ export default function AskAI() {
 
   return (
     <>
-      <StyledContainer>
-        <StyledHeadingContainer>
-          <StyledHeading>
-            <strong>Deine PropOS</strong>
-          </StyledHeading>
-          <StyledHeading>
-            <strong>Assistentin</strong>
-          </StyledHeading>
-        </StyledHeadingContainer>
-        {answer && (
-          <StyledAnswer id="answer" theme={theme} customColor={customColor}>
-            {answer}
-          </StyledAnswer>
-        )}
-        <StyledForm onSubmit={handleSubmit}>
-          <StyledQuestionLabel
-            htmlFor="question"
-            theme={theme}
-            customColor={customColor}
-          >
-            Frage:
-          </StyledQuestionLabel>
-          <StyledTextarea
-            value={question}
-            type="text"
-            name="question"
-            id="question"
-            cols={40}
-            rows={6}
-            onChange={(event) => setQuestion(event.target.value)}
-          />
+      <AppContainer>
+        <NoSchrollbarContainer>
+          <CenterFlexContainer>
+            <StyledHeadingContainer>
+              <StyledHeading>
+                <strong>Deine PropOS</strong>
+              </StyledHeading>
+              <StyledHeading>
+                <strong>Assistentin</strong>
+              </StyledHeading>
+            </StyledHeadingContainer>
+            {answer && (
+              <StyledAnswer id="answer" theme={theme} customColor={customColor}>
+                {answer}
+              </StyledAnswer>
+            )}
+            <StyledForm onSubmit={handleSubmit}>
+              <StyledQuestionLabel
+                htmlFor="question"
+                theme={theme}
+                customColor={customColor}
+              >
+                Frage:
+              </StyledQuestionLabel>
+              <StyledTextarea
+                value={question}
+                type="text"
+                name="question"
+                id="question"
+                cols={40}
+                rows={6}
+                onChange={(event) => setQuestion(event.target.value)}
+              />
 
-          <StyledButton type="submit">Senden</StyledButton>
-        </StyledForm>
-      </StyledContainer>
-      <Navigation />
+              <Button type="submit" name="Senden" />
+            </StyledForm>
+          </CenterFlexContainer>
+        </NoSchrollbarContainer>
+        <Navigation />
+      </AppContainer>
     </>
   );
 }

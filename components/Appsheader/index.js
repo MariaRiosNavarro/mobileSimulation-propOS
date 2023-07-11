@@ -1,7 +1,6 @@
 import Heading from "../Heading";
-import StyledLinkSvgContainer from "../StyledLinkSvgContainer";
+import StyledLinkSvgContainer from "../LinkSvgContainer";
 import styled from "styled-components";
-
 
 const StyledHeader = styled.header`
   display: flex;

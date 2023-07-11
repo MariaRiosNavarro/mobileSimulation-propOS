@@ -1,26 +1,21 @@
-import styled from "styled-components";
 import Navigation from "../components/Navigation";
 import ContactListWithFavorite from "../components/ContactListWithFavorite";
 import {
-  StyledAppBodyContainer,
-  StyledMainNoSchrollbar,
+  AppContainer,
+  NoSchrollbarContainer,
 } from "../components/components.style";
 import AppsHeader from "../components/Appsheader";
 
-const StyledContentContainer = styled.div``;
-
-//----------------------------------------------- FUNCTION------------HERE
+//-----------------------------------------------FUNCTION
 
 export default function MessageApp() {
   return (
-    <StyledAppBodyContainer>
-      <StyledMainNoSchrollbar>
+    <AppContainer>
+      <NoSchrollbarContainer>
         <AppsHeader heading="Nachrichten" />
-        <StyledContentContainer>
-          <ContactListWithFavorite />
-        </StyledContentContainer>
-      </StyledMainNoSchrollbar>
+        <ContactListWithFavorite />
+      </NoSchrollbarContainer>
       <Navigation selected={"message"} />
-    </StyledAppBodyContainer>
+    </AppContainer>
   );
 }
