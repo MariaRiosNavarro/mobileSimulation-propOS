@@ -1,4 +1,3 @@
-// import Heading from "../components/Heading";
 import styled from "styled-components";
 import {
   AppContainer,
