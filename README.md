@@ -10,6 +10,9 @@
 
 Simulation of a mobile phone operating system, for use in film shoots. The core of the App is the contact list, where you can manage contacts and simulate calls and messages. In the settings you can choose a light, dark or customisable profile. There is also a photo gallery as well as a digital assistant through artificial intelligence (Open AI).
 
+For now the login page is a fake and only by pressing the button you can go inside. The next projects will be to create a real authentication and to make possible the external manipulation of the simulation via Bluetooth to simulate incoming calls and messages.
+
+All applications on the Home screen that are not yet useful will be developed in the future. For now they only have: home, phone, messages, settings, contacts and internet.
 
 
 -[PropOS Vercel Deployment](https://mobile-simulation-prop-os.vercel.app/)
@@ -22,16 +25,10 @@ Simulation of a mobile phone operating system, for use in film shoots. The core 
 
 
 
-
-
-
 ---
 
 
-
-For Developers:
-
-Organisation of the folder:
+### Organisation of the folder:
 
 ![Explanation of the folders in the App](/public/explanation-readme.jpg)
 
