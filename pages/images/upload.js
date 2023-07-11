@@ -100,7 +100,7 @@ export default function PhotoUploadForm() {
           Auswählen
           <StyledInput type="file" name="file" id="photoUpload" />
         </StyledLabel>
-        <Button type="submit" name={"Fotos Hochladen"} />
+        <Button type="submit" name="Fotos Hochladen" />
         <p>{uploadStatus}</p>
         {error && <p>{error.message}</p>}
       </Form>

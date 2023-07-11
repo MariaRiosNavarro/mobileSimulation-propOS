@@ -9,6 +9,7 @@ import {
   AppContainer,
   NoSchrollbarContainer,
 } from "../../components/components.style";
+import Button from "../../components/Button";
 
 const StyledLoading = styled.p`
   background-color: gray;
@@ -46,17 +47,6 @@ const StyledTextarea = styled.textarea`
   }
 `;
 
-const StyledButton = styled.button`
-  margin-top: 2rem;
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 8px;
-  padding: 1rem;
-  width: 20rem;
-  &:hover {
-    background-color: var(--hover-color);
-  }
-`;
 
 const StyledHeadingContainer = styled.div`
   margin-top: 3rem;
@@ -143,7 +133,7 @@ export default function AskAI() {
               onChange={(event) => setQuestion(event.target.value)}
             />
 
-            <StyledButton type="submit">Senden</StyledButton>
+            <Button type="submit" name="Senden"/>
           </StyledForm>
           </CenterFlexContainer>
         </NoSchrollbarContainer>
