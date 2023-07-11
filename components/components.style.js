@@ -48,7 +48,7 @@ export const StyledLoading = styled.div`
   font-weight: bold;
 `;
 
-//APPS reusable parts
+//-------------------------------------------------IMPORTANT CONTAINER for all APPS
 
 export const AppContainer = styled.div`
   margin-top: 0;
