@@ -5,7 +5,6 @@ import { StyledCircularContainer } from "../Layout";
 import { ThemeContext } from "../../pages/_app";
 import { useContext } from "react";
 
-
 const StyledLink = styled(Link)`
   height: 20px;
   width: 20px;
@@ -24,9 +23,13 @@ const StyledSpan = styled.span`
   justify-content: center;
 `;
 
+//I leave the for now empty styled Svg for the future
+
 const StyledSvg = styled.svg``;
 
-export default function StyledLinkSvgContainer({
+// --------------------------------------------------FUNCTION
+
+export default function LinkSvgContainer({
   id,
   StyledSvg,
   isFavorite,
