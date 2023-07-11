@@ -26,6 +26,7 @@ const CenterFlexContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  padding-bottom: 3rem;
 `;
 
 const StyledForm = styled.form`
@@ -46,7 +47,6 @@ const StyledTextarea = styled.textarea`
     border: 2px solid var(--hover-color);
   }
 `;
-
 
 const StyledHeadingContainer = styled.div`
   margin-top: 3rem;
@@ -102,39 +102,39 @@ export default function AskAI() {
       <AppContainer>
         <NoSchrollbarContainer>
           <CenterFlexContainer>
-          <StyledHeadingContainer>
-            <StyledHeading>
-              <strong>Deine PropOS</strong>
-            </StyledHeading>
-            <StyledHeading>
-              <strong>Assistentin</strong>
-            </StyledHeading>
-          </StyledHeadingContainer>
-          {answer && (
-            <StyledAnswer id="answer" theme={theme} customColor={customColor}>
-              {answer}
-            </StyledAnswer>
-          )}
-          <StyledForm onSubmit={handleSubmit}>
-            <StyledQuestionLabel
-              htmlFor="question"
-              theme={theme}
-              customColor={customColor}
-            >
-              Frage:
-            </StyledQuestionLabel>
-            <StyledTextarea
-              value={question}
-              type="text"
-              name="question"
-              id="question"
-              cols={40}
-              rows={6}
-              onChange={(event) => setQuestion(event.target.value)}
-            />
+            <StyledHeadingContainer>
+              <StyledHeading>
+                <strong>Deine PropOS</strong>
+              </StyledHeading>
+              <StyledHeading>
+                <strong>Assistentin</strong>
+              </StyledHeading>
+            </StyledHeadingContainer>
+            {answer && (
+              <StyledAnswer id="answer" theme={theme} customColor={customColor}>
+                {answer}
+              </StyledAnswer>
+            )}
+            <StyledForm onSubmit={handleSubmit}>
+              <StyledQuestionLabel
+                htmlFor="question"
+                theme={theme}
+                customColor={customColor}
+              >
+                Frage:
+              </StyledQuestionLabel>
+              <StyledTextarea
+                value={question}
+                type="text"
+                name="question"
+                id="question"
+                cols={40}
+                rows={6}
+                onChange={(event) => setQuestion(event.target.value)}
+              />
 
-            <Button type="submit" name="Senden"/>
-          </StyledForm>
+              <Button type="submit" name="Senden" />
+            </StyledForm>
           </CenterFlexContainer>
         </NoSchrollbarContainer>
         <Navigation />
