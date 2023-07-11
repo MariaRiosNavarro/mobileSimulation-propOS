@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {
-  StyledAppBodyContainer,
-  StyledMainNoSchrollbar,
+  AppContainer,
+  NoSchrollbarContainer,
 } from "../components/components.style";
 import Navigation from "../components/Navigation";
 import ContactListWithFavorite from "../components/ContactListWithFavorite";
@@ -13,14 +13,14 @@ const StyledContentContainer = styled.div``;
 
 export default function PhoneApp() {
   return (
-    <StyledAppBodyContainer>
-      <StyledMainNoSchrollbar>
+    <AppContainer>
+      <NoSchrollbarContainer>
         <AppsHeader heading="Telefon" />
         <StyledContentContainer>
           <ContactListWithFavorite />
         </StyledContentContainer>
-      </StyledMainNoSchrollbar>
+      </NoSchrollbarContainer>
       <Navigation selected={"phone"} />
-    </StyledAppBodyContainer>
+    </AppContainer>
   );
 }

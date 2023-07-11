@@ -4,6 +4,10 @@ import Link from "next/link";
 import { backSVG, addSVG } from "../../components/assets/contactsSVG";
 import Navigation from "../../components/Navigation";
 import { StyledCircularContainer } from "../../components/Layout/index";
+import {
+  AppContainer,
+  NoSchrollbarContainer,
+} from "../../components/components.style";
 import { ThemeContext } from "../_app";
 import { useContext } from "react";
 
@@ -27,17 +31,21 @@ export default function Gallery() {
   const { theme, customColor } = useContext(ThemeContext);
   return (
     <>
-      <StyledHeadingContainer>
-        <StyledCircularContainer theme={theme} customColor={customColor}>
-          <Link href={"/home"}>{backSVG}</Link>
-        </StyledCircularContainer>
-        <StyledHeading>Galerie</StyledHeading>
-        <StyledCircularContainer theme={theme} customColor={customColor}>
-          <Link href={"/images/upload"}>{addSVG}</Link>
-        </StyledCircularContainer>
-      </StyledHeadingContainer>
-      <PhotoList />
-      <Navigation />
+      <AppContainer>
+        <NoSchrollbarContainer>
+          <StyledHeadingContainer>
+            <StyledCircularContainer theme={theme} customColor={customColor}>
+              <Link href={"/home"}>{backSVG}</Link>
+            </StyledCircularContainer>
+            <StyledHeading>Galerie</StyledHeading>
+            <StyledCircularContainer theme={theme} customColor={customColor}>
+              <Link href={"/images/upload"}>{addSVG}</Link>
+            </StyledCircularContainer>
+          </StyledHeadingContainer>
+          <PhotoList />
+        </NoSchrollbarContainer>
+        <Navigation />
+      </AppContainer>
     </>
   );
 }

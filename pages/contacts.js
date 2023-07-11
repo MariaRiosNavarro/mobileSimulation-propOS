@@ -1,8 +1,8 @@
 // import Heading from "../components/Heading";
 import styled from "styled-components";
 import {
-  StyledAppBodyContainer,
-  StyledMainNoSchrollbar,
+  AppContainer,
+  NoSchrollbarContainer,
 } from "../components/components.style";
 import { addSVG } from "../components/assets/contactsSVG";
 import Navigation from "../components/Navigation";
@@ -15,14 +15,14 @@ const StyledContentContainer = styled.div``;
 
 export default function Contacts() {
   return (
-    <StyledAppBodyContainer>
-      <StyledMainNoSchrollbar>
+    <AppContainer>
+      <NoSchrollbarContainer>
         <AppsHeader StyledSvg={addSVG} heading="Kontakte" />
         <StyledContentContainer>
           <ContactListWithFavorite />
         </StyledContentContainer>
-      </StyledMainNoSchrollbar>
+      </NoSchrollbarContainer>
       <Navigation />
-    </StyledAppBodyContainer>
+    </AppContainer>
   );
 }

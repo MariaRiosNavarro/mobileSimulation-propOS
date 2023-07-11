@@ -50,7 +50,7 @@ export const StyledLoading = styled.div`
 
 //APPS reusable parts
 
-export const StyledAppBodyContainer = styled.div`
+export const AppContainer = styled.div`
   margin-top: 0;
   position: relative;
   min-height: 100vh;
@@ -61,7 +61,7 @@ export const StyledAppBodyContainer = styled.div`
 // (no mobile has the bar above the navigation).
 // Thanks Stack Overflow. Schrolling still works
 
-export const StyledMainNoSchrollbar = styled.div`
+export const NoSchrollbarContainer = styled.div`
   height: 90vh;
   overflow: auto;
   scrollbar-width: none; /* Firefox */
