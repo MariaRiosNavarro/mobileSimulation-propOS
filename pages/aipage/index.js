@@ -5,6 +5,10 @@ import { StyledAnswer } from "../../components/Layout";
 import { ThemeContext } from "../../pages/_app";
 import { useContext } from "react";
 import { StyledQuestionLabel } from "../../components/Layout";
+import {
+  AppContainer,
+  NoSchrollbarContainer,
+} from "../../components/components.style";
 
 const StyledLoading = styled.p`
   background-color: gray;
@@ -16,14 +20,11 @@ const StyledHeading = styled.h5`
   margin: 0;
 `;
 
-const StyledContainer = styled.div`
+const CenterFlexContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  margin-top: 0;
-  padding-bottom: 5rem;
-  height: 100vh;
 `;
 
 const StyledForm = styled.form`
@@ -65,6 +66,7 @@ const StyledHeadingContainer = styled.div`
   &:hover {
     border: 2px solid var(--hover-color);
   }
+  width: 20rem;
 `;
 
 export default function AskAI() {
@@ -107,42 +109,46 @@ export default function AskAI() {
 
   return (
     <>
-      <StyledContainer>
-        <StyledHeadingContainer>
-          <StyledHeading>
-            <strong>Deine PropOS</strong>
-          </StyledHeading>
-          <StyledHeading>
-            <strong>Assistentin</strong>
-          </StyledHeading>
-        </StyledHeadingContainer>
-        {answer && (
-          <StyledAnswer id="answer" theme={theme} customColor={customColor}>
-            {answer}
-          </StyledAnswer>
-        )}
-        <StyledForm onSubmit={handleSubmit}>
-          <StyledQuestionLabel
-            htmlFor="question"
-            theme={theme}
-            customColor={customColor}
-          >
-            Frage:
-          </StyledQuestionLabel>
-          <StyledTextarea
-            value={question}
-            type="text"
-            name="question"
-            id="question"
-            cols={40}
-            rows={6}
-            onChange={(event) => setQuestion(event.target.value)}
-          />
+      <AppContainer>
+        <NoSchrollbarContainer>
+          <CenterFlexContainer>
+          <StyledHeadingContainer>
+            <StyledHeading>
+              <strong>Deine PropOS</strong>
+            </StyledHeading>
+            <StyledHeading>
+              <strong>Assistentin</strong>
+            </StyledHeading>
+          </StyledHeadingContainer>
+          {answer && (
+            <StyledAnswer id="answer" theme={theme} customColor={customColor}>
+              {answer}
+            </StyledAnswer>
+          )}
+          <StyledForm onSubmit={handleSubmit}>
+            <StyledQuestionLabel
+              htmlFor="question"
+              theme={theme}
+              customColor={customColor}
+            >
+              Frage:
+            </StyledQuestionLabel>
+            <StyledTextarea
+              value={question}
+              type="text"
+              name="question"
+              id="question"
+              cols={40}
+              rows={6}
+              onChange={(event) => setQuestion(event.target.value)}
+            />
 
-          <StyledButton type="submit">Senden</StyledButton>
-        </StyledForm>
-      </StyledContainer>
-      <Navigation />
+            <StyledButton type="submit">Senden</StyledButton>
+          </StyledForm>
+          </CenterFlexContainer>
+        </NoSchrollbarContainer>
+        <Navigation />
+      </AppContainer>
     </>
   );
 }
