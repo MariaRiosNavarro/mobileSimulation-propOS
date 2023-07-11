@@ -3,6 +3,8 @@ import LinkSvgContainer from "../LinkSvgContainer";
 import { infoSVG, callSVG, messageSVG } from "../assets/contactsSVG";
 import Image from "next/image";
 
+// -----------------------------------------STYLE
+
 const StyledContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -30,6 +32,8 @@ const StyledListItem = styled.li`
 const StyledImage = styled(Image)`
   border-radius: 50%;
 `;
+
+// ------------------------------------------------FUNCTION
 
 export default function ContactListItem({
   name,
