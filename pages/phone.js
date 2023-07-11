@@ -1,4 +1,4 @@
-import styled from "styled-components";
+
 import {
   AppContainer,
   NoSchrollbarContainer,
@@ -7,18 +7,15 @@ import Navigation from "../components/Navigation";
 import ContactListWithFavorite from "../components/ContactListWithFavorite";
 import AppsHeader from "../components/Appsheader";
 
-const StyledContentContainer = styled.div``;
-
-//----------------------------------------------- FUNCTION------------HERE
+//-----------------------------------------------FUNCTION
 
 export default function PhoneApp() {
   return (
     <AppContainer>
       <NoSchrollbarContainer>
         <AppsHeader heading="Telefon" />
-        <StyledContentContainer>
-          <ContactListWithFavorite />
-        </StyledContentContainer>
+
+        <ContactListWithFavorite />
       </NoSchrollbarContainer>
       <Navigation selected={"phone"} />
     </AppContainer>
