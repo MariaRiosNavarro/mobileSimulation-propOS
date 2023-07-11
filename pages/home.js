@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import Navigation from "../components/Navigation";
-import StyledAppContainer from "../components/StyledAppContainer";
+import IconAppContainer from "../components/IconAppContainer";
 import {
   alarmSVG,
   beachSVG,
@@ -55,97 +55,97 @@ export default function Home() {
     <>
       <StyledMain>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={calenderSVG} />
+          <IconAppContainer StyledSvg={calenderSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Kalender
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={beachSVG} />
+          <IconAppContainer StyledSvg={beachSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Wetter
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={alarmSVG} />
+          <IconAppContainer StyledSvg={alarmSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Uhr
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={musicSVG} />
+          <IconAppContainer StyledSvg={musicSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Audio
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={sportSVG} />
+          <IconAppContainer StyledSvg={sportSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Spiele
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={roundaboutSVG} />
+          <IconAppContainer StyledSvg={roundaboutSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Navigation
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={trainSVG} />
+          <IconAppContainer StyledSvg={trainSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Transport
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={shoppingSVG} />
+          <IconAppContainer StyledSvg={shoppingSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Einkaufen
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={lensSVG} />
+          <IconAppContainer StyledSvg={lensSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Sozial Media
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={questionSVG} />
+          <IconAppContainer StyledSvg={questionSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Chats
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={checkSVG} />
+          <IconAppContainer StyledSvg={checkSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             ToDo
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={mailSVG} />
+          <IconAppContainer StyledSvg={mailSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Mail
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/images"}>
-          <StyledAppContainer StyledSvg={cameraSVG} />
+          <IconAppContainer StyledSvg={cameraSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Galerie
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/home"}>
-          <StyledAppContainer StyledSvg={photoCamSVG} />
+          <IconAppContainer StyledSvg={photoCamSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Kamera
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/aipage"}>
-          <StyledAppContainer StyledSvg={languageSVG} />
+          <IconAppContainer StyledSvg={languageSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Internet
           </StyledAppHeading>
         </StyledWrapAppLink>
         <StyledWrapAppLink href={"/contacts"}>
-          <StyledAppContainer StyledSvg={permContactSVG} />
+          <IconAppContainer StyledSvg={permContactSVG} />
           <StyledAppHeading theme={theme} customColor={customColor}>
             Kontakte
           </StyledAppHeading>
