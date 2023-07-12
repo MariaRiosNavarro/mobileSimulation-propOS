@@ -1,7 +1,7 @@
 import { render, fireEvent } from "@testing-library/react";
 import Tab from "../Tab";
 
-describe("Tab Component", () => {
+
   test("renders tab with provided children", () => {
     const { getByText } = render(<Tab>Favoriten</Tab>);
     const tabElement = getByText("Favoriten");
@@ -15,4 +15,4 @@ describe("Tab Component", () => {
     fireEvent.click(tabElement);
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
-});
+
