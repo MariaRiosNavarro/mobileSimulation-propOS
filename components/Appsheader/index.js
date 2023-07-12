@@ -1,5 +1,5 @@
 import Heading from "../Heading";
-import StyledLinkSvgContainer from "../LinkSvgContainer";
+import LinkSvgContainer from "../LinkSvgContainer";
 import styled from "styled-components";
 
 const StyledHeader = styled.header`
@@ -16,7 +16,7 @@ export default function AppsHeader({ heading, StyledSvg }) {
     <>
       <StyledHeader>
         <Heading>{heading}</Heading>
-        <StyledLinkSvgContainer StyledSvg={StyledSvg} />
+        <LinkSvgContainer StyledSvg={StyledSvg} />
       </StyledHeader>
     </>
   );
