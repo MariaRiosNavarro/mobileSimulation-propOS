@@ -40,6 +40,7 @@ All applications on the Home screen that are not yet useful will be developed in
 - react-simple-keyboard
 - tinycolor2
 - react-confirm-alert
+- Figma
 
 
 ### How to set it up
