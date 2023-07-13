@@ -36,6 +36,11 @@ All applications on the Home screen that are not yet useful will be developed in
 - vercel
 - Git
 - npm
+- createContext 
+- react-simple-keyboard
+- tinycolor2
+- react-confirm-alert
+
 
 ### How to set it up
 
@@ -53,6 +58,7 @@ All applications on the Home screen that are not yet useful will be developed in
    `CLOUDINARY_API_KEY`
 
    `CLOUDINARY_CLOUD_NAME`
+
 
 - Run app in dev mode:  `npm run dev`
 
