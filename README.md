@@ -26,7 +26,7 @@ All applications on the Home screen that are not yet useful will be developed in
 
 - React
 - Next.js
-- MongoDB
+- MongoDB + Atlas
 - OpenAI API
 - Cloudinary
 - Jest
@@ -36,6 +36,12 @@ All applications on the Home screen that are not yet useful will be developed in
 - vercel
 - Git
 - npm
+- createContext 
+- react-simple-keyboard
+- tinycolor2
+- react-confirm-alert
+- Figma
+
 
 ### How to set it up
 
@@ -44,15 +50,16 @@ All applications on the Home screen that are not yet useful will be developed in
 - create Cloudinary, OpenAI and MongoDB Atlas accounts
 - create `.env file` in the root directory and insert enviroment variables in it:
 
-  - MONGODB_URI
+   `MONGODB_URI`
 
-  - OPENAI_API_KEY
+   `OPENAI_API_KEY`
 
-  - CLOUDINARY_SECRET
+   `CLOUDINARY_SECRET`
 
-  - CLOUDINARY_API_KEY
+   `CLOUDINARY_API_KEY`
 
-  - CLOUDINARY_CLOUD_NAME
+   `CLOUDINARY_CLOUD_NAME`
+
 
 - Run app in dev mode:  `npm run dev`
 
