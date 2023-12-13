@@ -76,7 +76,7 @@ export default function AskAI() {
   const { theme, customColor } = useContext(ThemeContext);
 
   if (isFetching) {
-    return <StyledLoading>AI chat esta por ahora deactivado..</StyledLoading>;
+    return <StyledLoading>AI chat is currently deactivated. Der AI-Chat ist derzeit deaktiviert</StyledLoading>;
   }
 
   async function handleSubmit(event) {
