@@ -15,6 +15,12 @@ import Button from "../../components/Button";
 
 const StyledLoading = styled.p`
   background-color: gray;
+  padding:4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+  
 `;
 
 const StyledHeading = styled.h5`
@@ -70,7 +76,7 @@ export default function AskAI() {
   const { theme, customColor } = useContext(ThemeContext);
 
   if (isFetching) {
-    return <StyledLoading>Laden...</StyledLoading>;
+    return <StyledLoading>AI chat esta por ahora deactivado..</StyledLoading>;
   }
 
   async function handleSubmit(event) {
