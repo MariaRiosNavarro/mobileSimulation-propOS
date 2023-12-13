@@ -2,7 +2,7 @@
 
 ### Introduction to PropOS (Mobile Simulation OS)
 
-Simulation of a mobile phone operating system, for use in film shoots. The core of the App is the contact list, where you can manage contacts and simulate calls and messages. In the settings you can choose a light, dark or customisable profile. There is also a photo gallery as well as a digital assistant through artificial intelligence (Open AI).
+Simulation of a mobile phone operating system, for use in film shoots. The core of the App is the contact list, where you can manage contacts and simulate calls and messages. In the settings you can choose a light, dark or customisable profile. There is also a photo gallery as well as a digital assistant through artificial intelligence (Open AI). AI chat is currently deactivated
 
 For now the login page is a fake and only by pressing the button you can go inside. The next projects will be to create a real authentication and to make possible the external manipulation of the simulation via Bluetooth to simulate incoming calls and messages.
 
